@@ -1,6 +1,5 @@
 extends Area2D
 
-
 enum ElementState { PARTICLE, WATER, FIRE, AIR, EARTH }
 var type = ElementState.EARTH
 
@@ -10,4 +9,4 @@ func _on_PickUp_body_entered(body):
 		body.get_node("Camera2D").shake()
 		$Particles2D.restart()
 		
-		body.apply_element(type)
+		body.set_state(type)
