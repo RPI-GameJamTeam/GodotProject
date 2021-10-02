@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://TEMP/EnemyAnim.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
@@ -6,12 +6,16 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.1405, 10 )
+
 [node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 animation = "idle"
+frame = 8
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite"]
 position = Vector2( 48.5539, 1.11362 )
@@ -21,3 +25,28 @@ energy = 5.66
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="CheckPlayer" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="collision" type="CollisionShape2D" parent="CheckPlayer"]
+position = Vector2( 33.8541, 1.27918 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 10.6714, -5.98906 )
+rotation = -1.57079
+enabled = true
+cast_to = Vector2( 0, 40 )
+collision_mask = 4
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( 10.004, 6.85877 )
+rotation = -1.57079
+enabled = true
+cast_to = Vector2( 0, 40 )
+collision_mask = 4
+
+[connection signal="body_entered" from="CheckPlayer" to="." method="_on_CheckPlayer_body_entered"]
+[connection signal="body_exited" from="CheckPlayer" to="." method="_on_CheckPlayer_body_exited"]
