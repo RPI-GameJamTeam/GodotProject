@@ -41,7 +41,10 @@ func _physics_process(delta):
 	if abs(walk) < WALK_FORCE * 0.2 or walk > 0 and input.x < 0 or walk < 0 and input.x > 0:
 		velocity.x = move_toward(velocity.x, 0, STOP_FORCE * delta)
 	else:
-		velocity.x += walk * delta
+		if state == ElementState.FIRE:
+			velocity.x += walk * delta * 2
+		else:
+			velocity.x += walk * delta * 2
 		$AnimatedSprite.play("walk")
 	
 	if walk < 0:
@@ -52,7 +55,10 @@ func _physics_process(delta):
 		$AnimatedSprite.play("idle")
 	
 	# clamp velocity
-	velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
+	if state == ElementState.FIRE:
+		velocity.x = clamp(velocity.x, -WALK_MAX_SPEED*2, WALK_MAX_SPEED*2)
+	else:
+		velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
 
 	if (velocity.y < 0):
 		velocity.y += gravity * 4 * delta
