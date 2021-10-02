@@ -45,7 +45,7 @@ func _physics_process(delta):
 			velocity.x += walk * delta * 2
 		else:
 			velocity.x += walk * delta * 2
-		$AnimatedSprite.play("walk")
+		$AnimatedSprite.play("run")
 	
 	if walk < 0:
 		$AnimatedSprite.scale.x = -1
