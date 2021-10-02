@@ -122,6 +122,3 @@ func dash():
 	$Camera2D.add_trauma(0.4)
 	$Camera2D.shake()
 	
-func apply_element(element):
-	state = element
-	emit_signal("ElementTransition", element)
