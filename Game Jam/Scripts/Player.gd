@@ -11,6 +11,8 @@ var input = Vector2()
 enum ElementState { PARTICLE, WATER, FIRE, AIR, GROUND }
 var state
 
+signal ElementTransition(value)
+
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
@@ -82,3 +84,4 @@ func dash():
 	
 func apply_element(element):
 	state = element
+	emit_signal("ElementTransition", element)
