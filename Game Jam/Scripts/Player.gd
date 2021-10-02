@@ -10,6 +10,9 @@ var input = Vector2()
 
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	$AnimatedSprite.play("idle")
+
 func get_input():
 	input = Vector2()
 	if Input.is_action_pressed("right"):
@@ -27,6 +30,14 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, STOP_FORCE * delta)
 	else:
 		velocity.x += walk * delta
+		$AnimatedSprite.play("walk")
+	
+	if walk < 0:
+		$AnimatedSprite.scale.x = -1
+	elif walk > 0:
+		$AnimatedSprite.scale.x = 1
+	elif walk == 0:
+		$AnimatedSprite.play("idle")
 	
 	# clamp velocity
 	velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
