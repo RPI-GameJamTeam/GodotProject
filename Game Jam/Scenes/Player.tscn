@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://TEMP/PlayerAnim.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/PlayerCamera.gd" type="Script" id=3]
+[ext_resource path="res://Asset/Art/floaty_64.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.20165
+height = 9.98948
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.161036 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 9.75
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 300.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -300.0
+angle_random = 1.0
+scale_curve = SubResource( 4 )
+color = Color( 0.780392, 0.105882, 0.898039, 1 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -80 )
+current = true
+zoom = Vector2( 0.6, 0.6 )
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.8
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 2 )
+emitting = false
+amount = 24
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.91
+randomness = 0.26
+process_material = SubResource( 5 )
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
+animation = "run"
+frame = 0
+
+[node name="UpCast" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, -10 )
+
+[node name="DownCast" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 10 )
+
+[node name="LeftCast" type="RayCast2D" parent="."]
+cast_to = Vector2( -7, 0 )
+
+[node name="RightCast" type="RayCast2D" parent="."]
+cast_to = Vector2( 7, 0 )
