@@ -11,6 +11,7 @@ func _ready():
 	get_parent().get_parent().get_node("Player").connect("ElementTransition",self, "onElementChanged")
 
 func onElementChanged(value):
+	
 	match value:
 		ElementState.PARTICLE:
 			pass
@@ -20,4 +21,5 @@ func onElementChanged(value):
 			pass
 		ElementState.GROUND:
 			pass
+
 
