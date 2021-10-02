@@ -18,11 +18,19 @@ func _ready():
 	$AnimatedSprite.play("idle")
 
 func get_input():
-	input = Vector2()
+	if state != ElementState.FIRE:
+		input = Vector2()
+	
 	if Input.is_action_pressed("right"):
 		input.x += 1
 	if Input.is_action_pressed("left"):
 		input.x -= 1
+	if Input.is_action_pressed("up"):
+		input.y -= 1
+	if Input.is_action_pressed("down"):
+		input.y += 1
+	
+	input = input.normalized()
 
 func _physics_process(delta):
 	get_input()
@@ -55,6 +63,16 @@ func _physics_process(delta):
 
 	if is_on_floor() and Input.is_action_just_pressed("jump") and state != ElementState.WATER:
 		velocity.y = -JUMP_SPEED
+	
+	if Input.is_action_just_pressed("dash") and state != ElementState.PARTICLE:
+		dash()
+		state = ElementState.PARTICLE
 
+func dash():
+	var dashRadius = 100
+	position = position + input * dashRadius
+	$Particles2D.restart()
+	
+	
 func apply_element(element):
 	state = element
