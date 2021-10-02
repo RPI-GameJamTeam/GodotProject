@@ -6,8 +6,8 @@
 [ext_resource path="res://Asset/Art/floaty_64.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 7.75
-height = 1.5
+radius = 4.20165
+height = 9.98948
 
 [sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
@@ -39,6 +39,7 @@ color = Color( 0.780392, 0.105882, 0.898039, 1 )
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
+scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -47,7 +48,7 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -80 )
 current = true
-zoom = Vector2( 0.4, 0.4 )
+zoom = Vector2( 0.6, 0.6 )
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
@@ -73,4 +74,4 @@ process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
-frame = 4
+frame = 1

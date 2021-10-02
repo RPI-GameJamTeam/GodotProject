@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-const WALK_FORCE = 200
-const WALK_MAX_SPEED = 100
-const STOP_FORCE = 1300
-const JUMP_SPEED = 300
+const WALK_FORCE = 400
+const WALK_MAX_SPEED = 200
+const STOP_FORCE = 2600
+const JUMP_SPEED = 400
 
 var velocity = Vector2()
 var input = Vector2()
@@ -61,9 +61,9 @@ func _physics_process(delta):
 		velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
 
 	if (velocity.y < 0):
-		velocity.y += gravity * 4 * delta
+		velocity.y += gravity * 4 * delta * 2
 	else:
-		velocity.y += gravity * 4 * delta
+		velocity.y += gravity * 4 * delta * 2
 
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
 

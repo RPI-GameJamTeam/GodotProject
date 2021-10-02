@@ -14,26 +14,9 @@ var velocity = Vector2()
 func _ready():
 	state = State.IDLE
 
-var input = Vector2()
-func get_input():
-	input = Vector2()
-	if Input.is_action_pressed("right"):
-		input.x += 1
-	if Input.is_action_pressed("left"):
-		input.x -= 1
-	if Input.is_action_pressed("up"):
-		input.y -= 1
-	if Input.is_action_pressed("down"):
-		input.y += 1
-	
-	input = input.normalized()
-
 func _physics_process(delta):
-	get_input()
-	
 	var targetPoint = Vector2()
-	#var moveDir = (targetPoint - position).normalized()
-	var moveDir = input
+	var moveDir = (targetPoint - position).normalized()
 	var movement = moveDir * FLY_FORCE
 	
 	# slow the player down while not moving
