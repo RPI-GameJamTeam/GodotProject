@@ -8,9 +8,13 @@ const JUMP_SPEED = 300
 var velocity = Vector2()
 var input = Vector2()
 
+enum ElementState { PARTICLE, WATER, FIRE, AIR, GROUND }
+var state
+
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	state = ElementState.PARTICLE
 	$AnimatedSprite.play("idle")
 
 func get_input():
@@ -49,5 +53,8 @@ func _physics_process(delta):
 
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
 
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("jump") and state != ElementState.WATER:
 		velocity.y = -JUMP_SPEED
+
+func apply_element(element):
+	state = element
