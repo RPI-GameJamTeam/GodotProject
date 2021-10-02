@@ -74,4 +74,4 @@ process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
-frame = 1
+frame = 2

@@ -40,13 +40,13 @@ func _physics_process(delta):
 	var walk = input.x * WALK_FORCE
 	
 	# slow the player down while not moving
-	if abs(walk) < WALK_FORCE * 0.2 or walk > 0 and input.x < 0 or walk < 0 and input.x > 0:
-		velocity.x = move_toward(velocity.x, 0, STOP_FORCE * delta)
+	if abs(walk) < WALK_FORCE * 0.2 or (velocity.x > 0 and input.x < 0) or (velocity.x < 0 and input.x > 0):
+		velocity.x = move_toward(velocity.x, 0, STOP_FORCE * delta * 4)
 	else:
 		if state == ElementState.FIRE:
-			velocity.x += walk * delta * 2
+			velocity.x += walk * delta * 1.5
 		else:
-			velocity.x += walk * delta * 2
+			velocity.x += walk * delta 
 		$AnimatedSprite.play("run")
 	
 	if walk < 0:
@@ -58,7 +58,7 @@ func _physics_process(delta):
 	
 	# clamp velocity
 	if state == ElementState.FIRE:
-		velocity.x = clamp(velocity.x, -WALK_MAX_SPEED*2, WALK_MAX_SPEED*2)
+		velocity.x = clamp(velocity.x, -WALK_MAX_SPEED*1.5, WALK_MAX_SPEED*1.5)
 	else:
 		velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
 
@@ -72,15 +72,19 @@ func _physics_process(delta):
 	if is_on_floor() and Input.is_action_just_pressed("jump") and state != ElementState.WATER:
 		velocity.y = -JUMP_SPEED
 	
-	if Input.is_action_just_pressed("dash") and state != ElementState.PARTICLE:
-		dash()
-		state = ElementState.PARTICLE
+	if Input.is_action_just_pressed("dash"):
+		if state != ElementState.PARTICLE:
+			dash()
+			state = ElementState.PARTICLE
+		else:
+			pass # leave chem trail
 
 func dash():
 	var dashRadius = 100
 	position = position + input * dashRadius
 	$Particles2D.restart()
-	
+	$Camera2D.add_trauma(0.4)
+	$Camera2D.shake()
 	
 func apply_element(element):
 	state = element
