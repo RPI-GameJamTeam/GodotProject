@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 animation = "idle"
-frame = 0
+frame = 2
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite"]
 position = Vector2( 48.5539, 1.11362 )
