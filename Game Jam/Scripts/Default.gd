@@ -10,6 +10,9 @@ func _ready():
 	player = get_parent().get_parent()
 
 func _physics_process(delta):	
+	if !is_active:
+		return null
+		
 	var walk = player.input.x * player.WALK_FORCE
 	
 	# slow the player down while not moving

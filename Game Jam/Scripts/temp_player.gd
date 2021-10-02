@@ -43,6 +43,7 @@ func dash():
 
 func set_state(s):
 	state = s
+	print(state)
 	
 	emit_signal("ElementTransition", s)
 	
@@ -65,7 +66,8 @@ func set_state(s):
 			get_node("StateMachine/Earth").is_active = true
 
 func get_input():
-	input = Vector2()
+	if state != ElementState.FIRE:
+		input = Vector2()
 	
 	if Input.is_action_pressed("right"):
 		input.x += 1
