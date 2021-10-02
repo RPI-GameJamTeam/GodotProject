@@ -1,0 +1,34 @@
+unstable 
+
+
+game type : 
+
+
+elements:
+
+Radiation reactor
+
+Tool is unstable
+
+You are a unstable particle, the phase is not certain. Stay exits. eat gold coin (something similar)
+two bar, health and phase. Health will attenuation with time
+
+trick the scientist, while stay alive.
+
+you need the scientist to believe what you want him to believe
+
+rules the scientist believe:
+
+1. you will be in ceartain phase when someone observe you
+
+2. when someone is not observe you need to be unstable
+
+unstable -> appear at anywhere, be in any form, 
+
+
+
+you are a special element out side of the 4 stable element of world
+
+Fie, Water, Earth, and Air
+
+You are a text subject, so the map was build by human. 
