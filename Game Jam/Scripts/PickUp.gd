@@ -2,7 +2,7 @@ extends Area2D
 
 
 enum ElementState { PARTICLE, WATER, FIRE, AIR, GROUND }
-var type = ElementState.EARTH
+var type = ElementState.GROUND
 
 func _on_PickUp_body_entered(body):
 	if body.is_in_group("Player"):
