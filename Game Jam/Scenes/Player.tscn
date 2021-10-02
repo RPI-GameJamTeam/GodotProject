@@ -75,4 +75,16 @@ texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 animation = "run"
-frame = 2
+frame = 0
+
+[node name="UpCast" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, -10 )
+
+[node name="DownCast" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 10 )
+
+[node name="LeftCast" type="RayCast2D" parent="."]
+cast_to = Vector2( -7, 0 )
+
+[node name="RightCast" type="RayCast2D" parent="."]
+cast_to = Vector2( 7, 0 )

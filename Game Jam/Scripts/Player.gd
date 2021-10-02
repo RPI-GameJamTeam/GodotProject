@@ -1,15 +1,16 @@
 extends KinematicBody2D
 
-const WALK_FORCE = 400
+const WALK_FORCE = 450
 const WALK_MAX_SPEED = 200
 const STOP_FORCE = 2600
 const JUMP_SPEED = 400
 
 var velocity = Vector2()
 var input = Vector2()
+var gravityDir = Vector2()
 var spawnPos = Vector2()
 
-enum ElementState { PARTICLE, WATER, FIRE, AIR, GROUND }
+enum ElementState { PARTICLE, WATER, FIRE, AIR, EARTH }
 var state
 
 signal ElementTransition(value)
@@ -43,6 +44,14 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	
+	if state == ElementState.EARTH:
+		if input.x > 0 and $RightCast.is_colliding():
+			# jump to right wall
+			rotation += deg2rad(-90)
+		elif input.x < 0 and $LeftCast.is_colliding():
+			# jump to left wall
+			rotation += deg2rad(90)
+	
 	var walk = input.x * WALK_FORCE
 	
 	if state != ElementState.AIR:
@@ -57,7 +66,6 @@ func _physics_process(delta):
 			$AnimatedSprite.play("run")
 	else:
 		velocity += input * WALK_FORCE * delta * 0.25
-		
 	
 	if walk < 0:
 		$AnimatedSprite.scale.x = -1
@@ -76,19 +84,24 @@ func _physics_process(delta):
 		else:			
 			velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
 
+	# apply gravity
+	var gravityVector = Vector2()
 	if state != ElementState.AIR:
-		if (velocity.y < 0):
-			velocity.y += gravity * 4 * delta * 2
-		else:
-			velocity.y += gravity * 4 * delta * 2
+		if state == ElementState.EARTH and !$DownCast.is_colliding() or state != ElementState.EARTH:
+			gravityVector += gravity * 4 * delta * 2 * Vector2(0, 1).rotated(rotation)
 
 	if state == ElementState.AIR:
 		velocity = move_and_slide(velocity, Vector2.UP)
+	elif state == ElementState.EARTH:
+		var down = Vector2(0, 1).rotated(rotation)
+		var dir = velocity.rotated(rotation)
+		var temp = move_and_slide_with_snap(dir + gravityVector, down, -down)
+		velocity = temp.rotated(-rotation)
 	else:
-		velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
+		velocity = move_and_slide_with_snap(velocity + gravityVector, Vector2.DOWN, Vector2.UP)
 
-	if is_on_floor() and Input.is_action_just_pressed("jump") and state != ElementState.WATER and state != ElementState.AIR:
-		velocity.y = -JUMP_SPEED
+	if $DownCast.is_colliding() and Input.is_action_just_pressed("jump") and state != ElementState.WATER and state != ElementState.AIR:
+		velocity += -JUMP_SPEED * Vector2(0, 1)
 	
 	if state == ElementState.AIR:
 		for i in get_slide_count():

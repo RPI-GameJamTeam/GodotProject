@@ -15,7 +15,7 @@ func _ready():
 	state = State.IDLE
 
 func _physics_process(delta):
-	var targetPoint = Vector2()
+	var targetPoint = Vector2(1000, -1000)
 	var moveDir = (targetPoint - position).normalized()
 	var movement = moveDir * FLY_FORCE
 	
