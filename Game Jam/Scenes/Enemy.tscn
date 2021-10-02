@@ -12,13 +12,13 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 animation = "idle"
-frame = 6
+frame = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
-[node name="Light2D" type="Light2D" parent="."]
+[node name="Light2D" type="Light2D" parent="AnimatedSprite"]
 position = Vector2( 48.5539, 1.11362 )
 texture = ExtResource( 3 )
 color = Color( 0.772549, 0.0705882, 0.0705882, 1 )
 energy = 5.66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
