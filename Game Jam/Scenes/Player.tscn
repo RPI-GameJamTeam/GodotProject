@@ -85,6 +85,7 @@ process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
+frame = 5
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -105,17 +106,18 @@ script = ExtResource( 10 )
 script = ExtResource( 9 )
 
 [node name="Sensors" type="Node2D" parent="."]
+position = Vector2( 0, -0.0078125 )
 
 [node name="Top" type="Area2D" parent="Sensors"]
 position = Vector2( 0, -9.1482 )
-collision_layer = 2
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Top"]
 shape = SubResource( 6 )
 
 [node name="Buttom" type="Area2D" parent="Sensors"]
 position = Vector2( 0, 9.07533 )
-collision_layer = 2
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Buttom"]
 shape = SubResource( 6 )
@@ -123,7 +125,7 @@ shape = SubResource( 6 )
 [node name="Right" type="Area2D" parent="Sensors"]
 position = Vector2( 4.33103, 0 )
 rotation = 1.57079
-collision_layer = 2
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Right"]
 shape = SubResource( 6 )
@@ -131,7 +133,7 @@ shape = SubResource( 6 )
 [node name="Left" type="Area2D" parent="Sensors"]
 position = Vector2( -4.24264, 0 )
 rotation = 1.57079
-collision_layer = 2
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Left"]
 shape = SubResource( 6 )
@@ -143,3 +145,4 @@ shape = SubResource( 6 )
 [connection signal="body_entered" from="Sensors/Right" to="StateMachine" method="_on_Right_body_entered"]
 [connection signal="body_exited" from="Sensors/Right" to="StateMachine" method="_on_Right_body_exited"]
 [connection signal="body_entered" from="Sensors/Left" to="StateMachine" method="_on_Left_body_entered"]
+[connection signal="body_exited" from="Sensors/Left" to="StateMachine" method="_on_Left_body_exited"]

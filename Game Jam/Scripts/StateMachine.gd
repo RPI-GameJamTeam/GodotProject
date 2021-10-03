@@ -25,3 +25,6 @@ func _on_Buttom_body_exited(body):
 	
 func _on_Right_body_exited(body):
 	right_contact = false
+
+func _on_Left_body_exited(body):
+	left_contact = false
