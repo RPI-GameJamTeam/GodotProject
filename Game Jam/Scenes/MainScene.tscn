@@ -39,19 +39,17 @@ tracks/0/keys = {
 
 [node name="MainScene" type="Node"]
 script = ExtResource( 6 )
+Level_index = 7
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_priority = 4
 layer = 5
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-margin_left = -354.0
-margin_top = -295.0
-margin_right = 1242.0
-margin_bottom = 846.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
