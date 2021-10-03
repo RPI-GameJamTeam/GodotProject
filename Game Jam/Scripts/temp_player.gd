@@ -45,16 +45,18 @@ func dash():
 		if i * 5 == dashRadius:
 			break;
 		i = i + 1
+	
+	position = point
 
 	$Particles2D.restart()
 	
 	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
-	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
 	
+	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
+
 	$Camera2D.add_trauma(0.4)
 	$Camera2D.shake()
-	
-	
+
 	for c in get_tree().get_nodes_in_group("Grate"):
 		c.get_node("CollisionShape2D").set_deferred("disabled", false)
 

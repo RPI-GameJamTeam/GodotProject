@@ -13,7 +13,6 @@ func _physics_process(delta):
 	if !is_active:
 		return null
 	
-	
 	if player.input.x > 0 and get_parent().right_contact: # jump to right wall
 		player.rotation += deg2rad(-90)
 	if player.input.x < 0 and get_parent().left_contact: # jump to left wall
