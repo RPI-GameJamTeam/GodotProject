@@ -21,11 +21,9 @@ func _ready():
 	reset()
 
 func reset():
-	$CanvasLayer/ColorRect/CanvasModulate.color = Color(0, 0, 0, 1)
 	set_state(ElementState.PARTICLE)
 	$AnimatedSprite.play("idle")
 	position = spawnPos
-	$CanvasLayer/AnimationPlayer.play("fade_from_black")
 	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
 	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
 	dead = false
@@ -127,11 +125,8 @@ func die():
 	
 	$Particles2D.restart()
 	$AnimatedSprite.play("death")
-	$CanvasLayer/AnimationPlayer.play("fade_to_black")
-
-func resetGame():
 	get_tree().get_root().get_child(0).reset_level()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "fade_to_black":
-		resetGame()
+	if anim_name == "death":
+		pass

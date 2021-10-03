@@ -53,6 +53,8 @@ func _on_PickUp_body_entered(body):
 			$AnimatedSprite.visible = false
 			$CollisionShape2D.set_deferred("disabled", true)
 			
+			get_tree().get_root().get_child(0).kill_cookie()
+			
 			var t = Timer.new()
 			t.set_wait_time(1.2)
 			t.set_one_shot(true)
@@ -61,7 +63,6 @@ func _on_PickUp_body_entered(body):
 			yield(t, "timeout")
 			t.queue_free()
 			
-			get_tree().get_root().get_child(0).kill_cookie()
 			queue_free()
 		else:
 			body.set_state(type+1)
