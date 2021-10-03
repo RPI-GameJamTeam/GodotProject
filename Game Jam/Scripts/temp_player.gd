@@ -5,7 +5,7 @@ var state
 
 signal ElementTransition(value)
 
-const WALK_FORCE = 450
+const WALK_FORCE = 450	
 const WALK_MAX_SPEED = 200
 const STOP_FORCE = 2600
 const JUMP_SPEED = 400
@@ -57,6 +57,10 @@ func dash():
 	
 	$Camera2D.add_trauma(0.4)
 	$Camera2D.shake()
+	
+	
+	for c in get_tree().get_nodes_in_group("Grate"):
+		c.get_node("CollisionShape2D").set_deferred("disabled", false)
 
 func set_state(s):
 	state = s
@@ -74,6 +78,9 @@ func set_state(s):
 			get_node("StateMachine/Particle").is_active = true
 		ElementState.WATER:
 			get_node("StateMachine/Water").is_active = true
+			
+			for c in get_tree().get_nodes_in_group("Grate"):
+				c.get_node("CollisionShape2D").set_deferred("disabled", true)
 		ElementState.FIRE:
 			get_node("StateMachine/Fire").is_active = true
 		ElementState.AIR:
