@@ -13,10 +13,13 @@ func _physics_process(delta):
 	if !is_active:
 		return null
 	
+	var attemptedRotation = false
 	if player.input.x > 0 and get_parent().right_contact: # jump to right wall
 		player.rotation += deg2rad(-90)
+		attemptedRotation = true
 	if player.input.x < 0 and get_parent().left_contact: # jump to left wall
 		player.rotation += deg2rad(90)
+		attemptedRotation = true
 
 	var movement = Vector2((player.input * player.WALK_FORCE).x, 0)
 	
@@ -38,6 +41,7 @@ func _physics_process(delta):
 		player.get_node("AnimatedSprite").play("idle")
 	
 	if !get_parent().on_floor:
+		
 		if velocity.y < 0:
 			player.get_node("AnimatedSprite").play("jump")
 		else:
@@ -47,7 +51,7 @@ func _physics_process(delta):
 	velocity.x = clamp(velocity.x, -player.WALK_MAX_SPEED, player.WALK_MAX_SPEED)
 
 	# apply gravity
-	if (!get_parent().on_floor):
+	if (!get_parent().on_floor) and !attemptedRotation:
 		player.rotation = 0
 		velocity.y += player.gravity * 4 * delta * 2
 
