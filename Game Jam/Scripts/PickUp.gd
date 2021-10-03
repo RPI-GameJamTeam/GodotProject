@@ -30,10 +30,12 @@ func _on_PickUp_body_entered(body):
 		var color = getColor()
 		# set particle color
 		$Particles2D.process_material.color = color
-		# set vignette color
-		get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", color)
-		# set player shader color
-		get_tree().get_nodes_in_group("Player")[0].get_node("AnimatedSprite").material.set_shader_param("glow_color", color)
+		
+		if type != PickUpType.COOKIE:
+			# set vignette color
+			get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", color)
+			# set player shader color
+			get_tree().get_nodes_in_group("Player")[0].get_node("AnimatedSprite").material.set_shader_param("glow_color", color)
 		
 		$Particles2D.restart()
 		
@@ -60,6 +62,6 @@ func getColor():
 	elif type == PickUpType.AIR:
 		return Color(137/255.0, 201/255.0, 207/255.0)
 	elif type == PickUpType.EARTH:
-		return Color(36/255.0, 23/255.0, 5/255.0)
+		return Color(205/255.0, 134/255.0, 14/255.0)
 	elif type == PickUpType.COOKIE:
 		return Color(100/255.0, 90/255.0, 34/255.0)
