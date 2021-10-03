@@ -4,6 +4,11 @@ export var type : int
 
 enum PickUpType { WATER, FIRE, AIR, EARTH, COOKIE }
 
+var pos
+
+func _ready():
+	pos = position
+	
 func _process(delta):
 	if type == PickUpType.COOKIE:
 		var player = get_tree().get_nodes_in_group("Player")[0]
@@ -11,6 +16,7 @@ func _process(delta):
 			$AnimatedSprite.play("cookie_cry")
 		else:			
 			$AnimatedSprite.play("cookie_idle")
+		position.y = pos.y + sin(OS.get_ticks_msec() / 100)
 	else:
 		$AnimatedSprite.play(str(type) + "idle")
 
