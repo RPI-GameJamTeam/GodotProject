@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character-sheet.png-b5a2c528090c3562b219a2416f595bd7.stex"
+path="res://.import/Barrel disappear.png-6151105637c0d6bc4dadbcc9d94b9e2f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Character-sheet.png"
-dest_files=[ "res://.import/Character-sheet.png-b5a2c528090c3562b219a2416f595bd7.stex" ]
+source_file="res://Asset/Art/Destruction/Destruction/Barrel disappear.png"
+dest_files=[ "res://.import/Barrel disappear.png-6151105637c0d6bc4dadbcc9d94b9e2f.stex" ]
 
 [params]
 

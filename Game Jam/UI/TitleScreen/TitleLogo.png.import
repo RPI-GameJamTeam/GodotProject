@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character-sheet.png-b5a2c528090c3562b219a2416f595bd7.stex"
+path="res://.import/TitleLogo.png-83b833a6abb6f298b07957c8791f5766.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Character-sheet.png"
-dest_files=[ "res://.import/Character-sheet.png-b5a2c528090c3562b219a2416f595bd7.stex" ]
+source_file="res://UI/TitleScreen/TitleLogo.png"
+dest_files=[ "res://.import/TitleLogo.png-83b833a6abb6f298b07957c8791f5766.stex" ]
 
 [params]
 
