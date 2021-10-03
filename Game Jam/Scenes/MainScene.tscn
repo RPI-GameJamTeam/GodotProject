@@ -9,7 +9,7 @@ glow_bicubic_upscale = true
 
 [node name="MainScene" type="Node"]
 script = ExtResource( 6 )
-Level_index = 2
+Level_index = 4
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
