@@ -44,10 +44,14 @@ __meta__ = {
 
 [node name="logo" type="TextureRect" parent="."]
 material = ExtResource( 9 )
-margin_left = -416.606
-margin_top = 29.2761
-margin_right = 344.394
-margin_bottom = 157.276
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -410.95
+margin_top = -241.216
+margin_right = -90.95
+margin_bottom = -113.216
 rect_scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 1 )
 stretch_mode = 4
@@ -57,13 +61,17 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="."]
 material = ExtResource( 2 )
-margin_left = 360.0
-margin_top = 430.0
-margin_right = 760.0
-margin_bottom = 530.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -180.0
+margin_right = 200.0
+margin_bottom = -200.0
 rect_min_size = Vector2( 400, 100 )
 custom_fonts/font = SubResource( 1 )
-text = "press to start"
+text = "start game"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -75,6 +83,8 @@ environment = SubResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 0.52179
+margin_bottom = 0.52179
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
