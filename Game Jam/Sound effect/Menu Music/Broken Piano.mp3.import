@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Broken Piano.mp3-d91dbe719488c8fc56a173abf1232440.mp3str"
+
+[deps]
+
+source_file="res://Sound effect/Menu Music/Broken Piano.mp3"
+dest_files=[ "res://.import/Broken Piano.mp3-d91dbe719488c8fc56a173abf1232440.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

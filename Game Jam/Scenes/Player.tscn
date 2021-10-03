@@ -48,6 +48,7 @@ extents = Vector2( 1.48232, 0.186155 )
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
+position = Vector2( 0, -0.078743 )
 scale = Vector2( 2, 2 )
 collision_layer = 4
 collision_mask = 3
@@ -85,8 +86,7 @@ process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
-animation = "death"
-frame = 0
+frame = 4
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )
