@@ -112,7 +112,7 @@ texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 material = SubResource( 7 )
-frame = 2
+frame = 4
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -168,6 +168,11 @@ collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Left"]
 shape = SubResource( 8 )
+
+[node name="DownCast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 31
 
 [connection signal="body_entered" from="Sensors/Top" to="StateMachine" method="_on_Top_body_entered"]
 [connection signal="body_exited" from="Sensors/Top" to="StateMachine" method="_on_Top_body_exited"]

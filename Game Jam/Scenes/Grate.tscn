@@ -9,7 +9,7 @@ extents = Vector2( 32.6379, 14.8351 )
 "Grate",
 ]]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 12
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2.1, 2.1 )
