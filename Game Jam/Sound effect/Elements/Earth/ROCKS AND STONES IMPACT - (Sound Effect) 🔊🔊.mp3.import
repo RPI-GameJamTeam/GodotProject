@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ROCKS AND STONES IMPACT - (Sound Effect) í ½í´Ší ½í´Š.mp3-b3cfaf520ff35bd775513629f0f73968.mp3str"
+
+[deps]
+
+source_file="res://Sound effect/Elements/Earth/ROCKS AND STONES IMPACT - (Sound Effect) í ½í´Ší ½í´Š.mp3"
+dest_files=[ "res://.import/ROCKS AND STONES IMPACT - (Sound Effect) í ½í´Ší ½í´Š.mp3-b3cfaf520ff35bd775513629f0f73968.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

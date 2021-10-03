@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Burning Fire Sound Effect Free Download [ No Copyright ].mp3-0c2f3afb611149dab66fbe4921cb1587.mp3str"
+
+[deps]
+
+source_file="res://Sound effect/Elements/Fire/Burning Fire Sound Effect Free Download [ No Copyright ].mp3"
+dest_files=[ "res://.import/Burning Fire Sound Effect Free Download [ No Copyright ].mp3-0c2f3afb611149dab66fbe4921cb1587.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

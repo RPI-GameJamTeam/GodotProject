@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Wind Effect 20s.mp3-1727ae006bca26345e3c932f04532e21.mp3str"
+
+[deps]
+
+source_file="res://Sound effect/Elements/Wind/Wind Effect 20s.mp3"
+dest_files=[ "res://.import/Wind Effect 20s.mp3-1727ae006bca26345e3c932f04532e21.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

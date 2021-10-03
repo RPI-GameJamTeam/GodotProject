@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Water submerge 51s.mp3-dc47228dba3df54891db4baf0b5409d1.mp3str"
+
+[deps]
+
+source_file="res://Sound effect/Elements/Water/transform/Water submerge 51s.mp3"
+dest_files=[ "res://.import/Water submerge 51s.mp3-dc47228dba3df54891db4baf0b5409d1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

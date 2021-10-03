@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dark Ambient BG Sounds.mp3-4b4dee410b92abb90b84014b6e4f5458.mp3str"
+
+[deps]
+
+source_file="res://Sound effect/Ambient Background/Dark Ambient BG Sounds.mp3"
+dest_files=[ "res://.import/Dark Ambient BG Sounds.mp3-4b4dee410b92abb90b84014b6e4f5458.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
