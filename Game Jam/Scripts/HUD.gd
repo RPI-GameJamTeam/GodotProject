@@ -21,7 +21,7 @@ func _ready():
 	
 	self.show()
 	get_parent().get_parent().get_node("Shader/ColorRect").show()
-	get_parent().get_parent().get_node("Player").connect("ElementTransition",self, "onElementChanged")
+	get_parent().get_parent().get_node("level/Player").connect("ElementTransition",self, "onElementChanged")
 	
 	healthDecay()
 

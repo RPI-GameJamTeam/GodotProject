@@ -72,16 +72,6 @@ animations = [ {
 "name": "cookie_cry",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "1idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "0idle",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 13 ) ],
 "loop": true,
 "name": "cookie_idle",
@@ -90,6 +80,16 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "2idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "0idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "1idle",
 "speed": 5.0
 } ]
 
@@ -120,7 +120,7 @@ orbit_velocity_random = 0.0
 linear_accel = -300.0
 angle_random = 1.0
 scale_curve = SubResource( 18 )
-color = Color( 0.937255, 0.270588, 0.160784, 1 )
+color = Color( 0.392157, 0.352941, 0.133333, 1 )
 
 [node name="PickUp" type="Area2D" groups=[
 "PickUp",

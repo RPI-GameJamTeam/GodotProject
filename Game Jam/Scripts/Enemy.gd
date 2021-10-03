@@ -5,7 +5,9 @@ var state
 
 var ray_cast_rotating = 18
 
-var player_in_area : bool = false
+export var move_able : bool = false
+
+var player_in_area : bool = false 
 var patrolPoints
 
 const FLY_FORCE = 200
@@ -44,8 +46,9 @@ func _physics_process(delta):
 	# clamp velocity
 	velocity.x = clamp(velocity.x, -FLY_MAX_SPEED, FLY_MAX_SPEED)
 	velocity.y = clamp(velocity.y, -FLY_MAX_SPEED, FLY_MAX_SPEED)
-
-	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	if move_able:
+		velocity = move_and_slide(velocity, Vector2.UP)
 
 
 func _on_CheckPlayer_body_entered(body):
