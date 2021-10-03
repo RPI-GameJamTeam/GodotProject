@@ -64,7 +64,7 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D"]
 position = Vector2( 218.435, -634.459 )
-rotation = 0.0431358
+rotation = 0.0431201
 script = ExtResource( 1 )
 
 [node name="Enemy" parent="Enemys/Path2D/PathFollow2D" instance=ExtResource( 8 )]
@@ -78,7 +78,7 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D2"]
 position = Vector2( 249.856, -445.011 )
-rotation = -1.52207
+rotation = -1.52206
 script = ExtResource( 1 )
 
 [node name="Enemy" parent="Enemys/Path2D2/PathFollow2D" instance=ExtResource( 8 )]
@@ -92,7 +92,7 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D3"]
 position = Vector2( 249.856, -445.011 )
-rotation = -1.52207
+rotation = -1.52206
 script = ExtResource( 1 )
 
 [node name="Enemy" parent="Enemys/Path2D3/PathFollow2D" instance=ExtResource( 8 )]
@@ -105,7 +105,7 @@ scale = Vector2( 1.00008, 1 )
 curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D4"]
-position = Vector2( 271.473, -515.985 )
+position = Vector2( 271.475, -515.999 )
 rotation = 1.69226
 offset = 90.3469
 script = ExtResource( 1 )
