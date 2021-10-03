@@ -4,6 +4,8 @@ extends Control
 export var health_reduction : int = 5
 export var maxHealth : int = 100
 var health
+var player
+
 
 const AVATAR_LOCATION = {'air':"res://Asset/Avatar/air_ele.png", "ground":"res://Asset/Avatar/earth_ele.png",
 						'fire':"res://Asset/Avatar/fire_ele.png", "water":"res://Asset/Avatar/water_ele.png"}
@@ -14,6 +16,7 @@ enum ElementState { PARTICLE, WATER, FIRE, AIR, GROUND }
 signal health_run_out()
 
 func _ready():
+	player = get_tree().get_nodes_in_group("Player")[0]
 	health = maxHealth - 20
 	$HealthBar.set_value((0.0 +health) / maxHealth * 100)
 	
@@ -21,7 +24,7 @@ func _ready():
 	
 	self.show()
 	get_parent().get_parent().get_node("Shader/ColorRect").show()
-	get_parent().get_parent().get_node("level/Player").connect("ElementTransition",self, "onElementChanged")
+	player.connect("ElementTransition",self, "onElementChanged")
 	
 	healthDecay()
 
@@ -54,4 +57,4 @@ func decreaseHP(amount):
 	$HealthBar.set_value(health / maxHealth * 100)
 	
 	if health == 0:
-		get_parent().get_parent().get_node("level/Player").die()
+		player.die()
