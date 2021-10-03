@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://TEMP/PlayerAnim.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/temp_player.gd" type="Script" id=2]
@@ -41,6 +41,31 @@ linear_accel = -300.0
 angle_random = 1.0
 scale_curve = SubResource( 4 )
 color = Color( 0.780392, 0.105882, 0.898039, 1 )
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+uniform vec4 glow_color : hint_color  = vec4(1.0);
+
+
+void fragment() 
+{
+	
+	vec4 current_color = texture(TEXTURE,UV);
+	
+	if(current_color.r > 0.0)
+	{
+		vec4 nig = vec4 (glow_color.rgb, 0.0);
+		COLOR = current_color + nig
+	}
+	else
+	{
+		COLOR = current_color
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/glow_color = Color( 0, 0, 0, 0.741176 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 1.48232, 0.186155 )
@@ -86,6 +111,7 @@ process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
+material = SubResource( 8 )
 frame = 2
 
 [node name="StateMachine" type="Node2D" parent="."]

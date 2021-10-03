@@ -103,9 +103,10 @@ func die():
 	set_state(0)
 	get_node("StateMachine/Particle").is_active = false
 	input = Vector2(0, 0)
+	$Particles2D.restart()
 	$AnimatedSprite.connect("finished", self, "resetGame")
 	$AnimatedSprite.play("death")
-	$Particles2D.restart()
 
 func resetGame():
+	print("hello")
 	get_tree().reload_current_scene()

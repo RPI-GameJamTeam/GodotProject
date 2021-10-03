@@ -25,10 +25,19 @@ func _on_PickUp_body_entered(body):
 	if body.is_in_group("Player"):
 		body.get_node("Camera2D").add_trauma(0.6)
 		body.get_node("Camera2D").shake()
+		
+		# pick color
+		var color = getColor()
+		# set particle color
+		$Particles2D.process_material.color = color
+		# set vignette color
+		# set player shader color
+		get_tree().get_nodes_in_group("Player")[0].get_node("AnimatedSprite").material.set_shader_param("glow_color", color)
+		
 		$Particles2D.restart()
 		
 		if type == PickUpType.COOKIE:
-			$AnimatedSprite.visible = false			
+			$AnimatedSprite.visible = false
 			$CollisionShape2D.set_deferred("disabled", true)
 			
 			var t = Timer.new()
@@ -41,3 +50,15 @@ func _on_PickUp_body_entered(body):
 			queue_free()
 		else:
 			body.set_state(type+1)
+
+func getColor():
+	if type == PickUpType.WATER:
+		return Color(13/255.0, 218/255.0, 203/255.0, 5)
+	elif type == PickUpType.FIRE:
+		return Color(234/255.0, 86/255.0, 21/255.0)
+	elif type == PickUpType.AIR:
+		return Color(137/255.0, 201/255.0, 207/255.0)
+	elif type == PickUpType.EARTH:
+		return Color(36/255.0, 23/255.0, 5/255.0)
+	elif type == PickUpType.COOKIE:
+		return Color(100/255.0, 90/255.0, 34/255.0)
