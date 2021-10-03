@@ -23,4 +23,4 @@ void fragment()
 
 [resource]
 shader = SubResource( 1 )
-shader_param/glow_color = Color( 0.0392157, 0.498039, 0.388235, 0.741176 )
+shader_param/glow_color = Color( 1, 0.913725, 0, 0.741176 )

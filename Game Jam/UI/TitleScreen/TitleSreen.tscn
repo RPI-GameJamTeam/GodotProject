@@ -1,16 +1,40 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Asset/UI/logo.png" type="Texture" id=1]
 [ext_resource path="res://Shader/ZombieGlow.tres" type="Material" id=2]
 [ext_resource path="res://Asset/Font/Akronim-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scripts/TitleSreen.gd" type="Script" id=4]
-[ext_resource path="res://shader/ZombieGlow.tres" type="Material" id=9]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform vec4 glow_color : hint_color  = vec4(1.0);
+
+
+void fragment() 
+{
+	
+	vec4 current_color = texture(TEXTURE,UV);
+	
+	if(current_color.r > 0.0)
+	{
+		vec4 nig = vec4 (glow_color.rgb, 0.0);
+		COLOR = current_color + nig
+	}
+	else
+	{
+		COLOR = current_color
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/glow_color = Color( 0.0862745, 0.658824, 0.607843, 0.741176 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 50
 font_data = ExtResource( 3 )
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=4]
 background_mode = 4
 glow_enabled = true
 glow_intensity = 0.09
@@ -19,8 +43,7 @@ glow_blend_mode = 0
 glow_hdr_luminance_cap = 18.97
 glow_bicubic_upscale = true
 
-[sub_resource type="Animation" id=3]
-resource_name = "fade away"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -43,7 +66,7 @@ __meta__ = {
 }
 
 [node name="logo" type="TextureRect" parent="."]
-material = ExtResource( 9 )
+material = SubResource( 2 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -70,7 +93,7 @@ margin_top = -180.0
 margin_right = 200.0
 margin_bottom = -200.0
 rect_min_size = Vector2( 400, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "start game"
 flat = true
 __meta__ = {
@@ -78,7 +101,7 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+environment = SubResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -92,7 +115,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/fade away" = SubResource( 3 )
+"anims/fade away" = SubResource( 5 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
