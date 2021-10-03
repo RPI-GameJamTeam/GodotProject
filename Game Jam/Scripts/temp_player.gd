@@ -104,12 +104,13 @@ func die():
 	dead = true
 	set_state(0)
 	get_node("StateMachine/Particle").is_active = false
+	
 	input = Vector2(0, 0)
 	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
 	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
 	
 	$Particles2D.restart()
-	$AnimatedSprite.connect("finished", self, "resetGame")
+	$AnimatedSprite.connect("animation_finished", self, "resetGame")
 	$AnimatedSprite.play("death")
 		
 
