@@ -78,7 +78,7 @@ position = Vector2( 1214.8, -430.913 )
 
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 190.245, 120.146 )
-scale = Vector2( 83.2687, 2.87145 )
+scale = Vector2( 175.989, 2.87145 )
 
 [node name="Enemys" type="Node2D" parent="."]
 

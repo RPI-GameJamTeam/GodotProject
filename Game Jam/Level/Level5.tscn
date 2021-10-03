@@ -43,7 +43,7 @@ visible = false
 
 [node name="KillZone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 203.417, 139.849 )
-scale = Vector2( 82.1301, -4.77008 )
+scale = Vector2( 125.77, -4.77008 )
 
 [node name="Enemys" type="Node2D" parent="."]
 

@@ -6,10 +6,8 @@ enum SPRITE {FLY, RUN, IDLE}
 
 var player_in_area : bool = false 
 
-
 func _on_CheckPlayer_body_entered(body):
 	player_in_area = true
-
 
 func _on_CheckPlayer_body_exited(body):
 	player_in_area = false
