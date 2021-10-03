@@ -86,7 +86,7 @@ process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
-frame = 4
+frame = 2
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )
