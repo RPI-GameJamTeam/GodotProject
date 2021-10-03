@@ -1,8 +1,36 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Shader.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray( -458756, 1, 0, -458755, 1, 0, -458754, 1, 0, -458753, 1, 0, -524288, 1, 0, -524287, 1, 0, -524286, 1, 0, -524285, 1, 0, -524284, 1, 0, -524283, 1, 0, -524282, 1, 0, -524281, 1, 0, -524280, 1, 0, -524279, 1, 0, -524278, 1, 0, -524277, 1, 0, -524276, 1, 0, -393220, 1, 0, -458740, 1, 0, -327684, 1, 0, -393204, 1, 0, -262148, 1, 0, -327668, 1, 0, -196612, 1, 0, -262141, 1, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -262134, 1, 0, -262133, 1, 0, -262132, 1, 0, -131076, 1, 0, -196605, 1, 0, -65540, 1, 0, -131069, 1, 0, -4, 1, 0, -65533, 1, 0, 65532, 1, 0, 3, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0 )
+tile_data = PoolIntArray( -458755, 1, 0, -458754, 1, 0, -458753, 1, 0, -524288, 1, 0, -524287, 1, 0, -524286, 1, 0, -524285, 1, 0, -524284, 1, 0, -524283, 1, 0, -524282, 1, 0, -524281, 1, 0, -524280, 1, 0, -524279, 1, 0, -524278, 1, 0, -524277, 1, 0, -524276, 1, 0, -524275, 1, 0, -524274, 1, 0, -524273, 1, 0, -393219, 1, 0, -458737, 1, 0, -327683, 1, 0, -393201, 1, 0, -262147, 1, 0, -327665, 1, 0, -196611, 1, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -262134, 1, 0, -262133, 1, 0, -262132, 1, 0, -262131, 1, 0, -262130, 1, 0, -262129, 1, 0, -131075, 1, 0, -196604, 1, 0, -65539, 1, 0, -131068, 1, 0, -3, 1, 0, -65532, 1, 0, 65533, 1, 0, 4, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="PickUp" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 57.5763, -1.59259 )
+type = 3
+
+[node name="PickUp2" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 336.175, -158.416 )
+type = 4
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="HUD" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Shader" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" parent="Shader" groups=[
+"Vignette",
+] instance=ExtResource( 4 )]
+visible = false
