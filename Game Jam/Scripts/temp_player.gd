@@ -14,6 +14,7 @@ onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var input = Vector2()
 var spawnPos = Vector2()
+var dead = false
 
 func _ready():
 	spawnPos = position
@@ -55,7 +56,6 @@ func dash():
 
 func set_state(s):
 	state = s
-	print(state)
 	
 	emit_signal("ElementTransition", s)
 	
@@ -78,6 +78,9 @@ func set_state(s):
 			get_node("StateMachine/Earth").is_active = true
 
 func get_input():
+	if dead:
+		return null
+
 	if state != ElementState.FIRE:
 		input = Vector2()
 	
@@ -94,4 +97,15 @@ func get_input():
 		input = input.normalized()
 
 func die():
+	if dead:
+		return null
+	dead = true
+	set_state(0)
+	get_node("StateMachine/Particle").is_active = false
+	input = Vector2(0, 0)
+	$AnimatedSprite.connect("finished", self, "resetGame")
+	$AnimatedSprite.play("death")
+	$Particles2D.restart()
+
+func resetGame():
 	get_tree().reload_current_scene()

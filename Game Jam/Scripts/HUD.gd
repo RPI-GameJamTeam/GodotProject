@@ -34,7 +34,6 @@ func healthDecay():
 	yield(t, "timeout")
 	t.queue_free()
 	decreaseHP(health_reduction)
-	print(health)
 	healthDecay()
 
 func onElementChanged(value):
