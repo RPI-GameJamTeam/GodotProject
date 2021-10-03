@@ -28,6 +28,7 @@ func reset():
 	$CanvasLayer/AnimationPlayer.play("fade_from_black")
 	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
 	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
+	dead = false
 
 func _process(delta):
 	get_input()
@@ -129,7 +130,7 @@ func die():
 	$CanvasLayer/AnimationPlayer.play("fade_to_black")
 
 func resetGame():
-	get_tree().reload_current_scene()
+	get_tree().get_root().get_child(0).reset_level()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_to_black":
