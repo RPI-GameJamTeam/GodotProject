@@ -32,8 +32,8 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("dash"):
 		if state != ElementState.PARTICLE:
-			dash()
 			set_state(ElementState.PARTICLE)
+			dash()
 
 func dash():
 	var dashRadius = 100
@@ -45,8 +45,7 @@ func dash():
 		if i * 5 == dashRadius:
 			break;
 		i = i + 1
-	
-	position = point
+
 	$Particles2D.restart()
 	
 	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
@@ -100,6 +99,11 @@ func get_input():
 		input.y -= 1
 	if Input.is_action_pressed("down"):
 		input.y += 1
+		
+	input.x = min(input.x, 1)
+	input.x = max(input.x, -1)
+	input.y = min(input.y, 1)
+	input.y = max(input.y, -1)
 	
 	if state == ElementState.AIR:
 		input = input.normalized()
