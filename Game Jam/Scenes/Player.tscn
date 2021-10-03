@@ -143,6 +143,7 @@ texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 material = SubResource( 7 )
+frame = 2
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -209,7 +210,7 @@ __meta__ = {
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer/ColorRect"]
 position = Vector2( 0, -0.078743 )
 scale = Vector2( 2, 2 )
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 anims/fade_from_black = SubResource( 10 )

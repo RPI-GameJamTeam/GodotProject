@@ -21,6 +21,7 @@ func _ready():
 	reset()
 
 func reset():
+	$CanvasLayer/ColorRect/CanvasModulate.color = Color(0, 0, 0, 1)
 	set_state(ElementState.PARTICLE)
 	$AnimatedSprite.play("idle")
 	position = spawnPos
