@@ -12,6 +12,7 @@ signal health_run_out()
 
 func _ready():
 	self.show()
+	get_parent().get_parent().get_node("Shader/ColorRect").show()
 	get_parent().get_parent().get_node("Player").connect("ElementTransition",self, "onElementChanged")
 	
 func onElementChanged(value):
