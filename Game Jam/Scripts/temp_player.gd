@@ -24,6 +24,7 @@ func reset():
 	set_state(ElementState.PARTICLE)
 	$AnimatedSprite.play("idle")
 	position = spawnPos
+	$CanvasLayer/AnimationPlayer.play("fade_from_black")
 
 func _process(delta):
 	get_input()
@@ -110,10 +111,12 @@ func die():
 	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
 	
 	$Particles2D.restart()
-	$AnimatedSprite.connect("animation_finished", self, "resetGame")
 	$AnimatedSprite.play("death")
-		
+	$CanvasLayer/AnimationPlayer.play("fade_to_black")
 
 func resetGame():
-	print("hello")
 	get_tree().reload_current_scene()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "fade_to_black":
+		resetGame()
