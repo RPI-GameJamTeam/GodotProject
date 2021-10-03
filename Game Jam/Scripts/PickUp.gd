@@ -1,13 +1,23 @@
 extends Area2D
 
-export var type : int
-
+export(int, FLAGS, "WATER", "FIRE", "AIR", "EARTH", "COOKIE") var setType = 0
+var type : int
 enum PickUpType { WATER, FIRE, AIR, EARTH, COOKIE }
 
 var pos
 
 func _ready():
 	pos = position
+	if setType & 1:
+		type = PickUpType.WATER
+	elif setType & 2:
+		type = PickUpType.FIRE
+	if setType & 4:
+		type = PickUpType.AIR
+	elif setType & 8:
+		type = PickUpType.EARTH
+	elif setType & 16:
+		type = PickUpType.COOKIE
 	
 func _process(delta):
 	position.y = pos.y + sin(OS.get_ticks_msec() / 100)
