@@ -26,6 +26,19 @@ func _ready():
 		SPRITE.RUN:
 			$AnimatedSprite.animation = "run"
 			$AnimatedSprite.play()
+	playSFX()
+
+func playSFX():
+	randomize()
+	var t = Timer.new()
+	t.set_wait_time(rand_range(15, 30))
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+	$SFX.play()
+	playSFX()
 	
 func _process(delta):	
 	if player_in_area:
