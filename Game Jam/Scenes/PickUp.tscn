@@ -120,7 +120,7 @@ orbit_velocity_random = 0.0
 linear_accel = -300.0
 angle_random = 1.0
 scale_curve = SubResource( 18 )
-color = Color( 0.392157, 0.352941, 0.133333, 1 )
+color = Color( 0.937255, 0.270588, 0.160784, 1 )
 
 [node name="PickUp" type="Area2D" groups=[
 "PickUp",
