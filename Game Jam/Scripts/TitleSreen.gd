@@ -8,5 +8,5 @@ func _on_Button_pressed():
 	$AnimationPlayer.play("fade away")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	get_tree().get_root().get_child(0).reset_game()
-	queue_free()
+	get_tree().change_scene("res://Scenes/MainScene.tscn")
+	self.queue_free()

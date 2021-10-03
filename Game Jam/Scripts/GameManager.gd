@@ -11,7 +11,7 @@ func _ready():
 	
 func _process(delta):	
 	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
+		pass#get_tree().quit()
 	elif Input.is_action_pressed("restart"):
 		get_tree().get_nodes_in_group("Player")[0].die()
 		
@@ -37,7 +37,7 @@ func reset_game():
 	$CanvasLayer/AnimationPlayer.play("fade_to_black")
 
 func loadLevelFile():
-	var temp = load("res://Level/level"+str(current_level_index)+".tscn")
+	var temp = load("res://Level/Level"+str(current_level_index)+".tscn")
 	if temp == null:
 		var credits = load("res://UI/TitleScreen/WinScreen.tscn").instance()
 		self.add_child(credits)

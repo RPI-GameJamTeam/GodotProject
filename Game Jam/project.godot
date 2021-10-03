@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Game_Jam_10.1"
-run/main_scene="res://Scenes/MainScene.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://UI/TitleScreen/TitleSreen.tscn"
+
+[display]
+
+window/size/width=960
+window/size/height=540
 
 [importer_defaults]
 
