@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Shader.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/PickupManager.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
 
 [node name="dirt_tutorial" type="Node2D" groups=[
@@ -17,6 +18,7 @@ tile_data = PoolIntArray( -458755, 1, 0, -458754, 1, 0, -458753, 1, 0, -524288, 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 
 [node name="Pickups" type="Node2D" parent="."]
+script = ExtResource( 6 )
 
 [node name="PickUp" parent="Pickups" instance=ExtResource( 7 )]
 position = Vector2( 57.5763, -1.59259 )
@@ -24,6 +26,14 @@ setType = 8
 
 [node name="PickUp2" parent="Pickups" instance=ExtResource( 7 )]
 position = Vector2( 336.175, -158.416 )
+setType = 16
+
+[node name="PickUp3" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 159.175, -177.416 )
+setType = 16
+
+[node name="PickUp4" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( -8.82501, -179.416 )
 setType = 16
 
 [node name="HUD" type="CanvasLayer" parent="."]

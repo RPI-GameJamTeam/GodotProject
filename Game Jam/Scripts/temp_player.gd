@@ -26,6 +26,8 @@ func reset():
 	$AnimatedSprite.play("idle")
 	position = spawnPos
 	$CanvasLayer/AnimationPlayer.play("fade_from_black")
+	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
+	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
 
 func _process(delta):
 	get_input()
