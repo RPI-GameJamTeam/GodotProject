@@ -37,4 +37,4 @@ func _physics_process(delta):
 	
 	for i in player.get_slide_count():
 		if !player.get_slide_collision(i).collider.is_in_group("PickUp"):
-			player.reset()
+			player.die()

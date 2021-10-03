@@ -27,6 +27,9 @@ func reset():
 func _process(delta):
 	get_input()
 	
+	if position.y > 100:
+		die()
+	
 	if Input.is_action_just_pressed("dash"):
 		if state != ElementState.PARTICLE:
 			dash()
@@ -36,7 +39,16 @@ func _process(delta):
 
 func dash():
 	var dashRadius = 100
-	position = position + input * dashRadius
+	var point = position + input * dashRadius
+	var space_state = get_world_2d().direct_space_state
+	var i = 0
+	while space_state.intersect_point(point).size() > 0:
+		point = position + (input * dashRadius * ((i * 5) / dashRadius))
+		if i * 5 == dashRadius:
+			break;
+		i = i + 1
+	
+	position = point
 	$Particles2D.restart()
 	$Camera2D.add_trauma(0.4)
 	$Camera2D.shake()
@@ -80,3 +92,6 @@ func get_input():
 	
 	if state == ElementState.AIR:
 		input = input.normalized()
+
+func die():
+	get_tree().reload_current_scene()

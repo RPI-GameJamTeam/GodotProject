@@ -19,7 +19,7 @@ func onElementChanged(value):
 
 	match value:
 		ElementState.PARTICLE:
-			$frame/avatar.set_texture(load(AVATAR_LOCATION['fire']))
+			$frame/avatar.set_texture(null)
 		ElementState.AIR:
 			$frame/avatar.set_texture(load(AVATAR_LOCATION['air']))
 		ElementState.FIRE:
