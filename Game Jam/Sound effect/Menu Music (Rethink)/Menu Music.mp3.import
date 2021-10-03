@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Menu Music.mp3-2e97505f6c399604bf2913e815560720.mp3str"
+
+[deps]
+
+source_file="res://Sound effect/Menu Music (Rethink)/Menu Music.mp3"
+dest_files=[ "res://.import/Menu Music.mp3-2e97505f6c399604bf2913e815560720.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

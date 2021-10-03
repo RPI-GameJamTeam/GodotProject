@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/walking on debris glass.mp3-c8539277bd5c7ba708ab06d47c48184d.mp3str"
+
+[deps]
+
+source_file="res://Sound effect/Walking SFX/walking on debris glass.mp3"
+dest_files=[ "res://.import/walking on debris glass.mp3-c8539277bd5c7ba708ab06d47c48184d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
