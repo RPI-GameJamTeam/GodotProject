@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="KillZone" type="Area2D"]
+scale = Vector2( 90.3445, 2.05156 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
