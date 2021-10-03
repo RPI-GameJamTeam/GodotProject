@@ -78,4 +78,5 @@ func get_input():
 	if Input.is_action_pressed("down"):
 		input.y += 1
 	
-	input = input.normalized()
+	if state == ElementState.AIR:
+		input = input.normalized()

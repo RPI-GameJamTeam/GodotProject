@@ -43,4 +43,7 @@ func _physics_process(delta):
 
 	# move
 	velocity = player.move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
+
+	if get_parent().on_floor and Input.is_action_just_pressed("jump"):
+		velocity.y += -player.JUMP_SPEED
 	
