@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Level/EnemyCycle.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/EnemyCycle.gd" type="Script" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -56,7 +56,6 @@ position = Vector2( 156.5, -102.496 )
 rotation = 0.0051244
 offset = 1510.0
 script = ExtResource( 8 )
-moveing_speed = 100
 
 [node name="Enemy" parent="Enemys/Path2D/PathFollow2D" instance=ExtResource( 6 )]
 position = Vector2( 0.282089, -0.497311 )

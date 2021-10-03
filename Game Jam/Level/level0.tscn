@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/EnemyCycle.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Shader.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Level.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 525.78, -609.384, 0, 0, 0, 0, 1297.32, -600.707, 0, 0, 0, 0, 1291.98, -572.008, 0, 0, 0, 0, 536.459, -585.357, 0, 0, 0, 0, 536.665, -604.828 )
+}
+
+[node name="dirt_tutorial" type="Node2D" groups=[
+"Level",
+]]
+
+[node name="Level" parent="." instance=ExtResource( 6 )]
+tile_data = PoolIntArray(  )
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="PickUp" parent="Pickups" instance=ExtResource( 3 )]
+position = Vector2( 57.5763, -61.982 )
+setType = 4
+
+[node name="PickUp4" parent="Pickups" instance=ExtResource( 3 )]
+position = Vector2( 117.579, -62.806 )
+setType = 16
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="HUD" instance=ExtResource( 4 )]
+visible = false
+maxHealth = 105
+
+[node name="Shader" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" parent="Shader" groups=[
+"Vignette",
+] instance=ExtResource( 5 )]
+visible = false
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Grate" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 86.4247, -113.341 )
+
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Enemys"]
+position = Vector2( -906.789, 415.467 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D"]
+position = Vector2( 678.371, -607.668 )
+rotation = 0.0112494
+offset = 152.401
+script = ExtResource( 1 )
+
+[node name="Enemy" parent="Enemys/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+position = Vector2( 13.6591, -1.49573 )
+
+[node name="KillZone" parent="." instance=ExtResource( 7 )]
+position = Vector2( 190.245, 120.146 )
+scale = Vector2( 83.2687, 2.87145 )
