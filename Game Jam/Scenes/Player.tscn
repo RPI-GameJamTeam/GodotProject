@@ -112,7 +112,6 @@ texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 material = SubResource( 8 )
-frame = 2
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )

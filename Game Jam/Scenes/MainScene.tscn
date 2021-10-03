@@ -23,6 +23,7 @@ position = Vector2( -22.4442, -34.5203 )
 
 [node name="PickUp" parent="." instance=ExtResource( 3 )]
 position = Vector2( -120.952, -32.443 )
+type = 3
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 48.827, -80.5365 )
@@ -37,5 +38,7 @@ environment = SubResource( 1 )
 
 [node name="Shader" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" parent="Shader" instance=ExtResource( 7 )]
+[node name="ColorRect" parent="Shader" groups=[
+"Vignette",
+] instance=ExtResource( 7 )]
 visible = false

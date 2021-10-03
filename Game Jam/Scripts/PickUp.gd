@@ -31,6 +31,7 @@ func _on_PickUp_body_entered(body):
 		# set particle color
 		$Particles2D.process_material.color = color
 		# set vignette color
+		get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", color)
 		# set player shader color
 		get_tree().get_nodes_in_group("Player")[0].get_node("AnimatedSprite").material.set_shader_param("glow_color", color)
 		
