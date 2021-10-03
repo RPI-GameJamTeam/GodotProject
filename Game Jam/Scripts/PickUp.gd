@@ -1,7 +1,18 @@
 extends Area2D
 
-enum ElementState { PARTICLE, WATER, FIRE, AIR, EARTH }
-var type = ElementState.EARTH
+export var type : int
+
+enum PickUpType { WATER, FIRE, AIR, EARTH, COOKIE }
+
+func _process(delta):
+	if type == PickUpType.COOKIE:
+		var player = get_tree().get_nodes_in_group("Player")[0]
+		if (player.position - position).length() < 225:
+			$AnimatedSprite.play("cookie_cry")
+		else:			
+			$AnimatedSprite.play("cookie_idle")
+	else:
+		$AnimatedSprite.play(str(type) + "idle")
 
 func _on_PickUp_body_entered(body):
 	if body.is_in_group("Player"):
@@ -9,4 +20,17 @@ func _on_PickUp_body_entered(body):
 		body.get_node("Camera2D").shake()
 		$Particles2D.restart()
 		
-		body.set_state(type)
+		if type == PickUpType.COOKIE:
+			$AnimatedSprite.visible = false			
+			$CollisionShape2D.set_deferred("disabled", true)
+			
+			var t = Timer.new()
+			t.set_wait_time(3)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			t.queue_free()
+			queue_free()
+		else:
+			body.set_state(type+1)
