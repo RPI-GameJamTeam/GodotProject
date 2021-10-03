@@ -74,6 +74,7 @@ func set_state(s):
 	match state:
 		ElementState.PARTICLE:
 			get_node("StateMachine/Particle").is_active = true
+			rotation = 0
 		ElementState.WATER:
 			get_node("StateMachine/Water").is_active = true
 			
