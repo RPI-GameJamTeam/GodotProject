@@ -70,7 +70,7 @@ shader_param/glow_color = Color( 0, 0, 0, 0.741176 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 1.48232, 0.186155 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "fade_from_black"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect/CanvasModulate:color")
@@ -85,8 +85,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "fade_to_black"
+[sub_resource type="Animation" id=10]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect/CanvasModulate:color")
@@ -143,7 +142,7 @@ texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 material = SubResource( 7 )
-frame = 3
+frame = 0
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -217,8 +216,8 @@ scale = Vector2( 2, 2 )
 color = Color( 0, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-anims/fade_from_black = SubResource( 10 )
-anims/fade_to_black = SubResource( 9 )
+anims/fade_from_black = SubResource( 9 )
+anims/fade_to_black = SubResource( 10 )
 
 [connection signal="body_entered" from="Sensors/Top" to="StateMachine" method="_on_Top_body_entered"]
 [connection signal="body_exited" from="Sensors/Top" to="StateMachine" method="_on_Top_body_exited"]
