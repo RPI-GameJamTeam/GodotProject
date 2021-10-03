@@ -32,11 +32,19 @@ func reset_level():
 	current_level_index -= 1
 	$CanvasLayer/AnimationPlayer.play("fade_to_black")
 	
+func reset_game():
+	current_level_index = 0
+	$CanvasLayer/AnimationPlayer.play("fade_to_black")
 
 func loadLevelFile():
-	var Level = load("res://Level/level"+str(current_level_index)+".tscn").instance()
-	self.add_child(Level)
-	get_cookie_count()
+	var temp = load("res://Level/level"+str(current_level_index)+".tscn")
+	if temp == null:
+		var credits = load("res://UI/TitleScreen/WinScreen.tscn").instance()
+		self.add_child(credits)
+	else:
+		var Level = temp.instance()
+		self.add_child(Level)
+		get_cookie_count()
 	$CanvasLayer/AnimationPlayer.play("fade_from_black")
 
 func kill_cookie():

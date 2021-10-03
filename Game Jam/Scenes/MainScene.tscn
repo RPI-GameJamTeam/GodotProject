@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Dark Ambient BG Sounds.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=6]
 
 [sub_resource type="Environment" id=1]
@@ -39,7 +40,7 @@ tracks/0/keys = {
 
 [node name="MainScene" type="Node"]
 script = ExtResource( 6 )
-Level_index = 7
+Level_index = 9
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -62,5 +63,9 @@ color = Color( 0, 0, 0, 0 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 anims/fade_from_black = SubResource( 2 )
 anims/fade_to_black = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
 
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
