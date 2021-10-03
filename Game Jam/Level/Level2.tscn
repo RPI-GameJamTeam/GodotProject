@@ -18,11 +18,11 @@ tile_data = PoolIntArray( -458759, 1, 0, -458758, 1, 0, -458757, 1, 0, -458756, 
 
 [node name="PickUp" parent="Pickups" instance=ExtResource( 7 )]
 position = Vector2( 47.0881, -1.59259 )
-type = 1
+setType = 2
 
 [node name="PickUp2" parent="Pickups" instance=ExtResource( 7 )]
 position = Vector2( 721.667, -0.307938 )
-type = 4
+setType = 16
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
