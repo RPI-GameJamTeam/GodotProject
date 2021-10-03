@@ -39,11 +39,53 @@ text = "Play Again"
 
 [node name="TextureRect" type="TextureRect" parent="." index="5"]
 material = SubResource( 2 )
-margin_left = 292.241
-margin_top = 330.325
-margin_right = 612.241
-margin_bottom = 394.325
-rect_scale = Vector2( 3.60631, 4.56403 )
+margin_left = 398.074
+margin_top = 444.978
+margin_right = 718.074
+margin_bottom = 508.978
+rect_scale = Vector2( 2.98847, 2.49799 )
+mouse_filter = 2
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="." index="6"]
+material = SubResource( 2 )
+margin_left = -323.926
+margin_top = 250.978
+margin_right = -3.92593
+margin_bottom = 314.978
+rect_rotation = 19.0133
+rect_scale = Vector2( 2.98847, 2.49799 )
+mouse_filter = 2
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="." index="7"]
+material = SubResource( 2 )
+margin_left = 108.335
+margin_top = -293.586
+margin_right = 428.335
+margin_bottom = -229.586
+rect_rotation = 86.4373
+rect_scale = Vector2( 2.98847, 2.49799 )
+mouse_filter = 2
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="." index="8"]
+material = SubResource( 2 )
+margin_left = 749.131
+margin_top = -192.65
+margin_right = 1069.13
+margin_bottom = -128.65
+rect_rotation = 49.5189
+rect_scale = Vector2( 2.1076, 0.754668 )
 mouse_filter = 2
 texture = ExtResource( 3 )
 __meta__ = {

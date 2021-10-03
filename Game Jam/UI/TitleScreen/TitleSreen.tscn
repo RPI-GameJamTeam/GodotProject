@@ -28,7 +28,7 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/glow_color = Color( 0.0862745, 0.658824, 0.607843, 0.741176 )
+shader_param/glow_color = Color( 0.658824, 0.623529, 0.0862745, 0.741176 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 50
