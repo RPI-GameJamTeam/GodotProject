@@ -30,9 +30,6 @@ func reset():
 func _process(delta):
 	get_input()
 	
-	if position.y > 100:
-		die()
-	
 	if Input.is_action_just_pressed("dash"):
 		if state != ElementState.PARTICLE:
 			dash()
