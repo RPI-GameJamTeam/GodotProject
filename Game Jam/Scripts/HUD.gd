@@ -20,10 +20,12 @@ func onElementChanged(value):
 		ElementState.PARTICLE:
 			$frame/avatar.set_texture(load(AVATAR_LOCATION['fire']))
 		ElementState.AIR:
-			pass
+			$frame/avatar.set_texture(load(AVATAR_LOCATION['air']))
 		ElementState.FIRE:
-			pass
+			$frame/avatar.set_texture(load(AVATAR_LOCATION['fire']))
 		ElementState.GROUND:
-			pass
+			$frame/avatar.set_texture(load(AVATAR_LOCATION['ground']))
+		ElementState.WATER:
+			$frame/avatar.set_texture(load(AVATAR_LOCATION['water']))
 
 
