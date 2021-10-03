@@ -35,8 +35,6 @@ func _process(delta):
 		if state != ElementState.PARTICLE:
 			dash()
 			set_state(ElementState.PARTICLE)
-		else:
-			pass # leave chem trail
 
 func dash():
 	var dashRadius = 100
@@ -51,6 +49,10 @@ func dash():
 	
 	position = point
 	$Particles2D.restart()
+	
+	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
+	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
+	
 	$Camera2D.add_trauma(0.4)
 	$Camera2D.shake()
 
@@ -103,9 +105,13 @@ func die():
 	set_state(0)
 	get_node("StateMachine/Particle").is_active = false
 	input = Vector2(0, 0)
+	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
+	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
+	
 	$Particles2D.restart()
 	$AnimatedSprite.connect("finished", self, "resetGame")
 	$AnimatedSprite.play("death")
+		
 
 func resetGame():
 	print("hello")
