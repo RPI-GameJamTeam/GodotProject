@@ -41,11 +41,11 @@ position = Vector2( -22.4442, -34.5203 )
 [node name="pickups" type="Node2D" parent="level"]
 
 [node name="PickUp" parent="level/pickups" instance=ExtResource( 3 )]
-position = Vector2( -120.952, -32.443 )
-type = 3
+position = Vector2( 342.51, -158.151 )
+type = 4
 
 [node name="PickUp2" parent="level/pickups" instance=ExtResource( 3 )]
-position = Vector2( 103.665, -18.9501 )
+position = Vector2( 48.9206, -12.343 )
 type = 3
 
 [node name="enemys" type="Node2D" parent="level"]

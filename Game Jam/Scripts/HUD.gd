@@ -54,4 +54,4 @@ func decreaseHP(amount):
 	$HealthBar.set_value(health / maxHealth * 100)
 	
 	if health == 0:
-		get_parent().get_parent().get_node("Player").die()
+		get_parent().get_parent().get_node("level/Player").die()
