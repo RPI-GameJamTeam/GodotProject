@@ -33,6 +33,9 @@ func _ready():
 func next_level():
 	level_changer(current_level_index+1)
 	
+func reset_level():
+	level_changer(current_level_index)
+	
 func kill_cookie():
 	cookie_count -= 1
 	if cookie_count == 0:

@@ -28,14 +28,6 @@ setType = 8
 position = Vector2( 336.175, -158.416 )
 setType = 16
 
-[node name="PickUp3" parent="Pickups" instance=ExtResource( 7 )]
-position = Vector2( 159.175, -177.416 )
-setType = 16
-
-[node name="PickUp4" parent="Pickups" instance=ExtResource( 7 )]
-position = Vector2( -8.82501, -179.416 )
-setType = 16
-
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="HUD" instance=ExtResource( 3 )]
