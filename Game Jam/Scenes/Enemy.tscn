@@ -7,10 +7,11 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24.1405, 10 )
+extents = Vector2( 24.7658, 16.3576 )
 
 [node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
+collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
@@ -36,14 +37,14 @@ shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 10.6714, -5.98906 )
-rotation = -1.57079
+rotation = -1.68285
 enabled = true
 cast_to = Vector2( 0, 40 )
 collision_mask = 4
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2( 10.004, 6.85877 )
-rotation = -1.57079
+rotation = -1.43909
 enabled = true
 cast_to = Vector2( 0, 40 )
 collision_mask = 4
