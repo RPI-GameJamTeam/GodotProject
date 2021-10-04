@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
 
-
 [node name="dirt_tutorial" type="Node2D" groups=[
 "Level",
 ]]

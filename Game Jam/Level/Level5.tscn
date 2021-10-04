@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/EnemyCycle.gd" type="Script" id=8]
 
-
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 156.5, -102.5, 0, 0, 0, 0, 879.414, -98.0815, 0, 0, 0, 0, 880.082, -62.0408, 0, 0, 0, 0, 158.601, -68.715, 0, 0, 0, 0, 156.5, -102.5 )
