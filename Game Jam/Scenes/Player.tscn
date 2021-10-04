@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=45 format=2]
 
-[ext_resource path="res://TEMP/PlayerAnim.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Asset/Art/Character & Enemy/Character-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/temp_player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PlayerCamera.gd" type="Script" id=3]
-[ext_resource path="res://Asset/Art/floaty_64.png" type="Texture" id=4]
+[ext_resource path="res://Asset/Art/ParticalAsset/floaty_64.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Default.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Fire_Move.gd" type="Script" id=7]
@@ -65,9 +65,137 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/glow_color = Color( 0, 0, 0, 0.741176 )
+shader_param/glow_color = Color( 0.137255, 0.133333, 0.482353, 0.741176 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=33]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "death",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 1.48232, 0.186155 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -111,9 +239,13 @@ randomness = 0.26
 process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
-[node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 7 )
-frame = 4
+position = Vector2( -1.02368, 0.393724 )
+frames = SubResource( 33 )
+animation = "idle"
+frame = 1
+playing = true
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -142,7 +274,7 @@ collision_layer = 8
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Top"]
-shape = SubResource( 8 )
+shape = SubResource( 34 )
 
 [node name="Buttom" type="Area2D" parent="Sensors"]
 position = Vector2( 0, 9.07533 )
@@ -150,7 +282,7 @@ collision_layer = 8
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Buttom"]
-shape = SubResource( 8 )
+shape = SubResource( 34 )
 
 [node name="Right" type="Area2D" parent="Sensors"]
 position = Vector2( 4.33103, 0 )
@@ -159,7 +291,7 @@ collision_layer = 8
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Right"]
-shape = SubResource( 8 )
+shape = SubResource( 34 )
 
 [node name="Left" type="Area2D" parent="Sensors"]
 position = Vector2( -4.24264, 0 )
@@ -168,13 +300,12 @@ collision_layer = 8
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Left"]
-shape = SubResource( 8 )
+shape = SubResource( 34 )
 
 [node name="DownCast" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 10 )
 collision_mask = 31
-
 [connection signal="body_entered" from="Sensors/Top" to="StateMachine" method="_on_Top_body_entered"]
 [connection signal="body_exited" from="Sensors/Top" to="StateMachine" method="_on_Top_body_exited"]
 [connection signal="body_entered" from="Sensors/Buttom" to="StateMachine" method="_on_Buttom_body_entered"]

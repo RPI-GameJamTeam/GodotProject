@@ -5,10 +5,11 @@
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Shader.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Level.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Tilemap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
+
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -59,7 +60,7 @@ position = Vector2( -906.789, 415.467 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D"]
-position = Vector2( 678.371, -607.668 )
+position = Vector2( 678.372, -607.668 )
 rotation = 0.0112494
 offset = 152.401
 script = ExtResource( 1 )

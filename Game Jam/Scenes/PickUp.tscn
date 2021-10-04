@@ -1,12 +1,12 @@
 [gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://Asset/Food 1.png" type="Texture" id=1]
+[ext_resource path="res://Asset/Art/Avatar/Food 1.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/PickUp.gd" type="Script" id=2]
-[ext_resource path="res://Asset/Art/floaty_64.png" type="Texture" id=3]
-[ext_resource path="res://Asset/Avatar/fire_ele.png" type="Texture" id=4]
-[ext_resource path="res://Asset/Avatar/water_ele.png" type="Texture" id=5]
-[ext_resource path="res://Asset/Avatar/earth_ele.png" type="Texture" id=6]
-[ext_resource path="res://Asset/Avatar/air_ele.png" type="Texture" id=7]
+[ext_resource path="res://Asset/Art/ParticalAsset/floaty_64.png" type="Texture" id=3]
+[ext_resource path="res://Asset/Art/Avatar/fire_ele.png" type="Texture" id=4]
+[ext_resource path="res://Asset/Art/Avatar/water_ele.png" type="Texture" id=5]
+[ext_resource path="res://Asset/Art/Avatar/earth_ele.png" type="Texture" id=6]
+[ext_resource path="res://Asset/Art/Avatar/air_ele.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -14,51 +14,51 @@ region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 128, 0, 32, 32 )
+region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
-region = Rect2( 160, 0, 32, 32 )
+region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 32, 32 )
+region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
-region = Rect2( 224, 0, 32, 32 )
+region = Rect2( 192, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
-region = Rect2( 256, 0, 32, 32 )
+region = Rect2( 224, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
-region = Rect2( 288, 0, 32, 32 )
+region = Rect2( 256, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 320, 0, 32, 32 )
+region = Rect2( 288, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
-region = Rect2( 352, 0, 32, 32 )
+region = Rect2( 320, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 352, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
@@ -67,19 +67,9 @@ animations = [ {
 "name": "3idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
-"loop": false,
-"name": "cookie_cry",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 13 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "cookie_idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "2idle",
+"name": "1idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -87,9 +77,19 @@ animations = [ {
 "name": "0idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "1idle",
+"name": "2idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "cookie_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": false,
+"name": "cookie_cry",
 "speed": 5.0
 } ]
 
@@ -149,5 +149,4 @@ explosiveness = 0.91
 randomness = 0.26
 process_material = SubResource( 19 )
 texture = ExtResource( 3 )
-
 [connection signal="body_entered" from="." to="." method="_on_PickUp_body_entered"]

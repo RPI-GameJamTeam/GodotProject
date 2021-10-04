@@ -6,6 +6,7 @@ export var Level_index : int = 1
 var cookie_count
 
 func _ready():
+	$CanvasLayer/ColorRect.show()
 	$CanvasLayer/ColorRect/CanvasModulate.color = Color(0, 0, 0, 1)
 	level_changer(Level_index)
 	
