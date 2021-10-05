@@ -40,7 +40,7 @@ func reset_game():
 func loadLevelFile():
 	var temp = load("res://Level/Level"+str(current_level_index)+".tscn")
 	if temp == null:
-		var credits = load("res://UI/TitleScreen/WinScreen.tscn").instance()
+		var credits = load("res://UI/WinScreen.tscn").instance()
 		self.add_child(credits)
 	else:
 		var Level = temp.instance()
