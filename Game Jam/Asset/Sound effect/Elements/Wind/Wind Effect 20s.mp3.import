@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Wind Effect 20s.mp3-1727ae006bca26345e3c932f04532e21.mp3str"
+path="res://.import/Wind Effect 20s.mp3-9b17070bb58ac1b13a966b894fff1839.mp3str"
 
 [deps]
 
-source_file="res://Sound effect/Elements/Wind/Wind Effect 20s.mp3"
-dest_files=[ "res://.import/Wind Effect 20s.mp3-1727ae006bca26345e3c932f04532e21.mp3str" ]
+source_file="res://Asset/Sound effect/Elements/Wind/Wind Effect 20s.mp3"
+dest_files=[ "res://.import/Wind Effect 20s.mp3-9b17070bb58ac1b13a966b894fff1839.mp3str" ]
 
 [params]
 

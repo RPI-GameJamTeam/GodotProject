@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Wind - SOUND EFFECTS - Gentle Soft Breeze Wind Sound FX.mp3-f623cf484fdd7f7ade7cfd5d500dd355.mp3str"
+path="res://.import/Wind - SOUND EFFECTS - Gentle Soft Breeze Wind Sound FX.mp3-0e6cc5dd4584881b521735e841667760.mp3str"
 
 [deps]
 
-source_file="res://Sound effect/Elements/Wind/Wind - SOUND EFFECTS - Gentle Soft Breeze Wind Sound FX.mp3"
-dest_files=[ "res://.import/Wind - SOUND EFFECTS - Gentle Soft Breeze Wind Sound FX.mp3-f623cf484fdd7f7ade7cfd5d500dd355.mp3str" ]
+source_file="res://Asset/Sound effect/Elements/Wind/Wind - SOUND EFFECTS - Gentle Soft Breeze Wind Sound FX.mp3"
+dest_files=[ "res://.import/Wind - SOUND EFFECTS - Gentle Soft Breeze Wind Sound FX.mp3-0e6cc5dd4584881b521735e841667760.mp3str" ]
 
 [params]
 

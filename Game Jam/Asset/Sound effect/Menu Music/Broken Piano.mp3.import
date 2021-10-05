@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Broken Piano.mp3-d91dbe719488c8fc56a173abf1232440.mp3str"
+path="res://.import/Broken Piano.mp3-774bc80b5904706670b24a6565c3f6e9.mp3str"
 
 [deps]
 
-source_file="res://Sound effect/Menu Music/Broken Piano.mp3"
-dest_files=[ "res://.import/Broken Piano.mp3-d91dbe719488c8fc56a173abf1232440.mp3str" ]
+source_file="res://Asset/Sound effect/Menu Music/Broken Piano.mp3"
+dest_files=[ "res://.import/Broken Piano.mp3-774bc80b5904706670b24a6565c3f6e9.mp3str" ]
 
 [params]
 

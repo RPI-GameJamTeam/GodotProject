@@ -69,10 +69,12 @@ func set_state(s):
 	get_node("StateMachine/Air").is_active = false
 	get_node("StateMachine/Earth").is_active = false
 	
+	if state != ElementState.EARTH:
+		rotation = 0
+	
 	match state:
 		ElementState.PARTICLE:
 			get_node("StateMachine/Particle").is_active = true
-			rotation = 0
 		ElementState.WATER:
 			get_node("StateMachine/Water").is_active = true
 			
