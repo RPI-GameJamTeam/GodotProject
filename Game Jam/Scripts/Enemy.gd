@@ -13,7 +13,6 @@ func _on_CheckPlayer_body_exited(body):
 	player_in_area = false
 	
 func _ready():
-	print(setAnimation)
 	match setAnimation:
 		SPRITE.FLY:
 			$AnimatedSprite.animation = "fly"
