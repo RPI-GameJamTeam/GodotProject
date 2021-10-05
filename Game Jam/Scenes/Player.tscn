@@ -65,7 +65,7 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/glow_color = Color( 0.137255, 0.133333, 0.482353, 0.741176 )
+shader_param/glow_color = Color( 0.137255, 0.133333, 0.482353, 0.819608 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
@@ -199,6 +199,7 @@ animations = [ {
 extents = Vector2( 1.48232, 0.186155 )
 
 [node name="Player" type="KinematicBody2D" groups=[
+"Glow",
 "Player",
 ]]
 position = Vector2( 0, -0.078743 )
@@ -228,7 +229,9 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="Particles2D" parent="." groups=[
+"Glow",
+]]
 material = SubResource( 2 )
 emitting = false
 amount = 24
@@ -239,7 +242,9 @@ randomness = 0.26
 process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"Glow",
+]]
 material = SubResource( 7 )
 position = Vector2( -0.146757, 0.183261 )
 frames = SubResource( 33 )

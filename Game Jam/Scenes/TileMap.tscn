@@ -447,7 +447,9 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 } ]
 17/z_index = 0
 
-[node name="Tilemap" type="TileMap"]
+[node name="Tilemap" type="TileMap" groups=[
+"Glow",
+]]
 material = ExtResource( 4 )
 tile_set = SubResource( 21 )
 cell_size = Vector2( 32, 32 )

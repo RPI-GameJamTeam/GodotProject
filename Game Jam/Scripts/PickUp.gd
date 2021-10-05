@@ -36,24 +36,17 @@ func _on_PickUp_body_entered(body):
 		body.get_node("Camera2D").add_trauma(0.6)
 		body.get_node("Camera2D").shake()
 		
-		# pick color
-		var color = getColor()
-		# set particle color
-		$Particles2D.process_material.color = color
 		
 		if type != PickUpType.COOKIE:
-			# set vignette color
-			get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", color)
-			# set player shader color
-			get_tree().get_nodes_in_group("Player")[0].get_node("AnimatedSprite").material.set_shader_param("glow_color", color)
+			GlobalTool.set_all_glow(type+1)
 		
 		$Particles2D.restart()
 		
 		if type == PickUpType.COOKIE:
-			$AnimatedSprite.visible = false
+			$AnimatedSprite.hide()
 			$CollisionShape2D.set_deferred("disabled", true)
 			
-			get_tree().get_root().get_child(0).kill_cookie()
+			get_tree().get_root().get_child(1).kill_cookie()
 			
 			var t = Timer.new()
 			t.set_wait_time(1.2)

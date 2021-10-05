@@ -24,8 +24,7 @@ func reset():
 	set_state(ElementState.PARTICLE)
 	$AnimatedSprite.play("idle")
 	position = spawnPos
-	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
-	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
+	GlobalTool.set_all_glow(ElementState.PARTICLE)
 	dead = false
 
 func _process(delta):
@@ -51,9 +50,7 @@ func dash():
 
 	$Particles2D.restart()
 	
-	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
-	
-	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
+	GlobalTool.set_all_glow(ElementState.PARTICLE)
 
 	$Camera2D.add_trauma(0.4)
 	$Camera2D.shake()
@@ -120,12 +117,13 @@ func die():
 	get_node("StateMachine/Particle").is_active = false
 	
 	input = Vector2(0, 0)
-	get_tree().get_nodes_in_group("Vignette")[0].material.set_shader_param("color", Color(0,0,0))
-	$AnimatedSprite.material.set_shader_param("glow_color", Color(0,0,0))
+	GlobalTool.set_all_glow(ElementState.PARTICLE)
 	
 	$Particles2D.restart()
 	$AnimatedSprite.play("death")
-	get_tree().get_root().get_child(0).reset_level()
+	get_tree().get_root().get_child(1).reset_level()
+
+
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "death":

@@ -3,18 +3,18 @@
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
-uniform vec4 color : hint_color;
+uniform vec4 glow_color : hint_color;
 uniform float multiplier = 0.2;
 uniform float softness = 0.2;
 
 void fragment()
 {
 	float value = distance(UV, vec2(0.5));
-	COLOR = vec4(color.rgb, smoothstep(multiplier, softness, value));
+	COLOR = vec4(glow_color.rgb, smoothstep(multiplier, softness, value));
 }"
 
 [resource]
 shader = SubResource( 1 )
-shader_param/color = Color( 0.490196, 0.34902, 0.34902, 1 )
+shader_param/glow_color = null
 shader_param/multiplier = 0.1
 shader_param/softness = 2.7

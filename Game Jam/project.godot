@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Game_Jam_10.1"
 run/main_scene="res://UI/TitleSreen.tscn"
 
+[autoload]
+
+GlobalTool="*res://GlobalTool.gd"
+
 [display]
 
 window/size/width=960
