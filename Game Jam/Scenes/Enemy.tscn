@@ -132,7 +132,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 25 )
 animation = "run"
-frame = 6
+frame = 5
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
@@ -168,5 +168,6 @@ collision_mask = 4
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
 [connection signal="body_entered" from="CheckPlayer" to="." method="_on_CheckPlayer_body_entered"]
 [connection signal="body_exited" from="CheckPlayer" to="." method="_on_CheckPlayer_body_exited"]

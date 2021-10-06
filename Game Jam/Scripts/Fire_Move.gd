@@ -15,8 +15,6 @@ func _physics_process(delta):
 
 	var walk = player.input.x * player.WALK_FORCE
 	
-	var grounded = player.get_node("DownCast").is_colliding()
-	
 	# slow the player down while not moving
 	if abs(walk) < player.WALK_FORCE * 0.2 or (velocity.x > 0 and player.input.x < 0) or (velocity.x < 0 and player.input.x > 0):
 		velocity.x = move_toward(velocity.x, 0, player.STOP_FORCE * delta * 4)
@@ -28,10 +26,10 @@ func _physics_process(delta):
 		player.get_node("AnimatedSprite").scale.x = -1
 	elif walk > 0:
 		player.get_node("AnimatedSprite").scale.x = 1
-	elif walk == 0 and grounded:
+	elif walk == 0 and get_parent().grounded:
 		player.get_node("AnimatedSprite").play("idle")
 	
-	if !grounded:
+	if !get_parent().grounded:
 		if velocity.y < 0:
 			player.get_node("AnimatedSprite").play("jump")
 		else:
@@ -46,6 +44,6 @@ func _physics_process(delta):
 	# move
 	velocity = player.move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
 
-	if grounded and Input.is_action_just_pressed("jump"):
+	if get_parent().grounded and Input.is_action_just_pressed("jump"):
 		velocity.y += -player.JUMP_SPEED
 	

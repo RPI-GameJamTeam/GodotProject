@@ -249,6 +249,7 @@ material = SubResource( 7 )
 position = Vector2( -0.146757, 0.183261 )
 frames = SubResource( 33 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="StateMachine" type="Node2D" parent="."]
@@ -310,6 +311,17 @@ shape = SubResource( 34 )
 enabled = true
 cast_to = Vector2( 0, 10 )
 collision_mask = 31
+
+[node name="DownRightCast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 5, 11 )
+collision_mask = 31
+
+[node name="DownLeftCast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -5, 11 )
+collision_mask = 31
+
 [connection signal="body_entered" from="Sensors/Top" to="StateMachine" method="_on_Top_body_entered"]
 [connection signal="body_exited" from="Sensors/Top" to="StateMachine" method="_on_Top_body_exited"]
 [connection signal="body_entered" from="Sensors/Buttom" to="StateMachine" method="_on_Buttom_body_entered"]

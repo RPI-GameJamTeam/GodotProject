@@ -5,6 +5,27 @@ var right_contact : bool = false
 var left_contact : bool = false
 var top_contact : bool = false
 
+var grounded
+var groundedLeft
+var groundedRight
+
+var groundedLastFrame
+var groundedLeftLastFrame
+var groundedRightLastFrame
+
+func _ready():
+	process_priority = 10
+
+func _physics_process(delta):
+	groundedLastFrame = grounded
+	groundedLeftLastFrame = groundedLeft
+	groundedRightLastFrame = groundedRight
+	
+	grounded = get_parent().get_node("DownCast").is_colliding()
+	groundedLeft = get_parent().get_node("DownLeftCast").is_colliding()
+	groundedRight = get_parent().get_node("DownRightCast").is_colliding()
+
+
 func _on_Top_body_entered(body):
 	top_contact = true
 
