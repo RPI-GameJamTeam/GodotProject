@@ -79,6 +79,8 @@ func _physics_process(delta):
 	var nearest90 = int(rad2deg(round(player.rotation / deg2rad(45)) * deg2rad(45)))
 	if newTileIndex == -1 and tileIndex != -1 and nearest90 != -180 and nearest90 != 180:
 		# get the center of the tile in world coords
+		print(tilePos)
+		print(tilemap.map_to_world(tilePos))
 		var tileWorldPos = tilemap.map_to_world(tilePos) + Vector2(16, 16) # 32x32 tiles, so 16 give us center
 		var distance_from_point = player.global_position - tileWorldPos
 		
