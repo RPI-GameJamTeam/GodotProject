@@ -249,7 +249,7 @@ material = SubResource( 7 )
 position = Vector2( -0.146757, 0.183261 )
 frames = SubResource( 33 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="StateMachine" type="Node2D" parent="."]
