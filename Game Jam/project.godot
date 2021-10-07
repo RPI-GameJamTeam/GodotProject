@@ -21,6 +21,11 @@ run/main_scene="res://UI/TitleSreen.tscn"
 
 GlobalTool="*res://GlobalTool.gd"
 
+[debug]
+
+settings/fps/force_fps=60
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/width=960
