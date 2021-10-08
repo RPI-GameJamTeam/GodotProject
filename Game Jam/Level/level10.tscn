@@ -178,4 +178,5 @@ script = ExtResource( 10 )
 [node name="KillZone4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 333.158, 2395.67 )
 scale = Vector2( -512.813, 7.05444 )
+
 [connection signal="body_entered" from="teleport" to="teleport" method="_on_teleport_body_entered"]

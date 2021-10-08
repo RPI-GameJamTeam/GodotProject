@@ -9,16 +9,11 @@ var velocity : Vector2
 var localGrounded
 var localWasGrounded
 
-var tilemap
-var tileSize
 var tilePos
 var tileIndex
 
 func _ready():
 	player = get_parent().get_parent()	
-	tilemap = get_tree().get_nodes_in_group("Tilemap")[0]
-	var tile_rect = tilemap.get_used_rect()
-	tileSize = tilemap.map_to_world(tile_rect.size)
 
 func _physics_process(delta):
 #	var test = load("res://Scenes/DebugCircle.tscn").instance()
@@ -27,6 +22,10 @@ func _physics_process(delta):
 	
 	if !is_active:
 		return null
+	
+	var tilemap = get_tree().get_nodes_in_group("Tilemap")[0]
+	print(tilemap)
+	print(get_tree().get_nodes_in_group("Tilemap").size())
 	
 	var attemptedRotation = false
 	if player.input.x > 0 and get_parent().right_contact: # jump to right wall
@@ -77,7 +76,7 @@ func _physics_process(delta):
 	var newTileIndex = tilemap.get_cellv(newTilePos)
 	
 	var nearest90 = int(rad2deg(round(player.rotation / deg2rad(45)) * deg2rad(45)))
-	if newTileIndex == -1 and tileIndex != -1 and nearest90 != -180 and nearest90 != 180:
+	if newTileIndex == -1 and tileIndex != -1 and nearest90 != -180 and nearest90 != 180 and tilePos != null:
 		# get the center of the tile in world coords
 		print(tilePos)
 		print(tilemap.map_to_world(tilePos))
