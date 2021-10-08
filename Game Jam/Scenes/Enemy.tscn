@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Asset/Art/Character & Enemy/enemy-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
-[ext_resource path="res://Asset/Art/LightTexture/eye_light.png" type="Texture" id=3]
+[ext_resource path="res://Asset/Art/LightTexture/prop_thickness075.png" type="Texture" id=3]
 [ext_resource path="res://Asset/Sound effect/monster_sfx.wav" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -136,15 +136,21 @@ frame = 5
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 48.5539, 1.11362 )
+position = Vector2( 3.82804, -1.11528 )
+scale = Vector2( 0.191096, 0.459841 )
 texture = ExtResource( 3 )
+offset = Vector2( 189.925, -0.576827 )
 color = Color( 0.772549, 0.0705882, 0.0705882, 1 )
 energy = 5.66
+shadow_enabled = true
+shadow_color = Color( 0.00784314, 0.00784314, 0.00784314, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 26 )
 
 [node name="CheckPlayer" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 4
 
@@ -168,6 +174,5 @@ collision_mask = 4
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
-
 [connection signal="body_entered" from="CheckPlayer" to="." method="_on_CheckPlayer_body_entered"]
 [connection signal="body_exited" from="CheckPlayer" to="." method="_on_CheckPlayer_body_exited"]
