@@ -7,13 +7,12 @@ var health
 var player
 
 
-const AVATAR_LOCATION = {'air':"res://Asset/Avatar/air_ele.png", "ground":"res://Asset/Avatar/earth_ele.png",
-						'fire':"res://Asset/Avatar/fire_ele.png", "water":"res://Asset/Avatar/water_ele.png"}
+const AVATAR_LOCATION = {'air':"res://Asset/Art/Avatar/air_ele.png", "earth":"res://Asset/Art/Avatar/earth_ele.png",
+						'fire':"res://Asset/Art/Avatar/fire_ele.png", "water":"res://Asset/Art/Avatar/water_ele.png"}
 
 
 
-enum ElementState { PARTICLE, WATER, FIRE, AIR, GROUND }
-signal health_run_out()
+enum ElementState { PARTICLE, WATER, FIRE, AIR, EARTH }
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -47,8 +46,8 @@ func onElementChanged(value):
 			$frame/avatar.set_texture(load(AVATAR_LOCATION['air']))
 		ElementState.FIRE:
 			$frame/avatar.set_texture(load(AVATAR_LOCATION['fire']))
-		ElementState.GROUND:
-			$frame/avatar.set_texture(load(AVATAR_LOCATION['ground']))
+		ElementState.EARTH:
+			$frame/avatar.set_texture(load(AVATAR_LOCATION['earth']))
 		ElementState.WATER:
 			$frame/avatar.set_texture(load(AVATAR_LOCATION['water']))
 

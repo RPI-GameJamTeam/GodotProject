@@ -19,7 +19,7 @@ func _ready():
 	elif setType & 16:
 		type = PickUpType.COOKIE
 	
-func _process(delta):
+func _process(_delta):
 	position.y = pos.y + sin(OS.get_ticks_msec() / 100)
 	
 	if type == PickUpType.COOKIE:

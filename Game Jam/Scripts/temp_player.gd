@@ -27,7 +27,7 @@ func reset():
 	GlobalTool.set_all_glow(ElementState.PARTICLE)
 	dead = false
 
-func _process(delta):
+func _process(_delta):
 	get_input()
 	
 	if Input.is_action_just_pressed("dash"):

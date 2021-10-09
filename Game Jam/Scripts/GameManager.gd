@@ -12,14 +12,14 @@ func _ready():
 	$CanvasLayer/ColorRect/CanvasModulate.color = Color(0, 0, 0, 1)
 	level_changer(level_index)
 	
-func _process(delta):	
+func _process(_delta):	
 	if Input.is_action_pressed("ui_cancel"):
 		pass#get_tree().quit()
 	elif Input.is_action_pressed("restart"):
 		get_tree().get_nodes_in_group("Player")[0].die()
 		
-func level_changer(level_index):
-	current_level_index = level_index
+func level_changer(index_value):
+	current_level_index = index_value
 	var list = get_tree().get_nodes_in_group("Level")
 	if list.size() == 0:
 		load_level_file()
