@@ -4,8 +4,6 @@ var player
 
 var is_active : bool = false
 
-var velocity : Vector2
-
 var localGrounded
 var localWasGrounded
 
@@ -24,8 +22,6 @@ func _physics_process(delta):
 		return null
 	
 	var tilemap = get_tree().get_nodes_in_group("Tilemap")[0]
-	print(tilemap)
-	print(get_tree().get_nodes_in_group("Tilemap").size())
 	
 	var attemptedRotation = false
 	if player.input.x > 0 and get_parent().right_contact: # jump to right wall
@@ -43,12 +39,12 @@ func _physics_process(delta):
 	
 	# slow the player down while not moving
 	var cond1 = abs(movement.x) < player.WALK_FORCE * 0.2
-	var cond2 = velocity.x > 0 and player.input.x < 0
-	var cond3 = velocity.x < 0 and player.input.x > 0
+	var cond2 = get_parent().velocity.x > 0 and player.input.x < 0
+	var cond3 = get_parent().velocity.x < 0 and player.input.x > 0
 	if cond1 or cond2 or cond3:
-		velocity.x = move_toward(velocity.x, 0, player.STOP_FORCE * delta * 4)
+		get_parent().velocity.x = move_toward(get_parent().velocity.x, 0, player.STOP_FORCE * delta * 4)
 	else:
-		velocity += movement * delta 
+		get_parent().velocity += movement * delta 
 		player.get_node("AnimatedSprite").play("run")
 	
 	if movement.x < 0:
@@ -59,18 +55,18 @@ func _physics_process(delta):
 		player.get_node("AnimatedSprite").play("idle")
 	
 	if !localGrounded and !rightGrounded and !leftGrounded:
-		if velocity.y < 0:
+		if get_parent().velocity.y < 0:
 			player.get_node("AnimatedSprite").play("jump")
 		else:
 			player.get_node("AnimatedSprite").play("fall")
 	
 	# clamp velocity
-	velocity.x = clamp(velocity.x, -player.WALK_MAX_SPEED, player.WALK_MAX_SPEED)
+	get_parent().velocity.x = clamp(get_parent().velocity.x, -player.WALK_MAX_SPEED, player.WALK_MAX_SPEED)
 
 	# move
-	velocity = player.move_and_slide_with_snap(velocity.rotated(player.rotation), Vector2.DOWN, Vector2.UP).rotated(-player.rotation)
-	velocity.x = round(velocity.x)
-	velocity.y = round(velocity.y)
+	get_parent().velocity = player.move_and_slide_with_snap(get_parent().velocity.rotated(player.rotation), Vector2.DOWN, Vector2.UP).rotated(-player.rotation)
+	get_parent().velocity.x = round(get_parent().velocity.x)
+	get_parent().velocity.y = round(get_parent().velocity.y)
 	
 	var newTilePos = tilemap.world_to_map(player.position + (player.get_node("DownCast").cast_to + Vector2(0, 10)).rotated(player.rotation))
 	var newTileIndex = tilemap.get_cellv(newTilePos)
@@ -78,8 +74,6 @@ func _physics_process(delta):
 	var nearest90 = int(rad2deg(round(player.rotation / deg2rad(45)) * deg2rad(45)))
 	if newTileIndex == -1 and tileIndex != -1 and nearest90 != -180 and nearest90 != 180 and tilePos != null:
 		# get the center of the tile in world coords
-		print(tilePos)
-		print(tilemap.map_to_world(tilePos))
 		var tileWorldPos = tilemap.map_to_world(tilePos) + Vector2(16, 16) # 32x32 tiles, so 16 give us center
 		var distance_from_point = player.global_position - tileWorldPos
 		
@@ -109,17 +103,17 @@ func _physics_process(delta):
 			rotated = true
 		
 		if rotated:
-			velocity.x = 0
-			velocity.y = 0
+			get_parent().velocity.x = 0
+			get_parent().velocity.y = 0
 	else:
 		if !localGrounded and !attemptedRotation and !leftGrounded and !rightGrounded:
 			player.rotation = 0
-			velocity.y += player.gravity * 4 * delta * 2
+			get_parent().velocity.y += player.gravity * 4 * delta * 2
 	
 	tilePos = newTilePos
 	tileIndex = newTileIndex
 
 
 	if localGrounded and Input.is_action_just_pressed("jump"):
-		velocity.y += -player.JUMP_SPEED
+		get_parent().velocity.y += -player.JUMP_SPEED
 

@@ -13,6 +13,8 @@ var groundedLastFrame
 var groundedLeftLastFrame
 var groundedRightLastFrame
 
+var velocity : Vector2
+
 func _ready():
 	process_priority = 10
 

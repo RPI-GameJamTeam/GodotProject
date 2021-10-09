@@ -21,5 +21,4 @@ func _process(delta):
 		else:
 			$Enemy/AnimatedSprite.set_flip_v(false)
 		
-		print(currentPos.x - prevPos.x)
 		prevPos = currentPos
