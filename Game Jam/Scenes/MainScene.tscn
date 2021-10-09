@@ -39,7 +39,7 @@ tracks/0/keys = {
 
 [node name="MainScene" type="Node"]
 script = ExtResource( 6 )
-level_index = 5
+level_index = 12
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

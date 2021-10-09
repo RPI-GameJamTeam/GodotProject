@@ -132,7 +132,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 25 )
 animation = "run"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
