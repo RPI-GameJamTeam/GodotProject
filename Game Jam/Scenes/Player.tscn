@@ -249,6 +249,7 @@ material = SubResource( 7 )
 position = Vector2( 0.992035, 0.0824261 )
 frames = SubResource( 33 )
 animation = "idle"
+frame = 2
 playing = true
 offset = Vector2( -0.121561, 0.135912 )
 

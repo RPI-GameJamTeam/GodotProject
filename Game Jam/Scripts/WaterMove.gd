@@ -42,4 +42,4 @@ func _physics_process(delta):
 	get_parent().velocity.y += player.gravity * 4 * delta * 2
 
 	# move
-	get_parent().velocity = player.move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)	
+	get_parent().velocity = player.move_and_slide_with_snap(get_parent().velocity, Vector2.DOWN, Vector2.UP)	

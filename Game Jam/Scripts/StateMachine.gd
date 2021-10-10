@@ -32,9 +32,11 @@ func _physics_process(_delta):
 	
 func clipping_fixer():
 	if clipping:
+		print('ha')
+		var head_up = Vector2(0, -1).rotated(get_parent().rotation)
 		# this fucntion only fix clipping to right head wall
 		# to compelte the fucntion need the head_up direction for the player
-		get_parent().position.x += 0.5
+		get_parent().position += head_up
 
 
 func _on_Top_body_entered(_body):
