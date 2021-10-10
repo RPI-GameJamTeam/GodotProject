@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/EnemyCycle.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Backgroud.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=11]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -33,7 +32,7 @@ tile_data = PoolIntArray( -524248, -1610612732, 0, -524247, 1610612738, 0, -5242
 position = Vector2( -197.777, -5.24408 )
 
 [node name="PickUp" parent="Pickups" instance=ExtResource( 3 )]
-position = Vector2( -68.1394, 33.9885 )
+position = Vector2( 137.858, 52.2574 )
 setType = 2
 
 [node name="PickUp4" parent="Pickups" instance=ExtResource( 3 )]
@@ -67,24 +66,21 @@ position = Vector2( -474.641, 589.449 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D2"]
-position = Vector2( 678.372, -607.668 )
-rotation = 0.0112494
+position = Vector2( 738.335, -595.839 )
+rotation = 0.00530113
 offset = 152.401
 script = ExtResource( 1 )
 
-[node name="Enemy" type="KinematicBody2D" parent="Enemys/Path2D2/PathFollow2D" instance=ExtResource( 8 )]
+[node name="Enemy" parent="Enemys/Path2D2/PathFollow2D" instance=ExtResource( 8 )]
 position = Vector2( 13.6591, -1.49573 )
-scale = Vector2( 2, 2 )
-collision_layer = 4
-script = ExtResource( 11 )
 
 [node name="Path2D3" type="Path2D" parent="Enemys"]
 position = Vector2( 68.3849, 590.079 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D3"]
-position = Vector2( 738.334, -595.839 )
-rotation = 0.0053162
+position = Vector2( 738.335, -595.839 )
+rotation = 0.00530113
 offset = 152.401
 script = ExtResource( 1 )
 
@@ -96,8 +92,8 @@ position = Vector2( 644.733, 585.841 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemys/Path2D4"]
-position = Vector2( 738.334, -595.839 )
-rotation = 0.0053162
+position = Vector2( 738.335, -595.839 )
+rotation = 0.00530113
 offset = 152.401
 script = ExtResource( 1 )
 

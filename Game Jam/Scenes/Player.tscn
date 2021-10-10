@@ -121,51 +121,51 @@ region = Rect2( 128, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 64, 32, 32 )
+region = Rect2( 128, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 64, 32, 32 )
+region = Rect2( 0, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 64, 32, 32 )
+region = Rect2( 32, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 32, 32 )
+region = Rect2( 32, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 32, 32 )
+region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 32, 32, 32 )
+region = Rect2( 96, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 32, 32, 32 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 1 )
-region = Rect2( 128, 32, 32, 32 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 64, 32, 32 )
+region = Rect2( 64, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 1 )
-region = Rect2( 128, 64, 32, 32 )
+region = Rect2( 96, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 96, 32, 32 )
+region = Rect2( 128, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 96, 32, 32 )
+region = Rect2( 0, 64, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=33]
 animations = [ {
@@ -181,18 +181,18 @@ animations = [ {
 }, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
-}, {
-"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
-"loop": true,
-"name": "fall",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=34]
@@ -211,6 +211,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -80 )
 current = true
@@ -225,9 +228,6 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 editor_draw_drag_margin = true
 script = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="." groups=[
 "Glow",
@@ -246,11 +246,11 @@ texture = ExtResource( 4 )
 "Glow",
 ]]
 material = SubResource( 7 )
-position = Vector2( -0.146757, 0.183261 )
+position = Vector2( 0.992035, 0.0824261 )
 frames = SubResource( 33 )
 animation = "idle"
-frame = 1
 playing = true
+offset = Vector2( -0.121561, 0.135912 )
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -268,6 +268,7 @@ script = ExtResource( 7 )
 script = ExtResource( 10 )
 
 [node name="Earth" type="Node2D" parent="StateMachine"]
+position = Vector2( 0.140308, 0.175385 )
 script = ExtResource( 9 )
 
 [node name="Sensors" type="Node2D" parent="."]
@@ -307,6 +308,17 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Left"]
 shape = SubResource( 34 )
 
+[node name="Inner" type="Area2D" parent="Sensors"]
+position = Vector2( -4.24264, 0 )
+rotation = 1.57079
+collision_layer = 8
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Inner"]
+position = Vector2( 0.00783912, -4.24264 )
+rotation = -1.57079
+shape = SubResource( 1 )
+
 [node name="DownCast" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 10 )
@@ -321,7 +333,6 @@ collision_mask = 31
 enabled = true
 cast_to = Vector2( -5, 11 )
 collision_mask = 31
-
 [connection signal="body_entered" from="Sensors/Top" to="StateMachine" method="_on_Top_body_entered"]
 [connection signal="body_exited" from="Sensors/Top" to="StateMachine" method="_on_Top_body_exited"]
 [connection signal="body_entered" from="Sensors/Buttom" to="StateMachine" method="_on_Buttom_body_entered"]
@@ -330,3 +341,5 @@ collision_mask = 31
 [connection signal="body_exited" from="Sensors/Right" to="StateMachine" method="_on_Right_body_exited"]
 [connection signal="body_entered" from="Sensors/Left" to="StateMachine" method="_on_Left_body_entered"]
 [connection signal="body_exited" from="Sensors/Left" to="StateMachine" method="_on_Left_body_exited"]
+[connection signal="body_entered" from="Sensors/Inner" to="StateMachine" method="_on_Inner_body_entered"]
+[connection signal="body_exited" from="Sensors/Inner" to="StateMachine" method="_on_Inner_body_exited"]
