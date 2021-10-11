@@ -4,6 +4,6 @@
 
 [node name="Backgroud" type="Sprite"]
 modulate = Color( 0.0431373, 0.054902, 0.105882, 1 )
-position = Vector2( 116.253, -1085.04 )
-scale = Vector2( 2439.1, 1435.06 )
+scale = Vector2( 400, 200 )
 texture = ExtResource( 1 )
+centered = false

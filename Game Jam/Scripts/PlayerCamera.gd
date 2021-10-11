@@ -25,7 +25,7 @@ func _process(delta):
 		global_position = get_node(target).global_position
 	if trauma:
 		trauma = max(trauma - decay * delta, 0)
-		shake()
+#		shake()
 
 func shake():
 	var amount = pow(trauma, trauma_power)

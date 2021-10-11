@@ -217,8 +217,6 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -80 )
 current = true
-zoom = Vector2( 0.6, 0.6 )
-limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
@@ -249,7 +247,7 @@ material = SubResource( 7 )
 position = Vector2( 0.992035, 0.0824261 )
 frames = SubResource( 33 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 offset = Vector2( -0.121561, 0.135912 )
 
@@ -334,6 +332,8 @@ collision_mask = 31
 enabled = true
 cast_to = Vector2( -5, 11 )
 collision_mask = 31
+
+[node name="Camera2D2" type="Camera2D" parent="."]
 [connection signal="body_entered" from="Sensors/Top" to="StateMachine" method="_on_Top_body_entered"]
 [connection signal="body_exited" from="Sensors/Top" to="StateMachine" method="_on_Top_body_exited"]
 [connection signal="body_entered" from="Sensors/Buttom" to="StateMachine" method="_on_Buttom_body_entered"]

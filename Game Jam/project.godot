@@ -30,6 +30,7 @@ settings/fps/force_fps=60
 
 window/size/width=960
 window/size/height=540
+window/stretch/mode="viewport"
 
 [importer_defaults]
 
