@@ -52,8 +52,8 @@ func dash():
 	
 	GlobalTool.set_all_glow(ElementState.PARTICLE)
 
-	$Camera2D.add_trauma(0.4)
-	$Camera2D.shake()
+#	$Camera2D.add_trauma(0.4)
+#	$Camera2D.shake()
 
 	for c in get_tree().get_nodes_in_group("Grate"):
 		c.get_node("CollisionShape2D").set_deferred("disabled", false)

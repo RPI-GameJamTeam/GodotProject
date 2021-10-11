@@ -38,6 +38,10 @@ func _physics_process(delta):
 
 	# apply gravity
 	get_parent().velocity.y += player.gravity * 4 * delta * 2
+	
+	# velocity to interger
+	get_parent().velocity.x = round(get_parent().velocity.x)
+	get_parent().velocity.y = round(get_parent().velocity.y)
 
 	# move
 	get_parent().velocity = player.move_and_slide_with_snap(get_parent().velocity, Vector2.DOWN, Vector2.UP)

@@ -119,6 +119,6 @@ func dash():
 	var dashRadius = 100
 	position = position + input * dashRadius
 	$Particles2D.restart()
-	$Camera2D.add_trauma(0.4)
-	$Camera2D.shake()
+#	$Camera2D.add_trauma(0.4)
+#	$Camera2D.shake()
 	

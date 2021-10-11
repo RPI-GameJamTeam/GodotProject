@@ -22,10 +22,12 @@ func _ready():
 
 func _process(delta):
 	if target:
-		global_position = get_node(target).global_position
+		global_position.x = round(get_node(target).global_position.x)
+		global_position.y = round(get_node(target).global_position.y)
 	if trauma:
-		trauma = max(trauma - decay * delta, 0)
+#		trauma = max(trauma - decay * delta, 0)
 #		shake()
+		pass
 
 func shake():
 	var amount = pow(trauma, trauma_power)
