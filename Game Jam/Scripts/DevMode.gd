@@ -5,6 +5,7 @@ export var devMode : bool
 var player
 
 func _process(delta):
+	print('ha')
 	if !devMode:
 		return null
 	
