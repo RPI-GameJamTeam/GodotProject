@@ -50,6 +50,7 @@ margin_left = 475.251
 margin_top = -71.4814
 margin_right = 604.251
 margin_bottom = -49.4814
+mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
 text = "press shift please :)"
 __meta__ = {

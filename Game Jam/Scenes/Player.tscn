@@ -122,6 +122,7 @@ region = Rect2( 96, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 1 )
+<<<<<<< Updated upstream
 region = Rect2( 128, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
@@ -167,6 +168,53 @@ region = Rect2( 128, 32, 32, 32 )
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 64, 32, 32 )
+=======
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 96, 32, 32 )
+>>>>>>> Stashed changes
 
 [sub_resource type="SpriteFrames" id=33]
 animations = [ {
@@ -180,20 +228,36 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
+<<<<<<< Updated upstream
 "frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+=======
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+>>>>>>> Stashed changes
 "loop": true,
 "name": "death",
 "speed": 5.0
 }, {
+<<<<<<< Updated upstream
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
+=======
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+>>>>>>> Stashed changes
 } ]
 
 [sub_resource type="RectangleShape2D" id=34]
@@ -248,7 +312,11 @@ material = SubResource( 7 )
 position = Vector2( 0.992035, 0.0824261 )
 frames = SubResource( 33 )
 animation = "idle"
+<<<<<<< Updated upstream
 frame = 2
+=======
+frame = 1
+>>>>>>> Stashed changes
 playing = true
 offset = Vector2( -0.121561, 0.135912 )
 
