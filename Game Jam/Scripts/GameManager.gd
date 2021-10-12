@@ -2,7 +2,6 @@ extends Node
 
 
 export var level_index : int = 1
-export var developer_mode : bool = false
 
 var current_level_index
 var cookie_count

@@ -57,3 +57,7 @@ func decreaseHP(amount):
 	
 	if health == 0:
 		player.die()
+
+func increaseHP(amount):
+	health += amount
+	$HealthBar.set_value(health / maxHealth * 100)

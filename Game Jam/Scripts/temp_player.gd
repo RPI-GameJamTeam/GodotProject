@@ -16,8 +16,17 @@ var input = Vector2()
 var spawnPos = Vector2()
 var dead = false
 
+var invulnerable : bool = false
+var collideable : bool = true
+var col_layer
+var col_mask
+
 func _ready():
 	spawnPos = position
+	
+	col_layer = collision_layer
+	col_mask = collision_mask
+	
 	reset()
 
 func reset():
@@ -71,6 +80,7 @@ func set_state(s):
 	get_node("StateMachine/Fire").is_active = false
 	get_node("StateMachine/Air").is_active = false
 	get_node("StateMachine/Earth").is_active = false
+	get_node("StateMachine/GodMode").is_active = false
 	
 	if state != ElementState.EARTH:
 		rotation = 0
@@ -129,8 +139,26 @@ func die():
 	$AnimatedSprite.play("death")
 	get_tree().get_root().get_child(1).reset_level()
 
-
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "death":
 		pass
+
+func toggleInvulnerable():
+	invulnerable = !invulnerable
+
+func toggleCollideable():
+	set_state(ElementState.PARTICLE)
+	transitionToParticle()
+	
+	if collideable:
+		collision_layer = 0
+		collision_mask = 0
+		collideable = false
+		get_node("StateMachine/Particle").is_active = false
+		get_node("StateMachine/GodMode").is_active = true
+	else:
+		collision_layer = col_layer
+		collision_mask = col_mask
+		collideable = true
+		get_node("StateMachine/Particle").is_active = true
+		get_node("StateMachine/GodMode").is_active = false

@@ -37,8 +37,13 @@ func playSFX():
 	$SFX.play()
 	playSFX()
 	
-func _process(delta):	
+func _process(delta):
+	var player = get_tree().get_nodes_in_group('Player')[0]
+	
+	if player.invulnerable:
+		return null
+	
 	if player_in_area:
 		if $RayCast2D.is_colliding() or $RayCast2D2.is_colliding():
-			get_tree().get_nodes_in_group('Player')[0].die()   
+			player.die()   
 
