@@ -44,7 +44,8 @@ func load_level_file():
 	var temp = load("res://Level/Level"+str(current_level_index)+".tscn")
 	# if next level not existed, load the win screen for the end of the game
 	if temp == null:
-		var credits = load("res://UI/WinScreen.tscn").instance()
+		var credits = load("res://UI/WinScreenNew.tscn").instance()
+		get_node("DeveloperMode").devMode = false
 		self.add_child(credits)
 	# if next level existed, load the next level
 	else:

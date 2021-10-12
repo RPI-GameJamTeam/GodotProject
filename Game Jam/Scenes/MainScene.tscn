@@ -6,8 +6,6 @@
 [ext_resource path="res://Scenes/OptionMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=6]
 
-
-
 [sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true
@@ -45,7 +43,7 @@ tracks/0/keys = {
 
 [node name="MainScene" type="Node"]
 script = ExtResource( 6 )
-level_index = 5
+level_index = 12
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1
