@@ -16,6 +16,7 @@ margin_left = -2.80618
 margin_top = 6.17354
 margin_right = -2.80615
 margin_bottom = 6.17352
+mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,6 +30,7 @@ margin_top = 6.35678
 margin_right = 40.0
 margin_bottom = 46.3568
 rect_scale = Vector2( 5.18462, 5.18462 )
+mouse_filter = 2
 value = 50.0
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
@@ -47,6 +49,7 @@ margin_left = -15.8577
 margin_top = -15.5977
 margin_right = 24.1423
 margin_bottom = 24.4023
+mouse_filter = 2
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false

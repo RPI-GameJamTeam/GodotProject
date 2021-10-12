@@ -3,6 +3,8 @@ extends Node
 
 export var level_index : int = 1
 
+onready var menu = $OptionMenu/OptionMenu
+
 var current_level_index
 var cookie_count
 
@@ -69,4 +71,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	# change level when fade away animation finished
 	if anim_name == "fade_to_black":
 		next_level()
+		
+func _input(event):
+	if event.is_action_pressed('ui_cancel'):
+		if menu.visible:
+			menu.hide()
+		else:
+			menu.show()
 
