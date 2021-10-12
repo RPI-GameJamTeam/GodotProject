@@ -47,7 +47,10 @@ func dash():
 		i = i + 1
 	
 	position = point
+	
+	transitionToParticle()
 
+func transitionToParticle():
 	$Particles2D.restart()
 	
 	GlobalTool.set_all_glow(ElementState.PARTICLE)
@@ -84,6 +87,7 @@ func set_state(s):
 			get_node("StateMachine/Fire").is_active = true
 		ElementState.AIR:
 			get_node("StateMachine/Air").is_active = true
+			get_node("StateMachine/Air").charges = 3
 		ElementState.EARTH:
 			get_node("StateMachine/Earth").is_active = true
 

@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -106,6 +105,11 @@ restart={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+air_slow={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 
@@ -113,7 +117,8 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/2d/use_pixel_snap=true
+2d/snapping/use_gpu_pixel_snap=true
 gles2/compatibility/disable_half_float=true
 environment/default_clear_color=Color( 0.0745098, 0.0980392, 0.176471, 1 )
 environment/default_environment="res://default_env.tres"
+quality/2d/use_pixel_snap=true
