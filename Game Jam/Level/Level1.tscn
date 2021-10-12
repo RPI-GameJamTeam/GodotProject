@@ -2,12 +2,14 @@
 
 [ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Shader.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/VellumShader.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/PickupManager.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/InteractItem/PickupManager.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/DecorationTile.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/EasyTile.tscn" type="PackedScene" id=10]
+
+
 
 [node name="dirt_tutorial" type="Node2D" groups=[
 "Level",

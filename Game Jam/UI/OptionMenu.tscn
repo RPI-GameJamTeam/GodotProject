@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/OptionMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/OptionMenu.gd" type="Script" id=1]
 [ext_resource path="res://Asset/Art/UI/option_menu.png" type="Texture" id=2]
+
 
 [node name="OptionMenu" type="Control"]
 anchor_right = 1.0

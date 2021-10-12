@@ -1,11 +1,12 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scripts/WinScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/WinScreen.gd" type="Script" id=1]
 [ext_resource path="res://UI/TitleSreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Asset/Art/UI/end_logo.png" type="Texture" id=3]
 [ext_resource path="res://Asset/Art/UI/name.png" type="Texture" id=4]
 [ext_resource path="res://Asset/Font/Akronim-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Shader/Glow.tres" type="Material" id=6]
+
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;

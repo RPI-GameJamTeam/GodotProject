@@ -1,6 +1,5 @@
 extends Node
 
-
 export var level_index : int = 1
 
 onready var menu = $OptionMenu/OptionMenu

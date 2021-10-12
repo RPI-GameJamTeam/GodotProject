@@ -1,15 +1,18 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scripts/EnemyCycle.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Character/EnemyCycle.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/EasyTile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Backgroud.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/NotUsed/Backgroud.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Shader.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/VellumShader.tscn" type="PackedScene" id=10]
+
+
+
 
 [sub_resource type="Curve2D" id=1]
 _data = {

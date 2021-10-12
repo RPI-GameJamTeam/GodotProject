@@ -1,9 +1,10 @@
 [gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Asset/Art/Character & Enemy/enemy-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Character/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Asset/Art/LightTexture/eye_light.png" type="Texture" id=3]
 [ext_resource path="res://Asset/Sound effect/monster_sfx.wav" type="AudioStream" id=4]
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )

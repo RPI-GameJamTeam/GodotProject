@@ -1,16 +1,28 @@
 [gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Asset/Art/Character & Enemy/Character-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/temp_player.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/PlayerCamera.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Character/temp_player.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Character/PlayerCamera.gd" type="Script" id=3]
 [ext_resource path="res://Asset/Art/ParticalAsset/floaty_64.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Default.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Fire_Move.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/WaterMove.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/EarthMove.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/AirMove.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/GodMode.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Movement/StateMachine.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Movement/ParticalMove.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Movement/FireMove.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Movement/WaterMove.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Movement/EarthMove.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Movement/AirMove.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Dev/GodMode.gd" type="Script" id=11]
+
+
+
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.20165
