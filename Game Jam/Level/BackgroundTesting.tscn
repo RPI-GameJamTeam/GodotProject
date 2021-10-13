@@ -2,10 +2,11 @@
 
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Shader.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/VellumShader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/EasyTile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
+
 
 [node name="dirt_tutorial" type="Node2D" groups=[
 "Level",

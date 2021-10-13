@@ -1,7 +1,8 @@
 extends Node
 
-
 export var level_index : int = 1
+
+onready var menu = $OptionMenu/OptionMenu
 
 var current_level_index
 var cookie_count
@@ -43,7 +44,8 @@ func load_level_file():
 	var temp = load("res://Level/Level"+str(current_level_index)+".tscn")
 	# if next level not existed, load the win screen for the end of the game
 	if temp == null:
-		var credits = load("res://UI/WinScreen.tscn").instance()
+		var credits = load("res://UI/WinScreenNew.tscn").instance()
+		get_node("DeveloperMode").devMode = false
 		self.add_child(credits)
 	# if next level existed, load the next level
 	else:
@@ -69,4 +71,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	# change level when fade away animation finished
 	if anim_name == "fade_to_black":
 		next_level()
+		
+func _input(event):
+	if event.is_action_pressed('ui_cancel'):
+		if menu.visible:
+			menu.hide()
+		else:
+			menu.show()
 

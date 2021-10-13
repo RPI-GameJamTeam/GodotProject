@@ -1,16 +1,16 @@
 [gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Asset/Art/Character & Enemy/Character-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/temp_player.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/PlayerCamera.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Character/temp_player.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Character/PlayerCamera.gd" type="Script" id=3]
 [ext_resource path="res://Asset/Art/ParticalAsset/floaty_64.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Default.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Fire_Move.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/WaterMove.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/EarthMove.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/AirMove.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/GodMode.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Movement/StateMachine.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Movement/ParticalMove.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Movement/FireMove.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Movement/WaterMove.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Movement/EarthMove.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Movement/AirMove.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Dev/GodMode.gd" type="Script" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.20165
@@ -102,71 +102,71 @@ region = Rect2( 32, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 64, 32, 32 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 64, 32, 32 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 64, 32, 32 )
+region = Rect2( 64, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 96, 32, 32 )
+region = Rect2( 96, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 96, 32, 32 )
+region = Rect2( 128, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 1 )
-region = Rect2( 128, 96, 32, 32 )
+region = Rect2( 0, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 128, 32, 32 )
+region = Rect2( 64, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 128, 32, 32 )
+region = Rect2( 96, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 128, 32, 32 )
+region = Rect2( 128, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 128, 32, 32 )
+region = Rect2( 0, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 1 )
-region = Rect2( 128, 128, 32, 32 )
+region = Rect2( 32, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 32, 32 )
+region = Rect2( 64, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 32, 32 )
+region = Rect2( 96, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 32, 32, 32 )
+region = Rect2( 128, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 32, 32, 32 )
+region = Rect2( 32, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 1 )
-region = Rect2( 128, 32, 32, 32 )
+region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 64, 32, 32 )
+region = Rect2( 96, 64, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=33]
 animations = [ {
@@ -180,20 +180,20 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
-"name": "jump",
-"speed": 5.0
+"name": "run",
+"speed": 10.0
 }, {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "death",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
-"name": "run",
-"speed": 10.0
+"name": "jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=34]
@@ -248,7 +248,7 @@ material = SubResource( 7 )
 position = Vector2( 0.992035, 0.0824261 )
 frames = SubResource( 33 )
 animation = "idle"
-frame = 2
+frame = 4
 playing = true
 offset = Vector2( -0.121561, 0.135912 )
 
@@ -339,7 +339,6 @@ cast_to = Vector2( -5, 11 )
 collision_mask = 31
 
 [node name="Camera2D2" type="Camera2D" parent="."]
-
 [connection signal="body_entered" from="Sensors/Top" to="StateMachine" method="_on_Top_body_entered"]
 [connection signal="body_exited" from="Sensors/Top" to="StateMachine" method="_on_Top_body_exited"]
 [connection signal="body_entered" from="Sensors/Buttom" to="StateMachine" method="_on_Buttom_body_entered"]

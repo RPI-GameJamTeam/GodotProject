@@ -1,12 +1,13 @@
 [gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Asset/Art/Avatar/Food 1.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/PickUp.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/InteractItem/PickUp.gd" type="Script" id=2]
 [ext_resource path="res://Asset/Art/ParticalAsset/floaty_64.png" type="Texture" id=3]
 [ext_resource path="res://Asset/Art/Avatar/fire_ele.png" type="Texture" id=4]
 [ext_resource path="res://Asset/Art/Avatar/water_ele.png" type="Texture" id=5]
 [ext_resource path="res://Asset/Art/Avatar/earth_ele.png" type="Texture" id=6]
 [ext_resource path="res://Asset/Art/Avatar/air_ele.png" type="Texture" id=7]
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
