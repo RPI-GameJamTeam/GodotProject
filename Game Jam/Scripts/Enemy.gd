@@ -6,10 +6,10 @@ enum SPRITE {FLY, RUN, IDLE}
 
 var player_in_area : bool = false 
 
-func _on_CheckPlayer_body_entered(_body):
+func _on_CheckPlayer_body_entered(body):
 	player_in_area = true
 
-func _on_CheckPlayer_body_exited(_body):
+func _on_CheckPlayer_body_exited(body):
 	player_in_area = false
 	
 func _ready():
@@ -37,16 +37,12 @@ func playSFX():
 	$SFX.play()
 	playSFX()
 	
-<<<<<<< Updated upstream
 func _process(delta):
 	var player = get_tree().get_nodes_in_group('Player')[0]
 	
 	if player.invulnerable:
 		return null
 	
-=======
-func _process(_delta):	
->>>>>>> Stashed changes
 	if player_in_area:
 		if $RayCast2D.is_colliding() or $RayCast2D2.is_colliding():
 			player.die()   

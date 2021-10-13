@@ -20,7 +20,7 @@ func _ready():
 	noise.period = 4
 	noise.octaves = 2
 
-func _process(_delta):
+func _process(delta):
 	if target:
 		global_position.x = round(get_node(target).global_position.x)
 		global_position.y = round(get_node(target).global_position.y)

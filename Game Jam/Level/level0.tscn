@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/EnemyCycle.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Backgroud.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -18,6 +19,8 @@ _data = {
 [node name="dirt_tutorial" type="Node2D" groups=[
 "Level",
 ]]
+
+[node name="Backgroud" parent="." instance=ExtResource( 10 )]
 
 [node name="TileMap" parent="." instance=ExtResource( 6 )]
 
@@ -37,7 +40,6 @@ setType = 16
 
 [node name="HUD" parent="HUD" instance=ExtResource( 4 )]
 visible = false
-mouse_filter = 2
 maxHealth = 105
 
 [node name="Shader" type="CanvasLayer" parent="."]
@@ -46,7 +48,6 @@ maxHealth = 105
 "Vignette",
 ] instance=ExtResource( 5 )]
 visible = false
-mouse_filter = 2
 
 [node name="Obstacles" type="Node2D" parent="."]
 
