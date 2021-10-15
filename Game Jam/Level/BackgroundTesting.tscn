@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
 
-
 [node name="dirt_tutorial" type="Node2D" groups=[
 "Level",
 ]]
