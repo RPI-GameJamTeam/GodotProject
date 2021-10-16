@@ -42,9 +42,11 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[node name="MainScene" type="Node"]
+[node name="MainScene" type="Node" groups=[
+"Main",
+]]
 script = ExtResource( 6 )
-level_index = 12
+level_index = 4
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1

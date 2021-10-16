@@ -46,7 +46,8 @@ func _on_PickUp_body_entered(body):
 			$AnimatedSprite.hide()
 			$CollisionShape2D.set_deferred("disabled", true)
 			
-			get_tree().get_root().get_child(1).kill_cookie()
+			get_tree().get_nodes_in_group("Main")[0].kill_cookie()
+			
 			
 			var t = Timer.new()
 			t.set_wait_time(1.2)
