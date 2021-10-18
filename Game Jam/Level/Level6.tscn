@@ -8,7 +8,6 @@
 [ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
 
-
 [node name="fire_tutorial" type="Node2D" groups=[
 "Level",
 ]]
@@ -49,13 +48,13 @@ visible = false
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Grate" parent="Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 705, -113 )
+position = Vector2( 704, -112 )
 
 [node name="Grate2" parent="Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 766.431, -113 )
+position = Vector2( 768, -112 )
 
 [node name="Grate3" parent="Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 734.647, -239.076 )
+position = Vector2( 736, -240 )
 
 [node name="KillZone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 340.084, 113.027 )

@@ -10,8 +10,6 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
 
-
-
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 525.78, -609.384, 0, 0, 0, 0, 1297.32, -600.707, 0, 0, 0, 0, 1291.98, -572.008, 0, 0, 0, 0, 536.459, -585.357, 0, 0, 0, 0, 536.665, -604.828 )
@@ -57,23 +55,23 @@ visible = false
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Grate" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 353.441, -337.136 )
+position = Vector2( 352, -336 )
 rotation = 3.14159
 
 [node name="Grate2" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 560.561, -383.716 )
+position = Vector2( 560, -384 )
 rotation = 1.57079
 
 [node name="Grate4" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 400.381, -160.13 )
+position = Vector2( 400, -160 )
 rotation = 1.57079
 
 [node name="Grate5" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 527.19, -158.796 )
+position = Vector2( 528, -160 )
 rotation = -1.57079
 
 [node name="Grate3" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 1214.8, -430.913 )
+position = Vector2( 1216, -432 )
 
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 190.245, 120.146 )

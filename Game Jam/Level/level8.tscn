@@ -8,7 +8,6 @@
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=8]
 
-
 [node name="dirt_tutorial" type="Node2D" groups=[
 "Level",
 ]]
@@ -66,19 +65,19 @@ visible = false
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Grate" parent="Obstacles" instance=ExtResource( 8 )]
-position = Vector2( -32.9557, -337.848 )
+position = Vector2( -32, -335.842 )
 
 [node name="Grate3" parent="Obstacles" instance=ExtResource( 8 )]
-position = Vector2( -288.591, -241.377 )
+position = Vector2( -288, -240.031 )
 
 [node name="Grate5" parent="Obstacles" instance=ExtResource( 8 )]
-position = Vector2( -161.582, -113.136 )
+position = Vector2( -160, -112 )
 
 [node name="Grate2" parent="Obstacles" instance=ExtResource( 8 )]
-position = Vector2( 29.4072, -238.958 )
+position = Vector2( 32, -240.031 )
 
 [node name="Grate4" parent="Obstacles" instance=ExtResource( 8 )]
-position = Vector2( -1025.6, 79.2404 )
+position = Vector2( -1024, 80 )
 
 [node name="Enemys" type="Node2D" parent="."]
 
