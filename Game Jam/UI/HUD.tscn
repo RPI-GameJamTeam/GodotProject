@@ -7,7 +7,6 @@
 [ext_resource path="res://Asset/Art/Avatar/air_ele.png" type="Texture" id=5]
 [ext_resource path="res://Shader/Glow.tres" type="Material" id=6]
 
-
 [node name="HUD" type="Control" groups=[
 "HUD",
 ]]
@@ -40,7 +39,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="frame" type="Sprite" parent="."]
+[node name="frame" type="Sprite" parent="." groups=[
+"Glow",
+]]
+material = ExtResource( 6 )
 position = Vector2( 232.209, 89.522 )
 scale = Vector2( 5.18462, 5.18462 )
 texture = ExtResource( 4 )
