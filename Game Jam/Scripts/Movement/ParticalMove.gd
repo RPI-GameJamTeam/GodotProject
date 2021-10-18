@@ -43,9 +43,13 @@ func _physics_process(delta):
 	get_parent().velocity.x = round(get_parent().velocity.x)
 	get_parent().velocity.y = round(get_parent().velocity.y)
 
-	# move
-	get_parent().velocity = player.move_and_slide_with_snap(get_parent().velocity, Vector2.DOWN, Vector2.UP)
+	
 
 	if get_parent().grounded and Input.is_action_just_pressed("jump"):
+		get_parent().is_jumping = true
 		get_parent().velocity.y += -player.JUMP_SPEED
+		
+	# move
+	var snap = Vector2.DOWN * 9 if !get_parent().is_jumping else Vector2.ZERO
+	get_parent().velocity = player.move_and_slide_with_snap(get_parent().velocity, snap, Vector2.UP)
 	

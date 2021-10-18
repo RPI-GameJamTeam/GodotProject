@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/InteractItem/ElevatorCycle.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/InteractItem/Elevator.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=4]
@@ -9,11 +9,6 @@
 [ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Elevator.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 883.382, 162.481, 0, 0, 0, 0, 882, -57, 0, 0, 0, 0, 883.435, 159.697, 0, 0, 0, 0, 883.382, 162.481 )
-}
 
 [node name="dirt_tutorial" type="Node2D" groups=[
 "Level",
@@ -25,6 +20,7 @@ tile_data = PoolIntArray( -262141, -1610612732, 0, -262140, 1610612738, 0, -2621
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( -10.1082, 117.058 )
+collision/safe_margin = 0.5
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -75,16 +71,12 @@ rotation = 4.71238
 position = Vector2( 560, 128 )
 rotation = 7.85397
 
-[node name="Path2D" type="Path2D" parent="Obstacles"]
-position = Vector2( -37, 10 )
-curve = SubResource( 1 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Obstacles/Path2D"]
-position = Vector2( 883.382, 162.481 )
-rotate = false
+[node name="Elevator" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( -10, 156 )
+scale = Vector2( 3, 3 )
+collision/safe_margin = 0.5
 script = ExtResource( 1 )
-
-[node name="Elevator" parent="Obstacles/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+speed = 80
 
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 291.807, 453.342 )

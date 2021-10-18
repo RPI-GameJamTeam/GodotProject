@@ -5,6 +5,7 @@ var right_contact : bool = false
 var left_contact : bool = false
 var top_contact : bool = false
 var clipping : bool = false
+var is_jumping : bool = false
 
 var grounded
 var groundedLeft
@@ -36,12 +37,14 @@ func clipping_fixer():
 		# this fucntion only fix clipping to right head wall
 		# to compelte the fucntion need the head_up direction for the player
 		get_parent().position += head_up
+		pass
 
 
 func _on_Top_body_entered(_body):
 	top_contact = true
 
 func _on_Buttom_body_entered(_body):
+	is_jumping = false
 	on_floor = true
 
 func _on_Right_body_entered(_body):
