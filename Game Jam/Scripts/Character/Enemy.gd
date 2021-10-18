@@ -24,7 +24,9 @@ func _ready():
 			$AnimatedSprite.animation = "run"
 			$AnimatedSprite.play()
 	playSFX()
-
+	
+	$Light2D.range_layer_min = -1
+	
 func playSFX():
 	randomize()
 	var t = Timer.new()
