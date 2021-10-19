@@ -4,6 +4,7 @@ export(int) var speed = 1
 export(float) var distanceMargin = 0.5
 export(PoolVector2Array) var targetPoints
 export(Curve) var movingBuffer
+export(Vector2) var scale_for_sprite
 
 var targetPointIndex = 0
 var originalPosition : Vector2
@@ -13,6 +14,7 @@ onready var elevator = $KinematicBody2D
 func _ready():
 	targetPoints.insert(0, Vector2.ZERO)
 	originalPosition = elevator.position
+	elevator.scale = scale_for_sprite
 
 func _physics_process(delta):
 #	for point in targetPoints:
