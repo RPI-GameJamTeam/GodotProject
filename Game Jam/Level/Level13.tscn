@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/InteractItem/Elevator.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=4]
@@ -71,13 +70,12 @@ rotation = 4.71238
 position = Vector2( 560, 128 )
 rotation = 7.85397
 
-[node name="Elevator" parent="Obstacles" instance=ExtResource( 8 )]
-position = Vector2( -10, 156 )
-scale = Vector2( 3, 3 )
-collision/safe_margin = 0.5
-script = ExtResource( 1 )
-speed = 80
-
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 291.807, 453.342 )
 scale = Vector2( 83.2687, 2.87145 )
+
+[node name="MovingPlatform" type="Node2D" parent="."]
+
+[node name="Elevator" parent="MovingPlatform" instance=ExtResource( 8 )]
+position = Vector2( -10, 156 )
+scale = Vector2( 3, 3 )
