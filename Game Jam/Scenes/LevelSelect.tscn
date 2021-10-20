@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/UI/LevelSelect.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Asset/Font/GemunuLibre-VariableFont_wght.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 52
+font_data = SubResource( 1 )
+
+[node name="LevelSelect" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelSelectLabel" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 44.0
+margin_bottom = 348.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Level Select"
+fit_content_height = true
+
+[node name="LevelSelectButtons" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 352.0
+margin_right = 44.0
+margin_bottom = 352.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftSpacer" type="Control" parent="VBoxContainer/LevelSelectButtons"]
+margin_right = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonGrid" type="GridContainer" parent="VBoxContainer/LevelSelectButtons"]
+margin_left = 22.0
+margin_right = 22.0
+columns = 3
+
+[node name="RightSpacer" type="Control" parent="VBoxContainer/LevelSelectButtons"]
+margin_left = 26.0
+margin_right = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NavigationButtons" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 356.0
+margin_right = 44.0
+margin_bottom = 376.0
+
+[node name="Left" type="Button" parent="VBoxContainer/NavigationButtons"]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="Back" type="Button" parent="VBoxContainer/NavigationButtons"]
+margin_left = 16.0
+margin_right = 28.0
+margin_bottom = 20.0
+
+[node name="Right" type="Button" parent="VBoxContainer/NavigationButtons"]
+margin_left = 32.0
+margin_right = 44.0
+margin_bottom = 20.0
