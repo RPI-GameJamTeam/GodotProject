@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Game_Jam_10.1"
+config/name="QuantumLeap"
 run/main_scene="res://UI/TitleSreen.tscn"
 
 [autoload]
