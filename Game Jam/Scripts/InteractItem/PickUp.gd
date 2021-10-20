@@ -1,3 +1,4 @@
+tool
 extends Area2D
 
 export(int, FLAGS, "WATER", "FIRE", "AIR", "EARTH", "COOKIE") var setType = 0

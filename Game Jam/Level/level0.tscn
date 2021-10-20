@@ -75,4 +75,5 @@ scale = Vector2( 83.2687, 2.87145 )
 
 [node name="Elevator" parent="MovingPlatfom" instance=ExtResource( 10 )]
 position = Vector2( 237.611, 18.4549 )
+targetPoints = PoolVector2Array( 0, 0, 0, 0, 60, 0 )
 scale_for_sprite = Vector2( 3, 3 )
