@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Character/EnemyCycle.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Grate.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Elevator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -69,3 +70,9 @@ position = Vector2( 13.6591, -1.49573 )
 [node name="KillZone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 190.245, 120.146 )
 scale = Vector2( 83.2687, 2.87145 )
+
+[node name="MovingPlatfom" type="Node2D" parent="."]
+
+[node name="Elevator" parent="MovingPlatfom" instance=ExtResource( 10 )]
+position = Vector2( 237.611, 18.4549 )
+scale_for_sprite = Vector2( 3, 3 )

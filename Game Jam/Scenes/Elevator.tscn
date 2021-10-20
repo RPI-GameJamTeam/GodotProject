@@ -4,20 +4,23 @@
 [ext_resource path="res://Shader/Glow.tres" type="Material" id=2]
 [ext_resource path="res://Scripts/InteractItem/Elevator.gd" type="Script" id=3]
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0.354545 ), 0.0, 0.0, 0, 0, Vector2( 0.191956, 1 ), 0.0, 0.113016, 0, 0, Vector2( 0.802559, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.327273 ), -0.286888, 0.0, 0, 0 ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15, 3 )
 
 [node name="Elevator" type="Node2D"]
 position = Vector2( 40, 42 )
 script = ExtResource( 3 )
 speed = 40
-targetPoints = PoolVector2Array( 60, 0 )
-movingBuffer = SubResource( 2 )
+targetPoints = PoolVector2Array( 0, 0, 60, 0 )
+movingBuffer = SubResource( 1 )
+scale_for_sprite = Vector2( 1, 1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 5.64199, 0 )
+scale = Vector2( 1e-05, 1e-05 )
 collision/safe_margin = 0.5
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D" groups=[
@@ -27,4 +30,4 @@ material = ExtResource( 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
