@@ -115,4 +115,5 @@ layer = 2
 
 [node name="OptionMenu" parent="OptionMenu" instance=ExtResource( 4 )]
 visible = false
+
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
