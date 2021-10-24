@@ -8,7 +8,6 @@
 [ext_resource path="res://Asset/Art/Avatar/earth_ele.png" type="Texture" id=6]
 [ext_resource path="res://Asset/Art/Avatar/air_ele.png" type="Texture" id=7]
 
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
@@ -73,11 +72,6 @@ animations = [ {
 "name": "1idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "0idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "2idle",
@@ -91,6 +85,11 @@ animations = [ {
 "frames": [ SubResource( 13 ) ],
 "loop": true,
 "name": "cookie_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "0idle",
 "speed": 5.0
 } ]
 
@@ -135,7 +134,8 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 14 )
-animation = "cookie_idle"
+animation = "0idle"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 15 )

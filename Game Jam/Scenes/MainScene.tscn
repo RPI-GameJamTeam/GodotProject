@@ -49,7 +49,7 @@ tracks/0/keys = {
 "Main",
 ]]
 script = ExtResource( 6 )
-level_index = 13
+level_index = 14
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1

@@ -9,6 +9,24 @@ var pos
 
 func _ready():
 	pos = position
+	update_type()
+	
+func _process(_delta):
+	if !Engine.editor_hint:
+		position.y = pos.y + sin(OS.get_ticks_msec() / 100)
+	else:
+		update_type()
+	
+	if type == PickUpType.COOKIE:
+		var player = get_tree().get_nodes_in_group("Player")[0]
+		if (player.position - position).length() < 225:
+			$AnimatedSprite.play("cookie_cry")
+		else:			
+			$AnimatedSprite.play("cookie_idle")
+	else:
+		$AnimatedSprite.play(str(type) + "idle")
+
+func update_type():
 	if setType & 1:
 		type = PickUpType.WATER
 	elif setType & 2:
@@ -19,18 +37,6 @@ func _ready():
 		type = PickUpType.EARTH
 	elif setType & 16:
 		type = PickUpType.COOKIE
-	
-func _process(_delta):
-	position.y = pos.y + sin(OS.get_ticks_msec() / 100)
-	
-	if type == PickUpType.COOKIE:
-		var player = get_tree().get_nodes_in_group("Player")[0]
-		if (player.position - position).length() < 225:
-			$AnimatedSprite.play("cookie_cry")
-		else:			
-			$AnimatedSprite.play("cookie_idle")
-	else:
-		$AnimatedSprite.play(str(type) + "idle")
 
 func _on_PickUp_body_entered(body):
 	if body.is_in_group("Player"):
