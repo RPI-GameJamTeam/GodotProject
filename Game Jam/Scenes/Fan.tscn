@@ -78,24 +78,25 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 10, 50 )
+extents = Vector2( 10, 100 )
 
 [node name="Fan" type="Node2D"]
 script = ExtResource( 2 )
-region = Rect2( 0, 0, 20, 100 )
+region = Rect2( 0, 0, 20, 200 )
 rectColor = Color( 0.882353, 0.0901961, 0.0901961, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
 "Glow",
 ]]
 material = SubResource( 2 )
+position = Vector2( 1, 0 )
 frames = SubResource( 12 )
 animation = "fan_on"
-frame = 7
+frame = 6
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, -50 )
+position = Vector2( 0, -100 )
 shape = SubResource( 13 )

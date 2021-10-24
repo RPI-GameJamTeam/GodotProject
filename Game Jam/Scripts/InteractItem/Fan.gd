@@ -6,7 +6,6 @@ export(Color) var rectColor
 export(int) var windPower
 
 var finalRect : Rect2 
-var extend : Vector2
 	
 onready var area = $Area2D
 
@@ -17,7 +16,19 @@ func _process(delta):
 		finalRect.position = -region.size
 		finalRect.position.x = finalRect.position.x/2
 		update()
+		set_collision()
+		
 
+
+func set_collision():
+	#set up shape
+	var shape = $Area2D/CollisionShape2D.get_shape()
+	shape.extents = region.size/2
+	$Area2D/CollisionShape2D.set_shape(shape)
+	
+	#set up position 
+	$Area2D/CollisionShape2D.position.y = -region.size.y/2
+	pass
 		
 	
 func _draw():
