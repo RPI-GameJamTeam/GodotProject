@@ -102,6 +102,7 @@ anims/fade_from_black = SubResource( 2 )
 anims/fade_to_black = SubResource( 3 )
 
 [node name="ColorRect2" parent="CanvasLayer" instance=ExtResource( 5 )]
+mouse_filter = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 autoplay = true
@@ -115,5 +116,4 @@ layer = 2
 
 [node name="OptionMenu" parent="OptionMenu" instance=ExtResource( 4 )]
 visible = false
-
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
