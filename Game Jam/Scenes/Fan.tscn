@@ -73,11 +73,11 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 10, 100 )
+extents = Vector2( 20, 100 )
 
 [node name="Fan" type="Node2D"]
 script = ExtResource( 2 )
-region = Rect2( 0, 0, 20, 200 )
+region = Rect2( 0, 0, 40, 200 )
 rectColor = Color( 0.882353, 0.0901961, 0.0901961, 1 )
 windPower = Vector2( 0, -10 )
 
@@ -85,10 +85,9 @@ windPower = Vector2( 0, -10 )
 "Glow",
 ]]
 material = SubResource( 2 )
-position = Vector2( 1, 0 )
 frames = SubResource( 12 )
 animation = "fan_on"
-frame = 8
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
