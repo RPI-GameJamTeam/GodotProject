@@ -23,3 +23,21 @@ func set_all_glow(index_value):
 				glow_object.process_material.color = get_color(index_value)
 			else:
 				glow_object.material.set_shader_param("glow_color", get_color(index_value))
+
+func speed_clamp(raw_velocity, against_velocity, max_velocity, velocity_factor):
+	var velocity : Vector2
+	var velocity_x = raw_velocity.x
+	var velocity_y = raw_velocity.y
+	var against_velocity_y = against_velocity.y
+	var against_velocity_x = against_velocity.x
+	
+	velocity_x = clamp(velocity_x, (-max_velocity+against_velocity_x)
+	*velocity_factor, (max_velocity+against_velocity_x)*velocity_factor)
+	
+	velocity_y = clamp(velocity_y, (-max_velocity+against_velocity_y)
+	*velocity_factor, (max_velocity+against_velocity_y)*velocity_factor)	
+	
+	velocity.x = velocity_x
+	velocity.y = velocity_y
+	
+	return velocity

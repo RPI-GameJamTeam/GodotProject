@@ -10,19 +10,17 @@ export(Vector2) var scale_for_sprite
 var targetPointIndex = 0
 var originalPosition : Vector2
 
-onready var elevator = $KinematicBody2D
+onready var elevator = $Enemy
 
 func _ready():
-	if !targetPoints[0] == Vector2.ZERO:
+	if targetPoints[0] != Vector2.ZERO:
 		targetPoints.insert(0, Vector2.ZERO)
 	originalPosition = elevator.position
 	elevator.scale = scale_for_sprite
 
 func _physics_process(delta):
-
 	move_to(targetPoints[targetPointIndex], delta)
 	if check_on_target(targetPoints[targetPointIndex]):
-		
 		if targetPoints.size() > targetPointIndex + 1:
 			originalPosition = targetPoints[targetPointIndex]
 			targetPointIndex += 1
@@ -46,3 +44,4 @@ func check_on_target(target_position):
 	else:
 		result = false
 	return result
+

@@ -7,6 +7,7 @@ export(Rect2) var region
 export(Color) var rectColor
 export(Vector2) var windPower
 
+var up_dir = Vector2(0, -1)
 var active : bool = false
 var player : KinematicBody2D
 var finalRect : Rect2
@@ -20,7 +21,6 @@ func _ready():
 	set_collision()
 
 
-
 func _process(delta):
 	# draw the affecting region for the editor only
 	if Engine.editor_hint:
@@ -30,9 +30,10 @@ func _process(delta):
 		update()
 
 	if !Engine.editor_hint:
+		up_dir = Vector2.UP.rotated(self.rotation)
 		if active:
-			player.get_node("StateMachine").velocity += windPower * delta
-
+			if player.state == ElementState.AIR:
+				player.get_node("StateMachine").velocity += windPower.length()* up_dir * delta
 
 
 func set_collision():
@@ -46,20 +47,16 @@ func set_collision():
 	pass
 
 
-
 func _draw():
 	# draw the region
 	draw_rect(finalRect, rectColor, false, 1.0, false)
 
 
-
 func _on_Area2D_body_entered(body):
-	if body.state == ElementState.AIR:
-		active = true
-	else:
-		active = false
-
+	active = true
+	player.get_node("StateMachine/Air").fan_velocity = windPower.length()* up_dir
 
 
 func _on_Area2D_body_exited(body):
+	player.get_node("StateMachine/Air").fan_velocity = Vector2.ZERO
 	active = false

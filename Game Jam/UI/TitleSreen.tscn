@@ -106,10 +106,10 @@ environment = SubResource( 4 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.68188
-margin_top = 3.04446
-margin_right = 1.68188
-margin_bottom = 3.04449
+margin_left = -0.563115
+margin_top = 4.1669
+margin_right = -0.56311
+margin_bottom = 4.16693
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 __meta__ = {

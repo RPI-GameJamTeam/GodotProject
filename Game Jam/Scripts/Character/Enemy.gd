@@ -4,14 +4,14 @@ export(int, "FLY", "RUN", "IDLE") var setAnimation = 0
 
 enum SPRITE {FLY, RUN, IDLE}
 
-var player_in_area : bool = false 
+var player_in_area : bool = false
 
 func _on_CheckPlayer_body_entered(body):
 	player_in_area = true
 
 func _on_CheckPlayer_body_exited(body):
 	player_in_area = false
-	
+
 func _ready():
 	match setAnimation:
 		SPRITE.FLY:
@@ -24,9 +24,9 @@ func _ready():
 			$AnimatedSprite.animation = "run"
 			$AnimatedSprite.play()
 	playSFX()
-	
+	# set light collision to the background
 	$Light2D.range_layer_min = -1
-	
+
 func playSFX():
 	randomize()
 	var t = Timer.new()
@@ -38,14 +38,14 @@ func playSFX():
 	t.queue_free()
 	$SFX.play()
 	playSFX()
-	
+
 func _process(delta):
 	var player = get_tree().get_nodes_in_group('Player')[0]
-	
+
 	if player.invulnerable:
 		return null
-	
+
 	if player_in_area:
 		if $RayCast2D.is_colliding() or $RayCast2D2.is_colliding():
-			player.die()   
+			player.die()
 

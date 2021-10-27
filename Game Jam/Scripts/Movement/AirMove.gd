@@ -7,6 +7,8 @@ var charges
 var slowDown = false
 var canBounce = true
 
+var fan_velocity = Vector2.ZERO
+
 var bounceTimer = Timer.new()
 
 func _ready():
@@ -47,8 +49,9 @@ func _physics_process(delta):
 			player.get_node("AnimatedSprite").play("fall")
 	
 	# clamp velocity
-	get_parent().velocity.x = clamp(get_parent().velocity.x, -player.WALK_MAX_SPEED*0.5, player.WALK_MAX_SPEED*0.5)
-	get_parent().velocity.y = clamp(get_parent().velocity.y, -player.WALK_MAX_SPEED*0.5, player.WALK_MAX_SPEED*0.5)
+	# raw_velocity, against_velocity, max_velocity, velocity_factor
+	get_parent().velocity = GlobalTool.speed_clamp(get_parent().velocity, fan_velocity, player.WALK_MAX_SPEED, 0.5)
+
 
 	# move
 	get_parent().velocity = player.move_and_slide(get_parent().velocity, Vector2.UP)

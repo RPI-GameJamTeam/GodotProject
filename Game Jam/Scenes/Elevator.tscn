@@ -11,15 +11,14 @@ _data = [ Vector2( 0, 0.354545 ), 0.0, 0.0, 0, 0, Vector2( 0.191956, 1 ), 0.0, 0
 extents = Vector2( 15, 3 )
 
 [node name="Elevator" type="Node2D"]
-position = Vector2( 40, 42 )
 script = ExtResource( 3 )
 speed = 40
-targetPoints = PoolVector2Array( 0, 0, 0, 0, 60, 0 )
+targetPoints = PoolVector2Array( 100, 0 )
 movingBuffer = SubResource( 1 )
 scale_for_sprite = Vector2( 1, 1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 15.2717, 0 )
+position = Vector2( 43.9283, 1.4013e-45 )
 collision/safe_margin = 0.5
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D" groups=[

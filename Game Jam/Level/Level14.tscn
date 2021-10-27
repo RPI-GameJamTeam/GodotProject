@@ -8,23 +8,24 @@
 [ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=9]
 
-[node name="dirt_tutorial" type="Node2D" groups=[
+[node name="fan" type="Node2D" groups=[
 "Level",
 ]]
 
 [node name="TileMap" parent="." instance=ExtResource( 6 )]
-tile_data = PoolIntArray( 262129, 2, 0, 262130, 2, 0, 262131, 2, 0, 262132, 2, 0, 262133, 2, 0, 262134, 2, 0, 262135, 2, 0, 262136, 2, 0, 262137, 2, 0, 262138, 2, 0, 262139, 2, 0, 262140, 2, 0, 262141, 2, 0, 262142, 2, 0, 262143, 2, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 2, 0, 196618, 2, 0, 196619, 2, 0, 196620, 2, 0, 196621, 2, 0, 196622, 2, 0, 196623, 2, 0, 196624, 2, 0, 196625, 2, 0, 196626, 2, 0, 196627, 2, 0, 196628, 2, 0, 196629, 2, 0, 196630, 2, 0, 196631, 2, 0, 196632, 2, 0 )
+tile_data = PoolIntArray( -720887, -1610612732, 0, -720886, 1610612738, 0, -720885, 1610612738, 0, -720884, 1610612741, 0, -720883, 1610612738, 0, -720882, 1610612738, 0, -720881, 1610612738, 0, -720880, 1610612738, 0, -720879, 1610612738, 0, -720878, 1610612738, 0, -720877, 1610612738, 0, -720876, 1610612738, 0, -720875, 1610612738, 0, -720874, 0, 0, -720873, 1610612738, 0, -720872, 1610612738, 0, -720871, 1610612740, 0, -655351, -1610612734, 0, -655348, -1610612734, 0, -655335, -1073741822, 0, -589815, 0, 0, -589812, -1073741823, 0, -589799, -1073741822, 0, -524279, -1610612734, 0, -524263, -1073741822, 0, -458743, -1610612734, 0, -458727, -1073741822, 0, -393207, -1610612734, 0, -393191, -1073741822, 0, -327671, -1610612734, 0, -327655, -1073741822, 0, -262135, -1610612734, 0, -262132, -1610612735, 0, -262119, -1073741822, 0, -196599, -1610612734, 0, -196596, -1610612734, 0, -196583, 0, 0, -131063, -1610612734, 0, -131060, -1610612734, 0, -131047, -1073741822, 0, -65527, -1073741822, 0, -65524, 4, 0, -65523, 2, 0, -65522, 2, 0, -65521, 2, 0, -65520, 2, 0, -65519, 2, 0, -65518, 0, 0, -65517, 2, 0, -65516, 2, 0, -65515, 2, 0, -65514, 2, 0, -65513, 2, 0, -65512, 2, 0, -65511, -1073741819, 0, 9, 0, 0, 25, -1073741822, 0, 65545, -1073741822, 0, 65561, -1073741822, 0, 131081, -1073741822, 0, 131097, -1073741822, 0, 196617, -1073741822, 0, 196633, -1073741822, 0, 262153, -1073741822, 0, 262169, -1073741822, 0, 327689, 4, 0, 327690, 2, 0, 327691, 2, 0, 327692, 2, 0, 327693, 2, 0, 327694, 2, 0, 327695, 2, 0, 327696, 2, 0, 327697, 0, 0, 327698, 2, 0, 327699, 2, 0, 327700, 2, 0, 327701, 2, 0, 327702, 2, 0, 327703, 2, 0, 327704, 2, 0, 327705, -1073741820, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 360, 72 )
 
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="PickUp" parent="Pickups" instance=ExtResource( 3 )]
-position = Vector2( 115, 45 )
+position = Vector2( 704, 48 )
 setType = 4
 
 [node name="PickUp4" parent="Pickups" instance=ExtResource( 3 )]
-position = Vector2( 644, 50 )
+position = Vector2( 736, -224 )
 setType = 16
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -43,8 +44,40 @@ visible = false
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Fan" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 301, 88 )
-windPower = Vector2( 0, -70 )
+position = Vector2( 352, -312 )
+rotation = 3.14159
+region = Rect2( 0, 0, 50, 300 )
+windPower = Vector2( 0, -100 )
+
+[node name="Fan2" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 792, -272 )
+rotation = 4.71238
+region = Rect2( 0, 0, 50, 230 )
+windPower = Vector2( 0, -80 )
+
+[node name="Fan3" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 792, -208 )
+rotation = 4.71238
+region = Rect2( 0, 0, 50, 230 )
+windPower = Vector2( 0, -80 )
+
+[node name="Fan4" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 792, -144 )
+rotation = 4.71238
+region = Rect2( 0, 0, 50, 230 )
+windPower = Vector2( 0, -80 )
+
+[node name="Fan5" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 792, -80 )
+rotation = 4.71238
+region = Rect2( 0, 0, 50, 230 )
+windPower = Vector2( 0, -80 )
+
+[node name="Fan6" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 792, 48 )
+rotation = 4.71238
+region = Rect2( 0, 0, 50, 400 )
+windPower = Vector2( 0, -200 )
 
 [node name="Enemys" type="Node2D" parent="."]
 
