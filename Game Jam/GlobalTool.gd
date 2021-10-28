@@ -13,8 +13,7 @@ func get_color(index_value):
 		return Color(205/255.0, 134/255.0, 14/255.0)
 	elif index_value == ElementState.PARTICLE:
 		return Color(32/255.0, 34/255.0, 123/255.0)
-#	elif index_value == ElementState.COOKIE:
-#		return Color(100/255.0, 90/255.0, 34/255.0)
+
 
 func set_all_glow(index_value):
 	for glow_object in get_tree().get_nodes_in_group("Glow"):

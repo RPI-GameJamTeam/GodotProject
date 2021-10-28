@@ -44,8 +44,7 @@ visible = false
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Fan" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 352, -312 )
-rotation = 3.14159
+position = Vector2( 352, 154 )
 region = Rect2( 0, 0, 50, 300 )
 windPower = Vector2( 0, -100 )
 

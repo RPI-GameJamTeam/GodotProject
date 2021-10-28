@@ -33,7 +33,6 @@ func _physics_process(delta):
 func move_to(target_position, delta):
 	var moveToDir : Vector2 = (target_position - elevator.position).normalized()
 	var moveProcess = abs((elevator.position - originalPosition).length()/(target_position - originalPosition).length()) if (target_position - originalPosition).length() !=0 else 1
-#	print(moveProcess)
 	var buffer : float = movingBuffer.interpolate(moveProcess)
 	elevator.position += moveToDir * speed * delta * buffer
 

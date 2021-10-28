@@ -14,8 +14,6 @@ var finalRect : Rect2
 
 onready var area = $Area2D
 
-
-
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	set_collision()
