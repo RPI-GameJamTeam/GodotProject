@@ -94,12 +94,12 @@ scale = Vector2( 83.2687, 2.87145 )
 [node name="Enemys" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemys" instance=ExtResource( 2 )]
-position = Vector2( 336, 80 )
+position = Vector2( 352, 80 )
 targetPoints = PoolVector2Array( 0, 0, 536, 0 )
 scale_for_sprite = Vector2( 2.5, 2.5 )
 
 [node name="Enemy2" parent="Enemys" instance=ExtResource( 2 )]
-position = Vector2( 328, -168 )
+position = Vector2( 344, -168 )
 targetPoints = PoolVector2Array( 0, 0, 536, 0 )
 movingBuffer = SubResource( 1 )
 scale_for_sprite = Vector2( 2.5, 2.5 )
