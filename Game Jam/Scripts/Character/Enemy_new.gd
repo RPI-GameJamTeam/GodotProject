@@ -22,11 +22,10 @@ func _ready():
 		targetPoints.insert(0, Vector2.ZERO)
 	originalPosition = enemy.position
 	enemy.scale = scale_for_sprite
-	print(Vector2.LEFT.angle_to(Vector2.DOWN))
+
 
 func _physics_process(delta):
 	faceDir = Vector2.RIGHT.rotated(rotation).rotated(enemy.rotation)
-	print(faceDir)
 	move_to(targetPoints[targetPointIndex], delta)
 	turn_to(targetPoints[targetPointIndex], delta)
 	if check_on_target(targetPoints[targetPointIndex]):
@@ -46,7 +45,7 @@ func move_to(target_position, delta):
 func turn_to(target_position, delta):
 	# get the angel between enemy toward the target position
 	var moveToRadius = faceDir.angle_to(target_position - enemy.position)
-#	print(enemy.position)
+
 	if moveToRadius > angularMargin:
 		enemy.rotation += angularSpeed * delta
 	elif moveToRadius < -angularMargin:

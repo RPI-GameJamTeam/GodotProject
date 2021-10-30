@@ -67,8 +67,8 @@ func _on_Left_body_exited(_body):
 
 func _on_Inner_body_entered(_body):
 	clipping = true
-	print('Not good Im inside the wall!')
+
 
 func _on_Inner_body_exited(_body):
 	clipping = false
-	print('Im outside the wall, yeah!')
+
