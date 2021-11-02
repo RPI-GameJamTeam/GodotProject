@@ -1,16 +1,18 @@
 extends Panel
- 
+
 
 onready var filePop = get_parent().get_node("FileDialog")
+onready var level = get_parent().get_parent().get_node("Level")
+
 var levelPath = "res://Level/"
 var defaultName : String
 
 func _ready():
-	filePop.current_file = "Level" + str(_get_default_level_index()) + ".tscn"
+#	filePop.current_file = "Level" + str(_get_default_level_index()) + ".tscn"
 	filePop. set_filters(PoolStringArray(["*.tscn ; Level Files"]))
 	defaultName = levelPath + "Level" + str(_get_default_level_index()) + ".tscn"
 
-	
+
 
 func _on_Save_pressed():
 	filePop.current_file = defaultName
@@ -25,7 +27,7 @@ func _on_Load_pressed():
 
 
 func _get_default_level_index():
-	var directory = Directory.new();
+	var directory = Directory.new()
 	var currenteIndex = 0
 	while true and currenteIndex < 20:
 		var file = levelPath + "Level" + str(currenteIndex) + ".tscn"
@@ -39,4 +41,16 @@ func _get_default_level_index():
 
 
 func _on_FileDialog_confirmed():
-	print('ha')
+	
+	if filePop.mode == FileDialog.MODE_SAVE_FILE:
+		var curScene = PackedScene.new()
+		var result = curScene.pack(level)
+		if result == OK:
+			var error = ResourceSaver.save(filePop.current_file, curScene)
+			if error != OK:
+				push_error("An error oucur when saving the file to the disc")
+
+	elif filePop.mode == FileDialog.MODE_OPEN_FILE:
+		pass
+
+

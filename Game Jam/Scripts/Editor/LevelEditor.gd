@@ -7,12 +7,14 @@ extends Node2D
 # delete tool
 # select tool
 
+
+
 func _ready():
 	var groups = ['TileGroup', 'PlayerGroup', 'EnemyGroup', 'DecorationGroup', 'ObstacalGroup']
 	 
 	for group in groups:
 		var newGroup = Node2D.new()
 		newGroup.name = group
-		self.add_child(newGroup)
+		$Level.add_child(newGroup)
 		
 	
