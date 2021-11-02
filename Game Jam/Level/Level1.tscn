@@ -1,13 +1,20 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scenes/KillZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Misc/KillZone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/VellumShader.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Temp/VellumShader.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Misc/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/InteractItem/PickupManager.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/PickUp.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/DecorationTile.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/EasyTile.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Picks/PickUp.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/NotUsed/DecorationTile.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Tiles/EasyTile.tscn" type="PackedScene" id=10]
+
+
+
+
+
+
+
 
 
 

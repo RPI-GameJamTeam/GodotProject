@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scripts/InteractItem/KillZone.gd" type="Script" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="KillZone" type="Area2D"]
