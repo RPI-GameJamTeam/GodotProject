@@ -9,15 +9,6 @@
 [ext_resource path="res://Scenes/NotUsed/DecorationTile.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Tiles/EasyTile.tscn" type="PackedScene" id=10]
 
-
-
-
-
-
-
-
-
-
 [node name="dirt_tutorial" type="Node2D" groups=[
 "Level",
 ]]

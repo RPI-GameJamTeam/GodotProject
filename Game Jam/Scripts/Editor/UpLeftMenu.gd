@@ -51,6 +51,9 @@ func _on_FileDialog_confirmed():
 				push_error("An error oucur when saving the file to the disc")
 
 	elif filePop.mode == FileDialog.MODE_OPEN_FILE:
-		pass
+		var curScene = load(filePop.current_path)
+		print(curScene)
+		level.queue_free()
+		get_tree().current_scene.add_child(curScene.instance())
 
 
