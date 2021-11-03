@@ -164,9 +164,8 @@ margin_right = 1004.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 
-[node name="TextureRect" type="TextureRect" parent="UI/ButtomMenu"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="TextureRect" type="Sprite" parent="UI/ButtomMenu"]
+position = Vector2( 167.061, 40.4543 )
 
 [node name="UpLeftMenu" type="Panel" parent="UI"]
 margin_right = 192.0

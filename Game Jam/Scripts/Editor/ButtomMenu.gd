@@ -33,26 +33,30 @@ func _menu_update() -> void:
 		tabs.Picks:
 			pass
 			
-func _texture_taker(target) -> Texture:
+func _texture_taker(target):
 	var finalTexture : Texture
+	var cutReagion : Rect2
 	if target is TileMap:
 		var tileSet : TileSet = target.tile_set
-		print('ha')
 		finalTexture = tileSet.tile_get_texture(0)
+		cutReagion = tileSet.tile_get_region(0)
+		
 	if target is KinematicBody2D:
 		# player
 		pass
 	if target is Node2D:
 		# the enemy, elevator, grate
 		pass
-	return finalTexture
+	return [finalTexture, cutReagion]
 	
 func _ready():
 	resDic = _load_resource()
 	_menu_update()
 	# testing below
 	var rawp = _texture_taker(temp_tile)
-	$TextureRect.texture = rawp
+	$TextureRect.texture = rawp[0]
+	$TextureRect.region_rect = rawp[1]
+	$TextureRect.region_enabled = true
 	
 
 
