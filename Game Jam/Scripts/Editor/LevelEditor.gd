@@ -45,10 +45,9 @@ func _input(event):
 
 	camera.zoom.x = clamp(camera.zoom.x, 0.5, 3)
 	camera.zoom.y = clamp(camera.zoom.y, 0.5, 3)
-	print(camera.zoom)
 	
 
-func _process(delta):
+func _process(_delta):
 
 	match curViewMode:
 		viewportMode.FOLLOW:

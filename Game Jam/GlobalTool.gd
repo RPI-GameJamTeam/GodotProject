@@ -25,7 +25,7 @@ func set_all_glow(index_value):
 
 
 func speed_clamp(raw_velocity, against_velocity, max_velocity, velocity_factor):
-	var velocity : Vector2
+	var velocity = Vector2.ZERO
 	var velocity_x = raw_velocity.x
 	var velocity_y = raw_velocity.y
 	var against_velocity_y = against_velocity.y

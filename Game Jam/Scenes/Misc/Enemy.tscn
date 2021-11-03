@@ -1,142 +1,153 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Asset/Art/LightTexture/eye_light.png" type="Texture" id=1]
 [ext_resource path="res://Asset/Art/Character & Enemy/enemy-Sheet.png" type="Texture" id=2]
 [ext_resource path="res://Asset/Sound effect/monster_sfx.wav" type="AudioStream" id=3]
 [ext_resource path="res://Scripts/Character/Enemy.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Character/Enemy_new.gd" type="Script" id=5]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 32 )
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.836364 ), 0.0, 0.0, 0, 0, Vector2( 0.127971, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.873857, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.781818 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 32, 32 )
+region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 32, 32, 32 )
+region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 32, 32, 32 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 32, 32, 32 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 32, 32, 32 )
+region = Rect2( 64, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 32, 32, 32 )
+region = Rect2( 96, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 64, 32, 32 )
+region = Rect2( 128, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 64, 32, 32 )
+region = Rect2( 0, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 64, 32, 32 )
+region = Rect2( 32, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 64, 32, 32 )
+region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 64, 32, 32 )
+region = Rect2( 96, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 96, 32, 32 )
+region = Rect2( 128, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 96, 32, 32 )
+region = Rect2( 0, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 96, 32, 32 )
+region = Rect2( 32, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 96, 32, 32 )
+region = Rect2( 64, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 96, 32, 32 )
+region = Rect2( 96, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 128, 32, 32 )
+region = Rect2( 128, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 128, 32, 32 )
+region = Rect2( 0, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 128, 32, 32 )
+region = Rect2( 32, 128, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 2 )
+region = Rect2( 64, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
 region = Rect2( 96, 128, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=25]
+[sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
 "name": "run",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
 "loop": true,
 "name": "fly",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=27]
 
-[sub_resource type="RectangleShape2D" id=27]
+[sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 24.7658, 16.3576 )
 
-[node name="Enemy" type="KinematicBody2D"]
-scale = Vector2( 2, 2 )
+[node name="Enemy" type="Node2D"]
+script = ExtResource( 5 )
+speed = 30
+angularSpeed = 5.0
+targetPoints = PoolVector2Array( 0, 0, 0, 0, 200, 0 )
+movingBuffer = SubResource( 1 )
+scale_for_sprite = Vector2( 1, 1 )
+
+[node name="Enemy" type="KinematicBody2D" parent="."]
 collision_layer = 4
 script = ExtResource( 4 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 25 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemy"]
+frames = SubResource( 26 )
 animation = "run"
-frame = 9
+frame = 6
 playing = true
 
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 7.00771, 0.724377 )
+[node name="Light2D" type="Light2D" parent="Enemy"]
+position = Vector2( 9.69312, 1 )
 scale = Vector2( 0.871096, 0.819841 )
 texture = ExtResource( 1 )
 offset = Vector2( 41.456, -0.94659 )
@@ -145,34 +156,34 @@ energy = 3.33
 shadow_enabled = true
 shadow_color = Color( 0.231373, 0.0117647, 0.0117647, 0 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 visible = false
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
-[node name="CheckPlayer" type="Area2D" parent="."]
+[node name="CheckPlayer" type="Area2D" parent="Enemy"]
 visible = false
 collision_layer = 2
 collision_mask = 4
 
-[node name="collision" type="CollisionShape2D" parent="CheckPlayer"]
+[node name="collision" type="CollisionShape2D" parent="Enemy/CheckPlayer"]
 position = Vector2( 33.8541, 1.27918 )
-shape = SubResource( 27 )
+shape = SubResource( 28 )
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="Enemy"]
 position = Vector2( 10.6714, -5.98906 )
 rotation = -1.68285
 enabled = true
 cast_to = Vector2( 0, 40 )
 collision_mask = 4
 
-[node name="RayCast2D2" type="RayCast2D" parent="."]
+[node name="RayCast2D2" type="RayCast2D" parent="Enemy"]
 position = Vector2( 10.004, 6.85877 )
 rotation = -1.43909
 enabled = true
 cast_to = Vector2( 0, 40 )
 collision_mask = 4
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX" type="AudioStreamPlayer2D" parent="Enemy"]
 stream = ExtResource( 3 )
-[connection signal="body_entered" from="CheckPlayer" to="." method="_on_CheckPlayer_body_entered"]
-[connection signal="body_exited" from="CheckPlayer" to="." method="_on_CheckPlayer_body_exited"]
+[connection signal="body_entered" from="Enemy/CheckPlayer" to="Enemy" method="_on_CheckPlayer_body_entered"]
+[connection signal="body_exited" from="Enemy/CheckPlayer" to="Enemy" method="_on_CheckPlayer_body_exited"]

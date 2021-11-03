@@ -4,6 +4,8 @@ enum tabs{Tiles, Misc, Obs, Picks}
 var resDic : Dictionary
 var curTab
 
+onready var temp_tile = get_parent().get_parent().get_node("Level/TileMap")
+
 func _load_resource() -> Dictionary:
 	var dirPath = "res://Scenes/"
 	var dic = {"Misc":[], "Obs":[], "Picks":[], "Tiles":[]}
@@ -17,12 +19,41 @@ func _load_resource() -> Dictionary:
 		
 	return dic
 
-func _menu_update() -> void:
+func _add_panel(texture) -> void:
 	pass
+
+func _menu_update() -> void:
+	match curTab:
+		tabs.Tiles:
+			pass
+		tabs.Misc:
+			pass
+		tabs.Obs:
+			pass
+		tabs.Picks:
+			pass
+			
+func _texture_taker(target) -> Texture:
+	var finalTexture : Texture
+	if target is TileMap:
+		var tileSet : TileSet = target.tile_set
+		print('ha')
+		finalTexture = tileSet.tile_get_texture(0)
+	if target is KinematicBody2D:
+		# player
+		pass
+	if target is Node2D:
+		# the enemy, elevator, grate
+		pass
+	return finalTexture
 	
 func _ready():
 	resDic = _load_resource()
 	_menu_update()
+	# testing below
+	var rawp = _texture_taker(temp_tile)
+	$TextureRect.texture = rawp
+	
 
 
 func _on_Tiles_pressed():
