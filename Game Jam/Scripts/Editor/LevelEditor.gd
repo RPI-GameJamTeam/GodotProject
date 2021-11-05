@@ -12,6 +12,7 @@ var curViewMode = viewportMode.IDLE
 var mouseOrgPosition : Vector2
 var cameraOrgPosition : Vector2
 onready var camera = $Camera2D
+var zoomStep = Vector2(0.1, 0.1)
 
 func _ready():
 	var groups = ['TileGroup', 'PlayerGroup', 'EnemyGroup', 'DecorationGroup', 'ObstacalGroup']
@@ -24,19 +25,19 @@ func _ready():
 
 
 func _input(event):
-
 	# screen control
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == BUTTON_WHEEL_DOWN:
-				camera.zoom += Vector2(0.1, 0.1)
-				
+				# zoom step = 0.1 zoom down
+				camera.zoom += zoomStep
 
 			if event.button_index == BUTTON_WHEEL_UP:
-				camera.zoom -= Vector2(0.1, 0.1)
-				
-				
+				# zoom step = 0.1 zoom up
+				camera.zoom -= zoomStep
+
 			if event.button_index == BUTTON_MIDDLE:
+				# recording the ori position for cursor and camera, then make it move in _process
 				mouseOrgPosition = get_viewport().get_mouse_position()
 				cameraOrgPosition = camera.position
 				curViewMode = viewportMode.FOLLOW
@@ -45,10 +46,10 @@ func _input(event):
 
 	camera.zoom.x = clamp(camera.zoom.x, 0.5, 3)
 	camera.zoom.y = clamp(camera.zoom.y, 0.5, 3)
-	
+
 
 func _process(_delta):
-
+	# match camera mode, then move accordingly
 	match curViewMode:
 		viewportMode.FOLLOW:
 			var mouseCurPosition = get_viewport().get_mouse_position()
