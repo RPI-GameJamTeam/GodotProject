@@ -2,7 +2,7 @@ extends Panel
 
 enum tabs{Tiles, Misc, Obs, Picks}
 var resDic : Dictionary
-var curTab
+var curTab = tabs.Tiles
 # important
 var rawPanel = load("res://Scenes/BuildIn/Panel.tscn")
 
@@ -23,10 +23,14 @@ func _load_resource() -> Dictionary:
 
 	return dic
 
+func _clear_panel() -> void:
+	for p in $ScrollContainer/HBoxContainer.get_children():
+		p.queue_free()
+
 func _add_panel(textureV, rectV) -> void:
 	var panel = rawPanel.instance()
 	# if is not tilemap
-	if rectV == null:
+	if rectV == Rect2():
 		panel.get_child(0).texture = textureV
 		$ScrollContainer/HBoxContainer.add_child(panel)
 
@@ -38,19 +42,23 @@ func _add_panel(textureV, rectV) -> void:
 
 
 func _menu_update(fileDic) -> void:
+	_clear_panel()
+	var tabName 
 	match curTab:
 		tabs.Tiles:
-			for tilePath in fileDic["Tiles"]:
-				var tile = load(tilePath).instance()
-				var data = _texture_taker(tile)
-				_add_panel(data[0],data[1])
+			tabName = "Tiles"
 		tabs.Misc:
-			pass
+			tabName = "Misc"
 		tabs.Obs:
-			pass
+			tabName = "Obs"
 		tabs.Picks:
-			pass
-
+			tabName = "Picks"
+	
+	for path in fileDic[tabName]:
+		var object = load(path).instance()
+		var data = _texture_taker(object)
+		_add_panel(data[0], data[1])
+		
 func _texture_taker(target):
 	var finalTexture : Texture
 	var cutReagion : Rect2
@@ -73,6 +81,8 @@ func _texture_taker(target):
 		# the enemy, elevator, grate
 		for child in target.get_child(0).get_children():
 			if child is AnimatedSprite:
+				print("woring")
+				print(child.name)
 				finalTexture = child.frames.get_frame("idle", 0)
 				break
 			if child is Sprite:
