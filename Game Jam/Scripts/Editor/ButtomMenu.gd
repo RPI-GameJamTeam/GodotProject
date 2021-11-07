@@ -43,7 +43,7 @@ func _add_panel(textureV, rectV) -> void:
 
 func _menu_update(fileDic) -> void:
 	_clear_panel()
-	var tabName 
+	var tabName
 	match curTab:
 		tabs.Tiles:
 			tabName = "Tiles"
@@ -53,12 +53,12 @@ func _menu_update(fileDic) -> void:
 			tabName = "Obs"
 		tabs.Picks:
 			tabName = "Picks"
-	
+
 	for path in fileDic[tabName]:
 		var object = load(path).instance()
 		var data = _texture_taker(object)
 		_add_panel(data[0], data[1])
-		
+
 func _texture_taker(target):
 	var finalTexture : Texture
 	var cutReagion : Rect2
@@ -77,12 +77,17 @@ func _texture_taker(target):
 				finalTexture = child.texture
 				break
 
+	elif target is Area2D:
+		# all the pickups
+		for child in target.get_children():
+			if child is AnimatedSprite:
+				finalTexture = child.frames.get_frame(child.animation, 0)
+				break
+
 	elif target is Node2D:
 		# the enemy, elevator, grate
 		for child in target.get_child(0).get_children():
 			if child is AnimatedSprite:
-				print("woring")
-				print(child.name)
 				finalTexture = child.frames.get_frame("idle", 0)
 				break
 			if child is Sprite:

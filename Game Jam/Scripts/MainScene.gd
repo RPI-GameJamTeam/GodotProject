@@ -28,14 +28,6 @@ func level_changer(index_value):
 
 func next_level():
 	level_changer(current_level_index+1)
-	
-func reset_level():
-	current_level_index -= 1
-	$CanvasLayer/AnimationPlayer.play("fade_to_black")
-	
-func reset_game():
-	current_level_index = 0
-	$CanvasLayer/AnimationPlayer.play("fade_to_black")
 
 func load_level_file():
 	# try to load next level by +1 to level index

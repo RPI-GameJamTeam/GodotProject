@@ -90,7 +90,6 @@ func set_state(s):
 			get_node("StateMachine/Particle").is_active = true
 		ElementState.WATER:
 			get_node("StateMachine/Water").is_active = true
-			
 			for c in get_tree().get_nodes_in_group("Grate"):
 				c.get_node("CollisionShape2D").set_deferred("disabled", true)
 		ElementState.FIRE:

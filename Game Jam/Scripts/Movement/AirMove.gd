@@ -28,7 +28,6 @@ func _process(delta):
 func _physics_process(delta):	
 	if !is_active:
 		return null
-		
 	get_parent().velocity += player.input * player.WALK_FORCE * delta * 0.25
 	
 	if slowDown:

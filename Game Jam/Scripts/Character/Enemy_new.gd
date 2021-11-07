@@ -1,4 +1,3 @@
-
 extends Node2D
 
 export(int) var speed = 1
@@ -36,11 +35,13 @@ func _physics_process(delta):
 			originalPosition = targetPoints[targetPointIndex]
 			targetPointIndex = 0
 
+
 func move_to(target_position, delta):
 	var moveToDir : Vector2 = (target_position - enemy.position).normalized()
 	var moveProcess = abs((enemy.position - originalPosition).length()/(target_position - originalPosition).length()) if (target_position - originalPosition).length() !=0 else 1
 	var buffer : float = movingBuffer.interpolate(moveProcess)
 	enemy.position += moveToDir * speed * delta * buffer
+
 
 func turn_to(target_position, delta):
 	# get the angel between enemy toward the target position

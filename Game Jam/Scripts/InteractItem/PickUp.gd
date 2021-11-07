@@ -40,9 +40,6 @@ func update_type():
 
 func _on_PickUp_body_entered(body):
 	if body.is_in_group("Player"):
-#		body.get_node("Camera2D").add_trauma(0.6)
-#		body.get_node("Camera2D").shake()
-
 
 		if type != PickUpType.COOKIE:
 			GlobalTool.set_all_glow(type+1)
