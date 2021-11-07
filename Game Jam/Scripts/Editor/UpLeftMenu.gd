@@ -52,7 +52,6 @@ func _on_FileDialog_confirmed():
 
 	elif filePop.mode == FileDialog.MODE_OPEN_FILE:
 		var curScene = load(filePop.current_path)
-		print(curScene)
 		level.queue_free()
 		get_tree().current_scene.add_child(curScene.instance())
 

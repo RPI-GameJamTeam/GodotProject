@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="Panel" type="Panel"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 37.1158, 38.4339 )
