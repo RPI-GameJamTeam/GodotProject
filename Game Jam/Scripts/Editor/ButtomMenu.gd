@@ -5,20 +5,7 @@ var objectPathDic : Dictionary	#dic that
 var defaultTab = tabs.Tiles
 var curTab = defaultTab
 # important, delete will cause loading problem, change path will cause loading problem
-var dirPath = "res://Scenes/"
 var rawPanel = load("res://Scenes/BuildIn/Panel.tscn")
-
-
-# load all object path to a dictionary for later use
-func load_resource_path() -> Dictionary:
-	var dic = {"Misc":[], "Obs":[], "Picks":[], "Tiles":[]}
-	for fileName in dic:
-		var path = dirPath + fileName + "/"
-		var items = GlobalTool.list_files_in_directory(path)
-		for i in items:
-			dic[fileName].append(path+i)
-
-	return dic
 
 
 # clear all the panel in the tab
@@ -103,7 +90,7 @@ func get_object_texture(target):
 
 # get the all object path to dictionary then update the menu to default tab
 func _ready():
-	objectPathDic = load_resource_path()
+	objectPathDic = GlobalTool.load_resource_path()
 	menu_update(objectPathDic)
 
 

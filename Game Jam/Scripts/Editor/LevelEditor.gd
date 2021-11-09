@@ -19,6 +19,7 @@ var zoomStep = Vector2(0.1, 0.1)
 
 # tool general variable
 var cursor = cursorMode.BRUSHING
+var left_pressing : bool = false
 
 # item placing 
 var placingInstance
@@ -26,12 +27,20 @@ var selectedList = []
 
 # tilemap brush
 var brushSize = Vector2(1, 1)
+var curTile
 
 onready var camera = $Camera2D
 
+
 # brush tool
 func brushing():
-	print(get_global_mouse_position())
+	curTile = $Level/Concrete
+	var cellSize = curTile.cell_size
+	
+	if not curTile.world_to_map(get_global_mouse_position()) in curTile.get_used_cells():
+		curTile.set_cellv(curTile.world_to_map(get_global_mouse_position()),0)
+		curTile.update_bitmask_area(curTile.world_to_map(get_global_mouse_position()))
+
 
 # add total 5 group for different object types
 func add_node_group()-> void:
@@ -45,13 +54,15 @@ func add_node_group()-> void:
 		newGroup.owner = $Level
 		
 		if group == "TileGroup":
-			pass
-
+			add_all_tilemap()
 
 
 # add all tilemap to the tilegroup
 func add_all_tilemap() -> void:
-	pass
+	var pathDir = GlobalTool.load_resource_path()
+	for tilePath in pathDir["Tiles"]:
+		var tile = load(tilePath).instance()
+		$Level/TileGroup.add_child(tile)
 
 
 func _ready():
@@ -74,6 +85,10 @@ func _input(event):
 				mouseOrgPosition = get_viewport().get_mouse_position()
 				cameraOrgPosition = camera.position
 				view = viewportMode.FOLLOW
+				
+			if event.button_index == BUTTON_LEFT:
+				left_pressing = true
+				
 		else:
 			view = viewportMode.IDLE
 
@@ -93,7 +108,8 @@ func _process(_delta):
 	
 	match cursor:
 		cursorMode.BRUSHING:
-			pass
+			if Input.is_action_pressed("mouse_left_pressing"):
+				brushing()
 		
 
 # cursor display system

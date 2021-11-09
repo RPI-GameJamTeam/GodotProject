@@ -1,6 +1,7 @@
 extends Node
 
 enum ElementState { PARTICLE, WATER, FIRE, AIR, EARTH }
+var dirPath = "res://Scenes/"
 
 func get_color(index_value):
 	if index_value == ElementState.WATER:
@@ -59,3 +60,15 @@ func list_files_in_directory(path):
 	dir.list_dir_end()
 
 	return files
+
+
+# load all object path to a dictionary for later use
+func load_resource_path() -> Dictionary:
+	var dic = {"Misc":[], "Obs":[], "Picks":[], "Tiles":[]}
+	for fileName in dic:
+		var path = dirPath + fileName + "/"
+		var items = GlobalTool.list_files_in_directory(path)
+		for i in items:
+			dic[fileName].append(path+i)
+
+	return dic
