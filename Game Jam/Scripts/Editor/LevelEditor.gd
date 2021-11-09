@@ -33,13 +33,14 @@ onready var camera = $Camera2D
 
 
 # brush tool
-func brushing():
+func brushing(tileIndex):
 	curTile = $Level/Concrete
 	var cellSize = curTile.cell_size
-	
-	if not curTile.world_to_map(get_global_mouse_position()) in curTile.get_used_cells():
-		curTile.set_cellv(curTile.world_to_map(get_global_mouse_position()),0)
-		curTile.update_bitmask_area(curTile.world_to_map(get_global_mouse_position()))
+		
+	curTile.set_cellv(curTile.world_to_map(get_global_mouse_position()), tileIndex)
+	curTile.update_bitmask_area(curTile.world_to_map(get_global_mouse_position()))
+		
+
 
 
 # add total 5 group for different object types
@@ -92,8 +93,8 @@ func _input(event):
 		else:
 			view = viewportMode.IDLE
 
-	camera.zoom.x = clamp(camera.zoom.x, 0.5, 3)
-	camera.zoom.y = clamp(camera.zoom.y, 0.5, 3)
+	camera.zoom.x = clamp(camera.zoom.x, 0.2, 3)
+	camera.zoom.y = clamp(camera.zoom.y, 0.2, 3)
 
 
 func _process(_delta):
@@ -109,7 +110,9 @@ func _process(_delta):
 	match cursor:
 		cursorMode.BRUSHING:
 			if Input.is_action_pressed("mouse_left_pressing"):
-				brushing()
+				brushing(0)
+			if Input.is_action_pressed("mouse_right_pressing"):
+				brushing(-1)
 		
 
 # cursor display system
