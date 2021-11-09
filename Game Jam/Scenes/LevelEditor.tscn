@@ -105,6 +105,7 @@ __meta__ = {
 margin_top = 72.0
 margin_right = 41.0
 margin_bottom = 92.0
+focus_mode = 1
 text = "Save"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,6 +116,7 @@ margin_left = 48.0
 margin_top = 72.0
 margin_right = 90.0
 margin_bottom = 92.0
+focus_mode = 1
 text = "Load"
 __meta__ = {
 "_edit_use_anchors_": false

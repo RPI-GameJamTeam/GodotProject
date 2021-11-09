@@ -13,7 +13,6 @@ func _ready():
 	defaultName = levelPath + "Level" + str(_get_default_level_index()) + ".tscn"
 
 
-
 func _on_Save_pressed():
 	filePop.current_file = defaultName
 	filePop.mode = FileDialog.MODE_SAVE_FILE
@@ -29,7 +28,7 @@ func _on_Load_pressed():
 func _get_default_level_index():
 	var directory = Directory.new()
 	var currenteIndex = 0
-	while true and currenteIndex < 20:
+	while true:
 		var file = levelPath + "Level" + str(currenteIndex) + ".tscn"
 
 		if not directory.file_exists(file):
@@ -41,12 +40,13 @@ func _get_default_level_index():
 
 
 func _on_FileDialog_confirmed():
-	
 	if filePop.mode == FileDialog.MODE_SAVE_FILE:
 		var curScene = PackedScene.new()
 		var result = curScene.pack(level)
+		
 		if result == OK:
 			var error = ResourceSaver.save(filePop.current_file, curScene)
+			
 			if error != OK:
 				push_error("An error oucur when saving the file to the disc")
 
@@ -54,5 +54,6 @@ func _on_FileDialog_confirmed():
 		var curScene = load(filePop.current_path)
 		level.queue_free()
 		get_tree().current_scene.add_child(curScene.instance())
+		
 
 

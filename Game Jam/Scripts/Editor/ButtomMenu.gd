@@ -126,3 +126,9 @@ func _on_Obs_pressed():
 func _on_Picks_pressed():
 	curTab = tabs.Picks
 	menu_update(objectPathDic)
+
+# cancle focus when click on other object, important dont delete
+func _unhandled_input(event):
+	var current_focus_control = get_focus_owner()
+	if current_focus_control:
+		current_focus_control.release_focus()
