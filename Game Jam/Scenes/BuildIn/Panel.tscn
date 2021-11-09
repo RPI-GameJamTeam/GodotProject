@@ -1,12 +1,16 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/Panel.gd" type="Script" id=1]
 
 [node name="Panel" type="Panel"]
 margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 37.1158, 38.4339 )
+[connection signal="gui_input" from="." to="." method="_on_Panel_gui_input"]

@@ -8,10 +8,16 @@ extends Node2D
 # select tool
 
 enum viewportMode {FOLLOW, IDLE}
+enum cursorMode {DELETE, PLACING, SELECT, MOVING}
+
 var curViewMode = viewportMode.IDLE
 var mouseOrgPosition : Vector2
 var cameraOrgPosition : Vector2
+var placingInstance
+var selectedList = []
+
 onready var camera = $Camera2D
+
 var zoomStep = Vector2(0.1, 0.1)
 
 func _ready():
@@ -58,3 +64,5 @@ func _process(_delta):
 		viewportMode.IDLE:
 			pass
 
+
+# cursor display system

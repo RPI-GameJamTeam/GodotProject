@@ -1,19 +1,16 @@
 extends Panel
 
 enum tabs{Tiles, Misc, Obs, Picks}
-var resDic : Dictionary
-var curTab = tabs.Tiles
-# important
+var objectPathDic : Dictionary	#dic that
+var defaultTab = tabs.Tiles
+var curTab = defaultTab
+# important, delete will cause loading problem, change path will cause loading problem
+var dirPath = "res://Scenes/"
 var rawPanel = load("res://Scenes/BuildIn/Panel.tscn")
 
-# important
-var dirPath = "res://Scenes/"
 
-# test
-onready var temp_tile = get_parent().get_parent().get_node("Level/TileMap")
-onready var tem_sprite = get_parent().get_parent().get_node("Level/Grate")
-
-func _load_resource() -> Dictionary:
+# load all object path to a dictionary for later use
+func load_resource_path() -> Dictionary:
 	var dic = {"Misc":[], "Obs":[], "Picks":[], "Tiles":[]}
 	for fileName in dic:
 		var path = dirPath + fileName + "/"
@@ -23,11 +20,15 @@ func _load_resource() -> Dictionary:
 
 	return dic
 
-func _clear_panel() -> void:
+
+# clear all the panel in the tab
+func clear_panel() -> void:
 	for p in $ScrollContainer/HBoxContainer.get_children():
 		p.queue_free()
 
-func _add_panel(textureV, rectV) -> void:
+
+# add one panel with given texture, if is tilemap ,rectV is required, other use Rect()
+func add_panel(textureV, rectV) -> void:
 	var panel = rawPanel.instance()
 	# if is not tilemap
 	if rectV == Rect2():
@@ -41,8 +42,9 @@ func _add_panel(textureV, rectV) -> void:
 		$ScrollContainer/HBoxContainer.add_child(panel)
 
 
-func _menu_update(fileDic) -> void:
-	_clear_panel()
+# update the menu based on the list
+func menu_update(fileDic) -> void:
+	clear_panel()
 	var tabName
 	match curTab:
 		tabs.Tiles:
@@ -56,10 +58,12 @@ func _menu_update(fileDic) -> void:
 
 	for path in fileDic[tabName]:
 		var object = load(path).instance()
-		var data = _texture_taker(object)
-		_add_panel(data[0], data[1])
+		var data = get_object_texture(object)
+		add_panel(data[0], data[1])
 
-func _texture_taker(target):
+
+# get texture from all kinds of object
+func get_object_texture(target):
 	var finalTexture : Texture
 	var cutReagion : Rect2
 	if target is TileMap:
@@ -96,27 +100,29 @@ func _texture_taker(target):
 
 	return [finalTexture, cutReagion]
 
+
+# get the all object path to dictionary then update the menu to default tab
 func _ready():
-	resDic = _load_resource()
-	_menu_update(resDic)
-	# testing below
+	objectPathDic = load_resource_path()
+	menu_update(objectPathDic)
 
 
-
+# below are button signals, connect tab button to the curTab variable
 func _on_Tiles_pressed():
 	curTab = tabs.Tiles
-	_menu_update(resDic)
+	menu_update(objectPathDic)
 
 
 func _on_Misc_pressed():
 	curTab = tabs.Misc
-	_menu_update(resDic)
+	menu_update(objectPathDic)
 
 
 func _on_Obs_pressed():
 	curTab = tabs.Obs
-	_menu_update(resDic)
+	menu_update(objectPathDic)
+
 
 func _on_Picks_pressed():
 	curTab = tabs.Picks
-	_menu_update(resDic)
+	menu_update(objectPathDic)
