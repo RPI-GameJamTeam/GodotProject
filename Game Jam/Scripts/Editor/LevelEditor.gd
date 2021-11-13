@@ -18,7 +18,7 @@ var cameraOrgPosition : Vector2
 var zoomStep = Vector2(0.1, 0.1)
 
 # tool general variable
-var cursor = cursorMode.BRUSHING
+var cursor = cursorMode.SELECT
 var left_pressing : bool = false
 
 # item placing 
@@ -34,7 +34,6 @@ onready var camera = $Camera2D
 
 # brush tool
 func brushing(tileIndex):
-	curTile = $Level/Concrete
 	var cellSize = curTile.cell_size
 		
 	curTile.set_cellv(curTile.world_to_map(get_global_mouse_position()), tileIndex)

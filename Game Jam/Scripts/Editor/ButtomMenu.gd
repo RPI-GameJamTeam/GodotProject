@@ -15,18 +15,21 @@ func clear_panel() -> void:
 
 
 # add one panel with given texture, if is tilemap ,rectV is required, other use Rect()
-func add_panel(textureV, rectV) -> void:
+func add_panel(textureV, rectV, nameV) -> void:
 	var panel = rawPanel.instance()
 	# if is not tilemap
 	if rectV == Rect2():
 		panel.get_child(0).texture = textureV
 		$ScrollContainer/HBoxContainer.add_child(panel)
-
+	# if it is tilemap
 	else:
 		panel.get_child(0).texture = textureV
 		panel.get_child(0).region_rect = rectV
 		panel.get_child(0).region_enabled = true
+		panel.objectType = "TileMap"
+		panel.objectName = nameV
 		$ScrollContainer/HBoxContainer.add_child(panel)
+		
 
 
 # update the menu based on the list
@@ -46,7 +49,7 @@ func menu_update(fileDic) -> void:
 	for path in fileDic[tabName]:
 		var object = load(path).instance()
 		var data = get_object_texture(object)
-		add_panel(data[0], data[1])
+		add_panel(data[0], data[1], object.name)
 
 
 # get texture from all kinds of object
