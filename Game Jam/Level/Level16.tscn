@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Level" type="Node2D"]
+
+[node name="TileGroup" type="Node2D" parent="."]
+
+[node name="PlayerGroup" type="Node2D" parent="."]
+
+[node name="EnemyGroup" type="Node2D" parent="."]
+
+[node name="DecorationGroup" type="Node2D" parent="."]
+
+[node name="ObstacalGroup" type="Node2D" parent="."]

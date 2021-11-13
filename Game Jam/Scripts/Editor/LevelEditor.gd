@@ -11,6 +11,9 @@ extends Node2D
 enum viewportMode {FOLLOW, IDLE}
 enum cursorMode {DELETE, PLACING, SELECT, MOVING, BRUSHING}
 
+# editor variable
+var level
+
 # viewport control
 var view = viewportMode.IDLE
 var mouseOrgPosition : Vector2
@@ -28,16 +31,18 @@ var selectedList = []
 # tilemap brush
 var brushSize = Vector2(1, 1)
 var curTile
+var couldDraw : bool
+var couldErase : bool
 
 onready var camera = $Camera2D
 
 
 # brush tool
 func brushing(tileIndex):
-	var cellSize = curTile.cell_size
-		
-	curTile.set_cellv(curTile.world_to_map(get_global_mouse_position()), tileIndex)
-	curTile.update_bitmask_area(curTile.world_to_map(get_global_mouse_position()))
+	if curTile != null:
+		var cellSize = curTile.cell_size
+		curTile.set_cellv(curTile.world_to_map(get_global_mouse_position()), tileIndex)
+		curTile.update_bitmask_area(curTile.world_to_map(get_global_mouse_position()))
 		
 
 
@@ -50,8 +55,8 @@ func add_node_group()-> void:
 	for group in groups:
 		var newGroup = Node2D.new()
 		newGroup.name = group
-		$Level.add_child(newGroup)
-		newGroup.owner = $Level
+		level.add_child(newGroup)
+		newGroup.owner = level
 		
 		if group == "TileGroup":
 			add_all_tilemap()
@@ -62,13 +67,15 @@ func add_all_tilemap() -> void:
 	var pathDir = GlobalTool.load_resource_path()
 	for tilePath in pathDir["Tiles"]:
 		var tile = load(tilePath).instance()
-		$Level/TileGroup.add_child(tile)
+		level.get_node("TileGroup").add_child(tile)
+		tile.owner = level
 
 
 func _ready():
+	level = $Level
 	add_node_group()
 
-func _input(event):
+func _unhandled_input(event):
 	# screen control
 	if event is InputEventMouseButton:
 		if event.is_pressed():
@@ -86,11 +93,19 @@ func _input(event):
 				cameraOrgPosition = camera.position
 				view = viewportMode.FOLLOW
 				
+				
 			if event.button_index == BUTTON_LEFT:
-				left_pressing = true
+				couldDraw = true
+				
+			if event.button_index == BUTTON_RIGHT:
+				couldErase = true
+				
+
 				
 		else:
 			view = viewportMode.IDLE
+			couldDraw = false
+			couldErase = false
 
 	camera.zoom.x = clamp(camera.zoom.x, 0.2, 3)
 	camera.zoom.y = clamp(camera.zoom.y, 0.2, 3)
@@ -108,9 +123,9 @@ func _process(_delta):
 	
 	match cursor:
 		cursorMode.BRUSHING:
-			if Input.is_action_pressed("mouse_left_pressing"):
+			if couldDraw:
 				brushing(0)
-			if Input.is_action_pressed("mouse_right_pressing"):
+			if couldErase:
 				brushing(-1)
 		
 

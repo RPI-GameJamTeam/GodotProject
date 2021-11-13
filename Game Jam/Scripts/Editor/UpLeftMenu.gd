@@ -11,10 +11,13 @@ func _ready():
 #	filePop.current_file = "Level" + str(_get_default_level_index()) + ".tscn"
 	filePop. set_filters(PoolStringArray(["*.tscn ; Level Files"]))
 	defaultName = levelPath + "Level" + str(_get_default_level_index()) + ".tscn"
+	print(defaultName)
 
 
 func _on_Save_pressed():
+	filePop.current_dir = "res://"
 	filePop.current_file = defaultName
+	print(defaultName)
 	filePop.mode = FileDialog.MODE_SAVE_FILE
 	filePop.popup()
 
@@ -51,9 +54,13 @@ func _on_FileDialog_confirmed():
 				push_error("An error oucur when saving the file to the disc")
 
 	elif filePop.mode == FileDialog.MODE_OPEN_FILE:
-		var curScene = load(filePop.current_path)
+		var curScene = load(filePop.current_path).instance()
 		level.queue_free()
-		get_tree().current_scene.add_child(curScene.instance())
+		level = curScene
+		get_tree().current_scene.add_child(curScene)
+		get_tree().current_scene.level = level
+		
+		defaultName = levelPath + filePop.current_file
 		
 
 
