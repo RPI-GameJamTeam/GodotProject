@@ -1,8 +1,8 @@
 extends Panel
 
-enum tabs{Tiles, Misc, Obs, Picks}
+enum tabs{TILES, MISC, MOBS}
 var objectPathDic : Dictionary	#dic that
-var defaultTab = tabs.Tiles
+var defaultTab = tabs.TILES
 var curTab = defaultTab
 # important, delete will cause loading problem, change path will cause loading problem
 var rawPanel = load("res://Scenes/BuildIn/Panel.tscn")
@@ -15,12 +15,15 @@ func clear_panel() -> void:
 
 
 # add one panel with given texture, if is tilemap ,rectV is required, other use Rect()
-func add_panel(textureV, rectV, nameV) -> void:
+func add_panel(textureV, rectV, nameV, typeV) -> void:
 	var panel = rawPanel.instance()
 	# if is not tilemap
 	if rectV == Rect2():
 		panel.get_child(0).texture = textureV
+		panel.objectType = typeV
+		panel.objectName = nameV
 		$ScrollContainer/HBoxContainer.add_child(panel)
+		
 	# if it is tilemap
 	else:
 		panel.get_child(0).texture = textureV
@@ -37,19 +40,18 @@ func menu_update(fileDic) -> void:
 	clear_panel()
 	var tabName
 	match curTab:
-		tabs.Tiles:
+		tabs.TILES:
 			tabName = "Tiles"
-		tabs.Misc:
+		tabs.MISC:
 			tabName = "Misc"
-		tabs.Obs:
-			tabName = "Obs"
-		tabs.Picks:
-			tabName = "Picks"
+		tabs.MOBS:
+			tabName = "Mobs"
 
 	for path in fileDic[tabName]:
 		var object = load(path).instance()
 		var data = get_object_texture(object)
-		add_panel(data[0], data[1], object.name)
+		print(object.name)
+		add_panel(data[0], data[1], object.name, tabName)
 
 
 # get texture from all kinds of object
@@ -99,20 +101,19 @@ func _ready():
 
 # below are button signals, connect tab button to the curTab variable
 func _on_Tiles_pressed():
-	curTab = tabs.Tiles
+	curTab = tabs.TILES
 	menu_update(objectPathDic)
 
 
 func _on_Misc_pressed():
-	curTab = tabs.Misc
+	curTab = tabs.MISC
 	menu_update(objectPathDic)
 
 
-func _on_Obs_pressed():
-	curTab = tabs.Obs
+func _on_Mobs_pressed():
+	curTab = tabs.MOBS
 	menu_update(objectPathDic)
-
-
+	
 func _on_Picks_pressed():
 	curTab = tabs.Picks
 	menu_update(objectPathDic)

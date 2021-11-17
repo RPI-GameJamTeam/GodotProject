@@ -69,3 +69,6 @@ func _input(event):
 		else:
 			menu.show()
 
+func reset_level():
+	
+	get_tree().reload_current_scene()

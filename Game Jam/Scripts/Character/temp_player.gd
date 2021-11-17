@@ -22,11 +22,10 @@ var col_layer
 var col_mask
 
 func _ready():
+	get_tree().call_group("signPlayer", "set_player")
 	spawnPos = position
-	
 	col_layer = collision_layer
 	col_mask = collision_mask
-	
 	reset()
 
 func reset():

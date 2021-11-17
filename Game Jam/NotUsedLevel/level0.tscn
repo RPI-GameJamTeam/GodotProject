@@ -5,7 +5,8 @@
 [ext_resource path="res://Scenes/Temp/VellumShader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Tiles/EasyTile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Misc/KillZone.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Misc/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Mobs/Player.tscn" type="PackedScene" id=9]
+
 
 
 

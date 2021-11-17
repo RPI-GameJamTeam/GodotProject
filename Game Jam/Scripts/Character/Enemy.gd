@@ -13,6 +13,7 @@ func _on_CheckPlayer_body_exited(body):
 	player_in_area = false
 
 func _ready():
+	
 	match setAnimation:
 		SPRITE.FLY:
 			$AnimatedSprite.animation = "fly"
@@ -45,7 +46,7 @@ func _process(delta):
 	if player.invulnerable:
 		return null
 
-	if player_in_area:
-		if $RayCast2D.is_colliding() or $RayCast2D2.is_colliding():
-			player.die()
+
+	if $RayCast2D.is_colliding() or $RayCast2D2.is_colliding():
+		player.die()
 

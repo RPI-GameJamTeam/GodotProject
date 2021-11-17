@@ -64,7 +64,7 @@ func list_files_in_directory(path):
 
 # load all object path to a dictionary for later use
 func load_resource_path() -> Dictionary:
-	var dic = {"Misc":[], "Obs":[], "Picks":[], "Tiles":[]}
+	var dic = {"Misc":[], "Tiles":[], "Mobs":[]}
 	for fileName in dic:
 		var path = dirPath + fileName + "/"
 		var items = GlobalTool.list_files_in_directory(path)

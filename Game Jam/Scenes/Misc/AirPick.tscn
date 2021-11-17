@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scenes/BuildIn/PickUp.tscn" type="PackedScene" id=1]
 
-[node name="PickUp" instance=ExtResource( 1 )]
-setType = 8
+[node name="AirPick" instance=ExtResource( 1 )]
+setType = 4
 
 [node name="AnimatedSprite" parent="." index="0"]
-animation = "3idle"
+animation = "2idle"

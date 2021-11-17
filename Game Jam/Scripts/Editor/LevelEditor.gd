@@ -26,7 +26,9 @@ var left_pressing : bool = false
 
 # item placing 
 var placingInstance
+var placingType
 var selectedList = []
+var couldPlace : bool
 
 # tilemap brush
 var brushSize = Vector2(1, 1)
@@ -49,8 +51,8 @@ func brushing(tileIndex):
 
 # add total 5 group for different object types
 func add_node_group()-> void:
-	var groups = ['TileGroup', 'PlayerGroup', 'EnemyGroup',
-				 'DecorationGroup', 'ObstacalGroup']
+	var groups = ['Tiles', "Misc",
+				  'Mobs']
 
 	for group in groups:
 		var newGroup = Node2D.new()
@@ -58,21 +60,21 @@ func add_node_group()-> void:
 		level.add_child(newGroup)
 		newGroup.owner = level
 		
-		if group == "TileGroup":
+		if group == "Tiles":
 			add_all_tilemap()
 
 
-# add all tilemap to the tilegroup
+# add all tilemap to the Tiles
 func add_all_tilemap() -> void:
 	var pathDir = GlobalTool.load_resource_path()
 	for tilePath in pathDir["Tiles"]:
 		var tile = load(tilePath).instance()
-		level.get_node("TileGroup").add_child(tile)
+		level.get_node("Tiles").add_child(tile)
 		tile.owner = level
 
 
 func _ready():
-	level = $Level
+	level = get_tree().get_nodes_in_group("level")[0]
 	add_node_group()
 
 func _unhandled_input(event):
@@ -127,6 +129,11 @@ func _process(_delta):
 				brushing(0)
 			if couldErase:
 				brushing(-1)
+		cursorMode.PLACING:
+			if couldDraw:
+				if Input.is_action_just_pressed("mouse_left_pressing"):
+					print(placingInstance.name)
+					level.get_node(placingType).add_child(placingInstance)
 		
 
 # cursor display system

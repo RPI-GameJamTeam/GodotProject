@@ -1,6 +1,7 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
-[ext_resource path="res://Asset/Art/TileAsset/concreteTile.png" type="Texture" id=2]
+[ext_resource path="res://Asset/Art/TileAsset/concreteTile.png" type="Texture" id=1]
+[ext_resource path="res://Shader/Glow.tres" type="Material" id=2]
 [ext_resource path="res://Asset/Art/TileAsset/EasyFancy.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Tiles/Concrete.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Tiles/EasyTile.tscn" type="PackedScene" id=5]
@@ -148,7 +149,7 @@ points = PoolVector2Array( 15.8608, 16, 0.0238419, 16, 0, 0.0587158, 16, 0 )
 
 [sub_resource type="TileSet" id=45]
 0/name = "concreteTile.png 0"
-0/texture = ExtResource( 2 )
+0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 192, 64 )
@@ -618,17 +619,24 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [node name="TileGroup" type="Node2D" parent="."]
 
-[node name="Concrete" parent="TileGroup" instance=ExtResource( 4 )]
+[node name="Concrete" type="TileMap" parent="TileGroup" instance=ExtResource( 4 )]
 tile_set = SubResource( 45 )
-tile_data = PoolIntArray( -786461, 0, 196611, -131080, 0, 4, -131079, 0, 10, -131078, 0, 196609, -131077, 0, 196609, -131076, 0, 196609, -131075, 0, 196609, -131074, 0, 196609, -131073, 0, 196609, -196608, 0, 2, -65544, 0, 131080, -65543, 0, 196615, -131072, 0, 65539, -8, 0, 65539, -65536, 0, 65539, 65528, 0, 65539, 0, 0, 65539, 131064, 0, 65539, 65536, 0, 65539, 196600, 0, 131072, 196601, 0, 196609, 196602, 0, 196609, 196603, 0, 196609, 196604, 0, 196609, 196605, 0, 196609, 196606, 0, 196609, 196607, 0, 196609, 131072, 0, 131074, 327676, 0, 196611, 917477, 0, 196611 )
+cell_size = Vector2( 16, 16 )
+cell_tile_origin = 1
+format = 1
+tile_data = PoolIntArray( 327668, 0, 196608, 327669, 0, 196609, 327670, 0, 196609, 327671, 0, 196609, 327672, 0, 196609, 327673, 0, 196609, 327674, 0, 196609, 327675, 0, 196609, 327676, 0, 196609, 327677, 0, 196609, 327678, 0, 196609, 327679, 0, 196609, 262144, 0, 196609, 262145, 0, 196609, 262146, 0, 196609, 262147, 0, 196609, 262148, 0, 196609, 262149, 0, 196609, 262150, 0, 196609, 262151, 0, 196609, 262152, 0, 196609, 262153, 0, 196609, 262154, 0, 196609, 262155, 0, 196609, 262156, 0, 196609, 262157, 0, 196609, 262158, 0, 196610 )
 
-[node name="TileMap" parent="TileGroup" instance=ExtResource( 5 )]
+[node name="TileMap" type="TileMap" parent="TileGroup" groups=[
+"Glow",
+"Tilemap",
+] instance=ExtResource( 5 )]
+material = ExtResource( 2 )
 tile_set = SubResource( 62 )
+cell_size = Vector2( 32, 32 )
+format = 1
 
-[node name="PlayerGroup" type="Node2D" parent="."]
+[node name="MiscGroup" type="Node2D" parent="."]
 
-[node name="EnemyGroup" type="Node2D" parent="."]
-
-[node name="DecorationGroup" type="Node2D" parent="."]
+[node name="PicksGroup" type="Node2D" parent="."]
 
 [node name="ObstacalGroup" type="Node2D" parent="."]
