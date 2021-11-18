@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Editor/LevelEditor.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Editor/UpLeftMenu.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Editor/ButtomMenu.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/UI/labelTimer.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0588235, 0.827451, 0.929412, 0.203922 )
@@ -108,6 +109,7 @@ margin_right = 192.0
 margin_bottom = 64.0
 text = "Thanks for your contribution!
 00:00:00"
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -146,6 +148,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+margin_left = 769.0
+margin_top = 1.0
+margin_right = 959.0
+margin_bottom = 172.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select" type="Button" parent="UI/VBoxContainer"]
+margin_right = 190.0
+margin_bottom = 20.0
+text = "Select"
+
+[node name="Delete" type="Button" parent="UI/VBoxContainer"]
+margin_top = 24.0
+margin_right = 190.0
+margin_bottom = 44.0
+text = "Delete"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 [connection signal="pressed" from="UI/ButtomMenu/HBoxContainer/Tiles" to="UI/ButtomMenu" method="_on_Tiles_pressed"]
@@ -154,3 +176,5 @@ current = true
 [connection signal="pressed" from="UI/UpLeftMenu/Save" to="UI/UpLeftMenu" method="_on_Save_pressed"]
 [connection signal="pressed" from="UI/UpLeftMenu/Load" to="UI/UpLeftMenu" method="_on_Load_pressed"]
 [connection signal="confirmed" from="UI/FileDialog" to="UI/UpLeftMenu" method="_on_FileDialog_confirmed"]
+[connection signal="pressed" from="UI/VBoxContainer/Select" to="." method="_on_Select_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Delete" to="." method="_on_Delete_pressed"]

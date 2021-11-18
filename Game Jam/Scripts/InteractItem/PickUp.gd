@@ -12,10 +12,6 @@ func _ready():
 	update_type()
 
 func _process(_delta):
-	if !Engine.editor_hint:
-		position.y = pos.y + sin(OS.get_ticks_msec() / 100)
-	else:
-		update_type()
 
 	if type == PickUpType.COOKIE:
 		var player = get_tree().get_nodes_in_group("Player")[0]

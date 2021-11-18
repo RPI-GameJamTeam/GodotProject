@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/Tiles/EasyTile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/NotUsed/EasyTile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Misc/KillZone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Temp/VellumShader.tscn" type="PackedScene" id=4]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scenes/NotUsed/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/BuildIn/PickUp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Character/EnemyCycle.gd" type="Script" id=8]
+
+
 
 
 

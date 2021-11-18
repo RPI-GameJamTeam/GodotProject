@@ -30,6 +30,9 @@ var placingType
 var selectedList = []
 var couldPlace : bool
 
+# item select
+var selectedItem
+
 # tilemap brush
 var brushSize = Vector2(1, 1)
 var curTile
@@ -74,6 +77,7 @@ func add_all_tilemap() -> void:
 
 
 func _ready():
+	print()
 	level = get_tree().get_nodes_in_group("level")[0]
 	add_node_group()
 
@@ -130,10 +134,38 @@ func _process(_delta):
 			if couldErase:
 				brushing(-1)
 		cursorMode.PLACING:
+			placingInstance.global_position = get_global_mouse_position()
+			if not level.get_node(placingInstance.name):
+				# runing for the first time add the transprente instance to display
+				placingInstance.modulate = Color(1,1,1,0.5)
+				level.add_child(placingInstance)
 			if couldDraw:
 				if Input.is_action_just_pressed("mouse_left_pressing"):
 					print(placingInstance.name)
-					level.get_node(placingType).add_child(placingInstance)
-		
+					placingInstance.global_position = get_global_mouse_position()
+					var addInstance = placingInstance.duplicate()
+					# reset the transperency and add a instance to the real game 
+					addInstance.modulate = Color(1,1,1,1)
+					level.get_node(placingType).add_child(addInstance)
+					
+		cursorMode.DELETE:
+			if couldErase:
+				if Input.is_action_just_pressed("mouse_right_pressing"):
+					if selectedItem:
+						selectedItem.queue_free()
+					
+		cursorMode.SELECT:
+			var space_state = get_world_2d().direct_space_state
+			# use global coordinates, not local to node
+			var result = space_state.intersect_point(get_global_mouse_position(),32,[],1,true,true)
+			if result.size() > 0:
+				print(result[0]["collider"].name)
+				selectedItem = result[0]["collider"]
 
-# cursor display system
+
+func _on_Select_pressed():
+	cursor = cursorMode.SELECT
+
+
+func _on_Delete_pressed():
+	cursor = cursorMode.DELETE

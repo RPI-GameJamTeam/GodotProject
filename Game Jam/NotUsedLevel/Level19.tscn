@@ -4,7 +4,9 @@
 [ext_resource path="res://Shader/Glow.tres" type="Material" id=2]
 [ext_resource path="res://Asset/Art/TileAsset/EasyFancy.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Tiles/Concrete.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Tiles/EasyTile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/NotUsed/EasyTile.tscn" type="PackedScene" id=5]
+
+
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 12.0029, 16, 12.0029, 11.938, 16, 12.0029, 16, 3.88976, 3.95467, 3.88976, 4.01957, 16 )
